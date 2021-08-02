@@ -1,0 +1,20 @@
+/*
+ | -------------------------------------------------------------
+ |  --> global styles
+ | -------------------------------------------------------------
+ |
+ | 	This file contains all the global styling needed for our
+ |  design system components and project layouts.
+ |
+*/
+
+// global styles
+@use "base/reset";
+@use "base/root";
+@use "base/font";
+// @use "base/list";
+
+// utilities
+@use "base/auto-grid";
+@use "base/grid";
+// @use "base/tokens";

@@ -1,0 +1,132 @@
+/*
+ | -------------------------------------------------------------
+ |	--> reset
+ | -------------------------------------------------------------
+ |
+ | 	A set of reset declarations to prevent inconsistencies
+ | 	between browser vendors.
+ |
+*/
+
+// set box sizing and scroll behaviour
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  // disable smooth scroll if user has this system preference turned on
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+// reset margins and paddings
+blockquote,
+body,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+li,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// lists
+ul {
+  list-style: none;
+}
+
+// forms and buttons
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  letter-spacing: inherit;
+  font: inherit;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+}
+
+fieldset {
+  padding: 0;
+  border: none;
+}
+
+legend {
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  border: 1px solid gray;
+}
+
+button {
+  padding: 0.75em 1em;
+  border-radius: 0;
+  background-color: transparent;
+  line-height: 1;
+}
+
+button * {
+  pointer-events: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+// responsive media elements
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+// default table styling
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+// hidden atribute
+[hidden] {
+  display: none !important;
+}
+
+// noscript
+noscript {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// remove outline from negative tab indexes
+[tabindex="-1"] {
+  outline: none !important;
+}
+

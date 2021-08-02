@@ -1,0 +1,252 @@
+/*
+ | -------------------------------------------------------------
+ |  --> tokens
+ | -------------------------------------------------------------
+ |
+ | 	This file contains all the utility tokens which are distilled
+ |  from bases styles.
+ |
+*/
+
+// animation tokens
+[data-animation="blink"] { animation: blink 0.25s ease-in-out 2; }
+[data-animation="fade-in"] { animation: fade-in 1s 2s forwards; }
+[data-animation="pop-up"] { animation: pop-up 1.5s ease-in-out forwards; }
+[data-animation="spin"] { animation: spin 5 0.15s linear; }
+
+  // border tokens
+.radius-small { @include radius-small; }
+.radius-large { @include radius-large; }
+
+// color tokens
+// @TODO: Toevoegen van systeem en thema kleur classes voor gebruik op linkjes en text (light, warning, error etc.)
+section {
+  &.color-neutral { background-color: var(--neutral-100); }
+  &.color-theme { background-color: var(--theme-100); }
+}
+
+// content tokens
+@import './content';
+
+// elevation tokens
+.elevation-100 { @include elevation-100; }
+.elevation-200 { @include elevation-200; }
+.elevation-300 { @include elevation-300; }
+.elevation-400 { @include elevation-400; }
+.elevation-500 { @include elevation-500; }
+
+// gutter tokens
+.gap-small { gap: var(--gap-small); }
+.gap-default { gap: var(--gap-default); }
+.gap-big { gap: var(--gap-big); }
+
+// screenreader only token
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: 0;
+  padding: 0;
+  width: 1px;
+  height: auto;
+  border: 0;
+  white-space: nowrap;
+}
+
+// size tokens
+header,
+main,
+footer,
+* .cell.size-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  code,
+  pre,
+  .svg-inline--fa {
+    &.size-10 {
+      @include size-10;
+      @include breakpoint(medium) {
+        @include size-12;
+      }
+    }
+
+    &.size-12 {
+      @include size-12;
+      @include breakpoint(medium) {
+        @include size-14;
+      }
+    }
+
+    &.size-14 {
+      @include size-14;
+      @include breakpoint(medium) {
+        @include size-16;
+      }
+    }
+
+    &.size-16 {
+      @include size-16;
+      @include breakpoint(medium) {
+        @include size-18;
+      }
+    }
+
+    &.size-18 {
+      @include size-18;
+      @include breakpoint(medium) {
+        @include size-20;
+      }
+    }
+
+    &.size-20 {
+      @include size-20;
+      @include breakpoint(medium) {
+        @include size-24;
+      }
+    }
+
+    &.size-24 {
+      @include size-24;
+      @include breakpoint(medium) {
+        @include size-30;
+      }
+    }
+
+    &.size-30 {
+      @include size-30;
+      @include breakpoint(medium) {
+        @include size-36;
+      }
+    }
+
+    &.size-36 {
+      @include size-36;
+      @include breakpoint(medium) {
+        @include size-48;
+      }
+    }
+
+    &.size-48 {
+      @include size-48;
+      @include breakpoint(medium) {
+        @include size-60;
+      }
+    }
+
+    &.size-60 {
+      @include size-60;
+      @include breakpoint(medium) {
+        @include size-72;
+      }
+    }
+
+    &.size-72 {
+      @include size-72;
+    }
+  }
+}
+
+// space tokens
+section,
+.grid {
+  &.space-2 {
+    padding: $space-2 0;
+  }
+
+  &.space-4 {
+    padding: $space-4 0;
+
+    @include breakpoint(medium) {
+      padding: $space-8 0;
+    }
+  }
+
+  &.space-8 {
+    padding: $space-8 0;
+
+    @include breakpoint(medium) {
+      padding: $space-12 0;
+    }
+  }
+
+  &.space-12 {
+    padding: $space-12 0;
+
+    @include breakpoint(medium) {
+      padding: $space-16 0;
+    }
+  }
+
+  &.space-16 {
+    padding: $space-16 0;
+
+    @include breakpoint(medium) {
+      padding: $space-24 0;
+    }
+  }
+
+  &.space-24 {
+    padding: $space-24 0;
+
+    @include breakpoint(medium) {
+      padding: $space-32 0;
+    }
+  }
+
+  &.space-32 {
+    padding: $space-32 0;
+
+    @include breakpoint(medium) {
+      padding: $space-48 0;
+    }
+  }
+
+  &.space-48 {
+    padding: $space-48 0;
+
+    @include breakpoint(medium) {
+      padding: $space-64 0;
+    }
+  }
+
+  &.space-64 {
+    padding: $space-64 0;
+
+    @include breakpoint(medium) {
+      padding: $space-96 0;
+    }
+  }
+
+  &.space-96 {
+    padding: $space-96 0;
+
+    @include breakpoint(medium) {
+      padding: $space-128 0;
+    }
+  }
+
+  &.space-128 {
+    padding: $space-128 0;
+
+    @include breakpoint(medium) {
+      padding: $space-192 0;
+    }
+  }
+
+  &.space-192 {
+    padding: $space-192 0;
+
+    @include breakpoint(medium) {
+      padding: $space-256 0;
+    }
+  }
+
+  &.top { padding-bottom: 0; }
+  &.bottom { padding-top: 0; }
+}

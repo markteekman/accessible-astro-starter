@@ -1,0 +1,210 @@
+/*
+ | -------------------------------------------------------------
+ |	--> grid
+ | -------------------------------------------------------------
+ |
+ | 	This file contains all the settings for making flexible
+ |	grids. Just apply a combination of these classes to build
+ | 	your own grid in the front-end.
+ |
+ |  @Source: https://www.markteekman.nl/project/flexbox-grid
+ |
+*/
+
+// used variables and mixins
+@use "sass:math";
+@use "breakpoint" as *;
+$grid-columns: 12 !default;
+$container-width: 1200px !default;
+$calc: math.div(100%, $grid-columns) !default;
+
+// default container setting
+.container {
+  margin: 0 auto;
+  padding: 0 calc(#{var(--gap-default) / 2});
+  max-width: 100%;
+
+  @include breakpoint(medium) {
+    padding: 0 calc(#{var(--gap-default)});
+  }
+  @include breakpoint(large) {
+    padding: 0 calc(#{var(--gap-default) / 2});
+    max-width: $container-width;
+  }
+
+  // expand container
+  &.stretch {
+    padding: 0 calc(#{var(--gap-default) / 2});
+    max-width: 100%;
+
+    @include breakpoint(medium) {
+      padding: 0 calc(#{var(--gap-default)});
+    }
+    @include breakpoint(large) {
+      padding: 0 calc(#{var(--gap-default) / 2});
+    }
+  }
+}
+
+// grid & flex item modifiers
+.grid > .cell {
+  &.align-top {
+    align-self: flex-start;
+  }
+  &.align-center {
+    align-self: center;
+  }
+  &.align-bottom {
+    align-self: flex-end;
+  }
+}
+
+// the grid
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint(default) {
+    @for $i from 1 through $grid-columns {
+      &.small-grid-#{$i} {
+        > .cell {
+          width: calc(100% / #{$i} - 2rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(medium) {
+    @for $i from 1 through $grid-columns {
+      &.medium-grid-#{$i} {
+        > .cell {
+          width: calc(100% / #{$i} - 2rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(large) {
+    @for $i from 1 through $grid-columns {
+      &.large-grid-#{$i} {
+        > .cell {
+          width: calc(100% / #{$i} - 2rem);
+        }
+      }
+    }
+  }
+  @include breakpoint(huge) {
+    @for $i from 1 through $grid-columns {
+      &.huge-grid-#{$i} {
+        > .cell {
+          width: calc(100% / #{$i} - 2rem);
+        }
+      }
+    }
+  }
+
+  &.vertical-align-top {
+    align-items: flex-start;
+  }
+  &.vertical-align-center {
+    align-items: center;
+  }
+  &.vertical-align-bottom {
+    align-items: flex-end;
+  }
+
+  &.horizontal-align-left {
+    justify-content: flex-start;
+  }
+  &.horizontal-align-center {
+    justify-content: center;
+  }
+  &.horizontal-align-right {
+    justify-content: flex-end;
+  }
+
+  // cell and columns
+  .cell {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    @include breakpoint(default) {
+      @for $i from 1 through $grid-columns {
+        &.small-#{$i} {
+          flex: 0 0 ($calc * $i);
+        }
+        &.offset-small-#{$i} {
+          margin-left: ($calc * $i);
+        }
+      }
+    }
+    @include breakpoint(medium) {
+      @for $i from 1 through $grid-columns {
+        &.medium-#{$i} {
+          flex: 0 0 ($calc * $i);
+        }
+        &.offset-medium-#{$i} {
+          margin-left: ($calc * $i);
+        }
+      }
+    }
+    @include breakpoint(large) {
+      @for $i from 1 through $grid-columns {
+        &.large-#{$i} {
+          flex: 0 0 ($calc * $i);
+        }
+        &.offset-large-#{$i} {
+          margin-left: ($calc * $i);
+        }
+      }
+    }
+    @include breakpoint(huge) {
+      @for $i from 1 through $grid-columns {
+        &.huge-#{$i} {
+          flex: 0 0 ($calc * $i);
+        }
+        &.offset-huge-#{$i} {
+          margin-left: ($calc * $i);
+        }
+      }
+    }
+  }
+
+  // grid gutters
+  &.gutters {
+    margin-left: -var(--gap-default);
+
+    // cell gutters for direct descendant
+    > .cell {
+      padding-top: var(--gap-default);
+      padding-left: var(--gap-default);
+    }
+  }
+
+  // nested flex grid
+  .grid {
+    margin-bottom: var(--gap-default);
+  }
+
+  // create edge to edge offsets
+  &.separate {
+    justify-content: space-between;
+  }
+
+  // cell behaviour in block grid
+  &[class*="-grid-"] {
+    margin-right: (-var(--gap-default) / 2);
+    margin-bottom: -var(--gap-default);
+    margin-left: (-var(--gap-default) / 2);
+
+    .cell {
+      flex: 0 0 auto;
+      margin-right: (var(--gap-default) / 2);
+      margin-bottom: var(--gap-default);
+      margin-left: (var(--gap-default) / 2);
+      padding-left: 0;
+    }
+
+    &.equal-height > .cell > * {
+      height: 100%;
+    }
+  }
+}

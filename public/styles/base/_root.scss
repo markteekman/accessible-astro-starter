@@ -1,0 +1,32 @@
+/*
+ | -------------------------------------------------------------
+ |	--> root
+ | -------------------------------------------------------------
+ |
+ | 	Sets all custom properties (variables) to the root element.
+ |
+*/
+
+@use "color" as *;
+
+:root {
+  // colors
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  // gap options
+  --gap-default: 2rem;
+
+  // border radius
+  --radius-small: 3px;
+  --radius-large: 6px;
+
+  //  font measure
+  --measure: 60ch;
+
+  // font family
+  --font-family-default: "Open Sans", sans-serif;
+}

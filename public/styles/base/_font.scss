@@ -1,0 +1,187 @@
+/*
+ | -------------------------------------------------------------
+ |	--> font
+ | -------------------------------------------------------------
+ |
+ | 	Default font declarations of the Design System.
+ |
+*/
+
+// used variables and mixins
+@use "breakpoint" as *;
+@use "outline" as *;
+@use "size" as *;
+@use "space" as *;
+
+// font definition
+body {
+  font-family: var(--font-family-default);
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  // break long urls to prevent horizontal scroll
+  :where(main) a {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  // headings
+  h1,
+  h1 a {
+    @include size-30;
+    @include breakpoint(medium) {
+      @include size-48;
+    }
+  }
+
+  h2,
+  h2 a {
+    @include size-24;
+    @include breakpoint(medium) {
+      @include size-36;
+    }
+  }
+
+  h3,
+  h3 a {
+    @include size-24;
+    @include breakpoint(medium) {
+      @include size-30;
+    }
+  }
+
+  h4,
+  h4 a {
+    @include size-20;
+    @include breakpoint(medium) {
+      @include size-24;
+    }
+  }
+
+  h5,
+  h5 a {
+    @include size-18;
+    @include breakpoint(medium) {
+      @include size-20;
+    }
+  }
+
+  h6,
+  h6 a {
+    @include size-16;
+    @include breakpoint(medium) {
+      @include size-18;
+    }
+  }
+
+  :where(h1, h2) {
+    font-family: var(--font-family-special);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p,
+  dt,
+  label,
+  ul,
+  li,
+  legend {
+    color: var(--neutral-900);
+  }
+
+  h1,
+  h2 {
+    font-weight: 800;
+  }
+
+  h1 {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+
+  p,
+  dt,
+  li,
+  label {
+    @include size-16;
+
+    &.meta-label {
+      color: var(--neutral-700);
+
+      @include size-14;
+    }
+  }
+
+  // default button
+  button {
+    border: none;
+
+    &:focus {
+      @include outline;
+    }
+  }
+
+  // dt styles
+  dt {
+    font-weight: bold;
+  }
+
+  // link styles
+  a {
+    color: var(--contrast-500);
+    text-decoration: underline;
+
+    @include size-16;
+
+    &:visited {
+      color: var(--contrast-500);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--contrast-500);
+      text-decoration: none;
+    }
+
+    &:focus {
+      @include outline;
+    }
+  }
+
+  p > a {
+    [class*="mgbdes__button type-tertiary"] {
+      display: inline;
+    }
+  }
+}
+
+// theme overrides
+@at-root .normal-contrast {
+  a {
+    color: var(--theme-800);
+
+    &:visited {
+      color: var(--theme-800);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--theme-900);
+    }
+  }
+}

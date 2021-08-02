@@ -1,0 +1,31 @@
+/*
+ | -------------------------------------------------------------
+ |	--> auto-grid
+ | -------------------------------------------------------------
+ |
+ | 	CSS3 Grid options, mostly used for sections and templates.
+ |
+*/
+
+// used variables and mixins
+@use "breakpoint" as *;
+@use "space" as *;
+
+[data-auto-grid] {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $space-32;
+}
+
+@for $i from 2 through 6 {
+  [data-auto-grid="#{$i}"] {
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
+
+[data-grid-center] {
+  justify-items: center;
+  align-items: center;
+}
