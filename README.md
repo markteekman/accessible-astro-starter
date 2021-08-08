@@ -4,6 +4,8 @@ This starter project is build upon the (awesome) Astro static site builder. For 
 
 [Checkout a demo here!](https://accessible-astro.markteekman.nl/)
 
+![social-preview-image](https://user-images.githubusercontent.com/3909046/128635441-0d035a44-fbe3-4538-b0e3-6f268577c56b.png)
+
 ## Accessibility features
 
 In this starter you'll find a couple of things:
