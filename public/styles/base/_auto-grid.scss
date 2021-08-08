@@ -3,7 +3,7 @@
  |	--> auto-grid
  | -------------------------------------------------------------
  |
- | 	CSS3 Grid options, mostly used for sections and templates.
+ | 	Easy to implement column layouts with display grid.
  |
 */
 
@@ -14,7 +14,7 @@
 [data-auto-grid] {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: $space-32;
+  grid-gap: var(--gap-default);
 }
 
 @for $i from 2 through 6 {

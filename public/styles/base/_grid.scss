@@ -7,7 +7,7 @@
  |	grids. Just apply a combination of these classes to build
  | 	your own grid in the front-end.
  |
- |  @Source: https://www.markteekman.nl/project/flexbox-grid
+ |  Docs: https://www.markteekman.nl/project/flexbox-grid
  |
 */
 
@@ -27,6 +27,7 @@ $calc: math.div(100%, $grid-columns) !default;
   @include breakpoint(medium) {
     padding: 0 calc(#{var(--gap-default)});
   }
+
   @include breakpoint(large) {
     padding: 0 calc(#{var(--gap-default) / 2});
     max-width: $container-width;
@@ -40,22 +41,10 @@ $calc: math.div(100%, $grid-columns) !default;
     @include breakpoint(medium) {
       padding: 0 calc(#{var(--gap-default)});
     }
+
     @include breakpoint(large) {
       padding: 0 calc(#{var(--gap-default) / 2});
     }
-  }
-}
-
-// grid & flex item modifiers
-.grid > .cell {
-  &.align-top {
-    align-self: flex-start;
-  }
-  &.align-center {
-    align-self: center;
-  }
-  &.align-bottom {
-    align-self: flex-end;
   }
 }
 
@@ -63,6 +52,13 @@ $calc: math.div(100%, $grid-columns) !default;
 .grid {
   display: flex;
   flex-wrap: wrap;
+  margin-left: calc(#{var(--gap-default)} * -1);
+
+  // cell gutters for direct descendant
+  > .cell {
+    padding-top: var(--gap-default);
+    padding-left: var(--gap-default);
+  }
 
   @include breakpoint(default) {
     @for $i from 1 through $grid-columns {
@@ -73,6 +69,7 @@ $calc: math.div(100%, $grid-columns) !default;
       }
     }
   }
+
   @include breakpoint(medium) {
     @for $i from 1 through $grid-columns {
       &.medium-grid-#{$i} {
@@ -82,6 +79,7 @@ $calc: math.div(100%, $grid-columns) !default;
       }
     }
   }
+
   @include breakpoint(large) {
     @for $i from 1 through $grid-columns {
       &.large-grid-#{$i} {
@@ -91,6 +89,7 @@ $calc: math.div(100%, $grid-columns) !default;
       }
     }
   }
+
   @include breakpoint(huge) {
     @for $i from 1 through $grid-columns {
       &.huge-grid-#{$i} {
@@ -104,9 +103,11 @@ $calc: math.div(100%, $grid-columns) !default;
   &.vertical-align-top {
     align-items: flex-start;
   }
+
   &.vertical-align-center {
     align-items: center;
   }
+
   &.vertical-align-bottom {
     align-items: flex-end;
   }
@@ -114,9 +115,11 @@ $calc: math.div(100%, $grid-columns) !default;
   &.horizontal-align-left {
     justify-content: flex-start;
   }
+
   &.horizontal-align-center {
     justify-content: center;
   }
+
   &.horizontal-align-right {
     justify-content: flex-end;
   }
@@ -125,6 +128,19 @@ $calc: math.div(100%, $grid-columns) !default;
   .cell {
     flex: 0 0 100%;
     max-width: 100%;
+
+    // grid & flex item modifiers
+    &.align-top {
+      align-self: flex-start;
+    }
+
+    &.align-center {
+      align-self: center;
+    }
+
+    &.align-bottom {
+      align-self: flex-end;
+    }
 
     @include breakpoint(default) {
       @for $i from 1 through $grid-columns {
@@ -136,6 +152,7 @@ $calc: math.div(100%, $grid-columns) !default;
         }
       }
     }
+
     @include breakpoint(medium) {
       @for $i from 1 through $grid-columns {
         &.medium-#{$i} {
@@ -146,6 +163,7 @@ $calc: math.div(100%, $grid-columns) !default;
         }
       }
     }
+
     @include breakpoint(large) {
       @for $i from 1 through $grid-columns {
         &.large-#{$i} {
@@ -156,6 +174,7 @@ $calc: math.div(100%, $grid-columns) !default;
         }
       }
     }
+
     @include breakpoint(huge) {
       @for $i from 1 through $grid-columns {
         &.huge-#{$i} {
@@ -169,13 +188,13 @@ $calc: math.div(100%, $grid-columns) !default;
   }
 
   // grid gutters
-  &.gutters {
-    margin-left: -var(--gap-default);
+  &.no-gutters {
+    margin-left: 0;
 
     // cell gutters for direct descendant
     > .cell {
-      padding-top: var(--gap-default);
-      padding-left: var(--gap-default);
+      padding-top: 0;
+      padding-left: 0;
     }
   }
 
@@ -191,16 +210,17 @@ $calc: math.div(100%, $grid-columns) !default;
 
   // cell behaviour in block grid
   &[class*="-grid-"] {
-    margin-right: (-var(--gap-default) / 2);
-    margin-bottom: -var(--gap-default);
-    margin-left: (-var(--gap-default) / 2);
+    margin-right: calc(#{var(--gap-default)} / -2);
+    margin-bottom: calc(#{var(--gap-default)} * -1);
+    margin-left: calc(#{var(--gap-default)} / -2);
 
     .cell {
       flex: 0 0 auto;
-      margin-right: (var(--gap-default) / 2);
+      margin-right: calc(#{var(--gap-default)} / 2);
       margin-bottom: var(--gap-default);
-      margin-left: (var(--gap-default) / 2);
+      margin-left: calc(#{var(--gap-default)} / 2);
       padding-left: 0;
+      padding-top: 0;
     }
 
     &.equal-height > .cell > * {

@@ -3,8 +3,7 @@
  |  --> global styles
  | -------------------------------------------------------------
  |
- | 	This file contains all the global styling needed for our
- |  design system components and project layouts.
+ | 	This file contains all the global styling components.
  |
 */
 
@@ -12,9 +11,9 @@
 @use "base/reset";
 @use "base/root";
 @use "base/font";
-// @use "base/list";
+@use "base/list";
 
 // utilities
 @use "base/auto-grid";
 @use "base/grid";
-// @use "base/tokens";
+@use "base/tokens";
