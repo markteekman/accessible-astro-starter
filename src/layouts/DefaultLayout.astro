@@ -15,11 +15,12 @@ let subtitle = 'Accessible Astro Starter'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.google.com/specimen/Open+Sans:wght@300;400;700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet">
 
     <!-- global css -->
-    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" type="text/css" href="/styles/globals.css">
 
     <!-- open graph -->
     <meta property="og:title" content="">
@@ -48,3 +49,20 @@ let subtitle = 'Accessible Astro Starter'
 
   </body>
 </html>
+
+<style lang="scss">
+  // sticky footer on low content pages
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--background);
+
+    main { flex: 1 0 auto; }
+    footer { flex-shrink: 0; }
+  }
+</style>
