@@ -1,0 +1,64 @@
+<section>
+	<div class="container">
+    <nav class="skip-links" role="navigation" aria-label="Skiplinks">
+      <ul>
+        <li><a href="#main-navigation" data-skip-link>Skip to main menu</a></li>
+        <li><a href="#main-content" data-skip-link>Skip to main content</a></li>
+      </ul>
+    </nav>
+	</div>
+</section>
+
+<script>
+  // variables
+  const skipLinks = [...document.querySelectorAll('[data-skip-link]')]
+
+  // execution
+  if (skipLinks.length > 0) {
+    skipLinks.forEach(link => {
+      link.addEventListener('keydown', event => {
+        // if keydown event is not on the skip link itself, return and exit
+        if (!event.target.closest('[data-skip-link]')) return
+        const key = event.key
+        // if keydown event is nog an enter, return and exit
+        if (key !== 'Enter') return
+        // prevent default anchor behaviour
+        event.preventDefault()
+        const target = event.target.getAttribute('href')
+
+        // set focus to first menu item for skip link to main navigation
+        if (target === '#main-navigation') {
+          const navigation = document.querySelector('#main-navigation')
+          navigation.querySelector('a').focus()
+        }
+
+        // set focus to first h1 for skip link to main content
+        if (target === '#main-content') {
+          document.querySelector('h1').focus()
+        }
+      })
+    })
+  }
+</script>
+
+<style lang="scss">
+  .skip-links {
+    a {
+      color: var(--action-color);
+      background-color: var(--background);
+      border-bottom-right-radius: 6px;
+      padding: 1rem 3.25rem;
+      position: absolute;
+      display: block;
+      z-index: 10;
+      top: -100vh;
+      left: 0;
+
+      &:hover,
+      &:focus {
+        top: 0;
+        outline-offset: 2px;
+      }
+    }
+  }
+</style>

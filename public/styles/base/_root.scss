@@ -1,0 +1,44 @@
+/*
+ | -------------------------------------------------------------
+ |	--> root
+ | -------------------------------------------------------------
+ |
+ | 	Sets all custom properties (variables) to the root element.
+ |
+*/
+
+@use "color" as *;
+
+:root {
+  // colors
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --#{$color}-#{$shade}: #{$value};
+    }
+  }
+  // border radius
+  --radius-small: 3px;
+  --radius-large: 6px;
+  // grid gap
+  --gap-default: 2rem;
+  // font measure
+  --font-measure: 70ch;
+  // font family
+  --font-family-default: "Open Sans", sans-serif;
+  --font-family-special: "Open Sans", sans-serif;
+  // light color scheme
+  --font-color: var(--neutral-clr-900);
+  --action-color: var(--secondary-clr-500);
+  --background: var(--neutral-clr-0);
+  --primary-background: var(--primary-clr-100);
+  --neutral-background: var(--neutral-clr-200);
+}
+
+// dark color scheme
+.darkmode {
+  --font-color: var(--neutral-clr-0);
+  --action-color: var(--secondary-clr-100);
+  --background: var(--neutral-clr-800);
+  --primary-background: var(--primary-clr-500);
+  --neutral-background: var(--neutral-clr-900);
+}

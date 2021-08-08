@@ -1,0 +1,82 @@
+/*
+ | -------------------------------------------------------------
+ |	--> lists
+ | -------------------------------------------------------------
+ |
+ | 	A set of defaults styles for standard ordered and unordered
+ |  lists.
+ |
+*/
+
+// used variables and mixins
+@use "breakpoint" as *;
+@use "space" as *;
+
+// unordered list
+:where(main) ul {
+  padding: 0 0 0 $space-24;
+  list-style-type: none;
+
+  li {
+    position: relative;
+    margin-bottom: $space-8;
+
+    @include breakpoint(medium) {
+      margin-bottom: $space-12;
+    }
+
+    &::before {
+      position: relative;
+      z-index: 2;
+      float: left;
+      clear: both;
+      margin: 9px 10px 0 -19px;
+      width: 8px;
+      height: 8px;
+      border-radius: 60px;
+      background: var(--action-color);
+      content: "";
+    }
+  }
+
+  // nested unordered list
+  ul {
+    padding: $space-16 0 0 $space-16;
+  }
+}
+
+// ordered list increments
+:where(main) ol {
+  counter-reset: item;
+
+  li {
+    display: block;
+    margin-bottom: $space-8;
+
+    @include breakpoint(medium) {
+      margin-bottom: $space-12;
+    }
+
+    &::before {
+      content: counters(item, ".") ". ";
+      counter-increment: item;
+    }
+
+    p {
+      display: inline;
+    }
+  }
+
+  // nested ordered and unordered lists
+  ol,
+  ul {
+    margin: $space-12 0 0 $space-16;
+  }
+
+  // prevent ul li's from taking over ol li content
+  ul {
+    li::before {
+      content: "";
+    }
+  }
+}

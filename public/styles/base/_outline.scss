@@ -1,0 +1,17 @@
+/*
+ | -------------------------------------------------------------
+ |	--> outline
+ | -------------------------------------------------------------
+ |
+ | 	Outline mixin to help with (tab)focus of different elements
+ | 	on the page.
+ |
+*/
+
+@mixin outline {
+  outline: 2px dotted var(--neutral-clr-900);
+  outline-color: var(--neutral-clr-900);
+  outline-offset: 0;
+  -webkit-box-shadow: 0 0 0 2px var(--neutral-clr-0);
+  box-shadow: 0 0 0 2px var(--neutral-clr-0);
+}

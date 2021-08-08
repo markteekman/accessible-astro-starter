@@ -1,0 +1,65 @@
+<nav id="main-navigation">
+  <ul>
+    <li><a href="#" aria-current="page">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  // variables
+  const mainNav = document.querySelector('#main-navigation')
+  const mainMenu = mainNav.querySelector('ul')
+
+  // execution
+  mainMenu && mainMenu.addEventListener('keydown', event => {
+    const currentMenuItem = event.target.closest('li')
+    const menuItems = [...mainMenu.querySelectorAll('li')]
+    const index = menuItems.findIndex(item => item === currentMenuItem)
+
+    const key = event.key
+    let targetItem
+
+    // move right on arrow right
+    if (key === 'ArrowRight') {
+      // if it's the last item, go the first, else go to next
+      if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
+        targetItem = menuItems[0]
+      } else {
+        targetItem = menuItems[index + 1]
+      }
+    }
+
+    // move left on arrow left
+    if (key === 'ArrowLeft') {
+      // if it's the first item, go the last, else go to next
+      if (menuItems.indexOf(currentMenuItem) === 0) {
+        targetItem = menuItems[menuItems.length - 1]
+      } else {
+        targetItem = menuItems[index - 1]
+      }
+    }
+
+    // escape to go back to first item
+    if (key === 'Escape') {
+      targetItem = menuItems[0]
+    }
+
+    // set focus on target item
+    if (targetItem) {
+      targetItem.querySelector('a, button, input').focus()
+    }
+  })
+</script>
+
+<style lang="scss">
+  nav > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    @media (min-width: 35rem) {
+      flex-direction: row;
+    }
+  }
+</style>

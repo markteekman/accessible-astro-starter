@@ -1,0 +1,112 @@
+/*
+ | -------------------------------------------------------------
+ |	--> font
+ | -------------------------------------------------------------
+ |
+ | 	Default font declarations and sizes.
+ |
+*/
+
+// used variables and mixins
+@use "breakpoint" as *;
+@use "outline" as *;
+@use "size" as *;
+@use "space" as *;
+
+body {
+  color: var(--font-color);
+  font-family: var(--font-family-default);
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  *:focus {
+    @include outline;
+  }
+
+  a {
+    color: var(--action-color);
+
+    &:visited {
+      color: var(--action-color);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--action-color);
+      text-decoration: none;
+    }
+  }
+
+  // break long urls to prevent horizontal scroll
+  :where(main) a {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  // headings
+  h1 {
+    @include size-30;
+
+    @include breakpoint(medium) {
+      @include size-48;
+    }
+  }
+
+  h2 {
+    @include size-24;
+
+    @include breakpoint(medium) {
+      @include size-36;
+    }
+  }
+
+  h3 {
+    @include size-24;
+
+    @include breakpoint(medium) {
+      @include size-30;
+    }
+  }
+
+  h4 {
+    @include size-20;
+
+    @include breakpoint(medium) {
+      @include size-24;
+    }
+  }
+
+  h5 {
+    @include size-18;
+
+    @include breakpoint(medium) {
+      @include size-20;
+    }
+  }
+
+  h6 {
+    @include size-16;
+
+    @include breakpoint(medium) {
+      @include size-18;
+    }
+  }
+
+  :where(h1, h2) {
+    font-family: var(--font-family-special);
+  }
+
+  h1,
+  h2 {
+    font-weight: 800;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+}
