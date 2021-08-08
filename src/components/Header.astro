@@ -1,17 +1,32 @@
 ---
-// import SkipLinks from ../components/SkipLinks.astro
+import Navigation from '../components/Navigation.astro'
+import SkipLinks from '../components/SkipLinks.astro'
 ---
 <header role="banner">
-  <div class="container">
-    <!-- TODO: add skiplinks -->
-
-    <!-- logo -->
-
-    <!-- responsive menu toggle -->
-
-    <!-- main navigation -->
-    <nav id="main-navigation"></nav>
-
-    <!-- call to action -->
-  </div>
+  <SkipLinks />
+  <section class="space-16 color-neutral">
+    <div class="container">
+      <img src="/assets/logo.svg" alt="Your Logo">
+      <Navigation />
+    </div>
+  </section>
 </header>
+
+<style lang="scss">
+  .container  {
+    gap: 1rem;
+    
+    img {
+      max-height: 40px;
+      align-self: flex-start;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: 35rem) {
+      flex-direction: row;
+    }
+  }
+</style>
