@@ -1,18 +1,45 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import DarkMode from '../components/DarkMode.astro'
 ---
 <DefaultLayout title="Home">
-  <div class="container">
-    <div class="grid">
-      <div class="cell small-6 offset-small-3">
-        <h1 tabindex="-1">Hello world</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis.</p>
-        <button aria-pressed="false">Enable Dark Mode</button>
+  <section class="space-32">
+    <div class="container">
+      <h1 tabindex="-1">Hello world!</h1><br>
+      <DarkMode />
+    </div>
+  </section>
+  <section class="space-32 color-primary">
+    <div class="container">
+      <h2 class="space-16 bottom">Grid example</h2>
+    </div>
+    <div class="container" data-auto-grid="3">
+      <p><strong>Column 1 | Cell 1</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem. <strong><a href="#">Tab to me!</a></strong></p>
+      <p><strong>Column 2 | Cell 2</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem.</p>
+      <p><strong>Column 3 | Cell 3</strong> - Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem.</p>
+    </div>
+  </section>
+  <section class="space-32">
+    <div class="container">
+      <div class="grid gutters">
+        <div class="cell">
+          <h2>Flexbox example</h2>
+        </div>
+        <div class="cell space-content small-12 medium-3">
+          <h3>Sidebar</h3>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+        </div>
+        <div class="cell space-content small-12 medium-8 offset-medium-1">
+          <h3>Main</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis. <strong><a href="#">Tab to me!</a></strong></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </DefaultLayout>
-
-<style lang="scss">
-</style>
