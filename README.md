@@ -119,7 +119,7 @@ $colors: (
 
 If you find that something isn't working right then I'm also happy to hear it to improve this starter! Let me know by either:
 
-1. [Filing an issue](https://github.com/markteekman/tiny-code/issues)
+1. [Filing an issue](https://github.com/markteekman/accessible-astro-starter/issues)
 2. Or sending a [pull request](https://github.com/markteekman/accessible-astro-starter/pulls)
 
 ## Thank you!
