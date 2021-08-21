@@ -13,7 +13,7 @@
 @use "space" as *;
 
 // unordered list
-:where(main) ul {
+:where(main) ul:not([class]) {
   padding: 0 0 0 $space-24;
   list-style-type: none;
 
@@ -46,7 +46,7 @@
 }
 
 // ordered list increments
-:where(main) ol {
+:where(main) ol:not([class]) {
   counter-reset: item;
 
   li {
