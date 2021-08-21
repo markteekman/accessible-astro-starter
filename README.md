@@ -1,10 +1,8 @@
 # Accessible Astro Starter
 
-This starter project is build upon the (awesome) Astro static site builder. For their official documentation check their [GitHub repository](https://github.com/snowpackjs/astro). This starter offers a couple of Accessibility components and some utility classes to get you building your project faster. To get started simply clone this project to your local folders and then follow Astro's commands such as `npm install`, `npm start` and `npm run build` 🙂
+This starter project is build upon the (awesome) Astro static site builder. For their official documentation check their [GitHub repository](https://github.com/snowpackjs/astro). This starter offers a couple of Accessibility components and some utility classes to get you building your project faster. To get started simply clone this project to your local folders and then follow Astro's commands such as `npm install`, `npm start` and `npm run build` 🙂 Also check out the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) which can be used with (or without) this starter!
 
-[Checkout a demo here!](https://accessible-astro.markteekman.nl/)
-
-![social-preview-image](https://user-images.githubusercontent.com/3909046/128635441-0d035a44-fbe3-4538-b0e3-6f268577c56b.png)
+[Live demo](https://accessible-astro.markteekman.nl/)
 
 ## Accessibility features
 
