@@ -7,7 +7,7 @@
     "build": "astro build"
   },
   "devDependencies": {
-    "astro": "^0.19.1",
+    "astro": "^0.20.3",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
   }
