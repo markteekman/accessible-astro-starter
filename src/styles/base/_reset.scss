@@ -128,4 +128,5 @@ noscript {
 // remove outline from negative tab indexes
 [tabindex="-1"] {
   outline: none !important;
+  box-shadow: none !important;
 }
