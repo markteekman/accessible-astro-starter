@@ -1,0 +1,109 @@
+/*
+ | -------------------------------------------------------------
+ |  --> sizing
+ | -------------------------------------------------------------
+ |
+ | 	Sizing utility tokens.
+ |
+*/
+
+@use '../breakpoint' as *;
+@use '../size' as *;
+
+header,
+main,
+footer,
+* .cell.size-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  code,
+  pre,
+  .svg-inline--fa {
+    &.size-10 {
+      @include size-10;
+      @include breakpoint(medium) {
+        @include size-12;
+      }
+    }
+
+    &.size-12 {
+      @include size-12;
+      @include breakpoint(medium) {
+        @include size-14;
+      }
+    }
+
+    &.size-14 {
+      @include size-14;
+      @include breakpoint(medium) {
+        @include size-16;
+      }
+    }
+
+    &.size-16 {
+      @include size-16;
+      @include breakpoint(medium) {
+        @include size-18;
+      }
+    }
+
+    &.size-18 {
+      @include size-18;
+      @include breakpoint(medium) {
+        @include size-20;
+      }
+    }
+
+    &.size-20 {
+      @include size-20;
+      @include breakpoint(medium) {
+        @include size-24;
+      }
+    }
+
+    &.size-24 {
+      @include size-24;
+      @include breakpoint(medium) {
+        @include size-30;
+      }
+    }
+
+    &.size-30 {
+      @include size-30;
+      @include breakpoint(medium) {
+        @include size-36;
+      }
+    }
+
+    &.size-36 {
+      @include size-36;
+      @include breakpoint(medium) {
+        @include size-48;
+      }
+    }
+
+    &.size-48 {
+      @include size-48;
+      @include breakpoint(medium) {
+        @include size-60;
+      }
+    }
+
+    &.size-60 {
+      @include size-60;
+      @include breakpoint(medium) {
+        @include size-72;
+      }
+    }
+
+    &.size-72 {
+      @include size-72;
+    }
+  }
+}

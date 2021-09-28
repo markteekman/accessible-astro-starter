@@ -1,0 +1,29 @@
+/*
+ | -------------------------------------------------------------
+ |  --> size content
+ | -------------------------------------------------------------
+ |
+ | 	Size content utility token.
+ |
+*/
+
+@use '../breakpoint' as *;
+@use '../size' as *;
+
+.size-content {
+  > p,
+  > p > a,
+  > span,
+  > dl p,
+  > dl a,
+  > dl dt,
+  > ul li,
+  > ol li,
+  > ul li *:not(span),
+  > ol li *:not(span),
+  > a:not([class]),
+  > a[class*="vuedes__button type-tertiary"] {
+    @include size-16;
+    @include breakpoint(large) { @include size-18; }
+  }
+}

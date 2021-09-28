@@ -1,0 +1,15 @@
+/*
+ | -------------------------------------------------------------
+ |  --> align vertical
+ | -------------------------------------------------------------
+ |
+ | 	Align vertical utility tokens.
+ |
+*/
+
+.align-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

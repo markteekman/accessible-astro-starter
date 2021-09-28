@@ -1,0 +1,20 @@
+/*
+ | -------------------------------------------------------------
+ |  --> gutter gap
+ | -------------------------------------------------------------
+ |
+ | 	Gutter gap utility tokens.
+ |
+*/
+
+.gap-small {
+  gap: var(--gap-small);
+}
+
+.gap-default {
+  gap: var(--gap-default);
+}
+
+.gap-big {
+  gap: var(--gap-big);
+}

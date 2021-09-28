@@ -3,7 +3,7 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import DarkMode from '../components/DarkMode.astro'
 ---
 <DefaultLayout title="Home">
-  <section class="space-32">
+  <section class="margin-32">
     <div class="container">
       <h1 tabindex="-1">Hello world!</h1><br>
       <DarkMode client:load />
@@ -11,7 +11,7 @@ import DarkMode from '../components/DarkMode.astro'
   </section>
   <section class="padding-32 color-primary">
     <div class="container">
-      <h2 class="space-16 bottom">Grid example</h2>
+      <h2 class="margin-16 bottom">Grid example</h2>
     </div>
     <div class="container" data-auto-grid="3">
       <div class="box">
@@ -28,7 +28,7 @@ import DarkMode from '../components/DarkMode.astro'
       </div>
     </div>
   </section>
-  <section class="space-32">
+  <section class="margin-32">
     <div class="container">
       <div class="grid gutters">
         <div class="cell">
