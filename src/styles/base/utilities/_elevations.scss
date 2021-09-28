@@ -1,0 +1,30 @@
+/*
+ | -------------------------------------------------------------
+ |  --> elevation
+ | -------------------------------------------------------------
+ |
+ | 	Elevation utility tokens.
+ |
+*/
+
+@use '../elevation' as *;
+
+.elevation-100 {
+  @include elevation-100;
+}
+
+.elevation-200 {
+  @include elevation-200;
+}
+
+.elevation-300 {
+  @include elevation-300;
+}
+
+.elevation-400 {
+  @include elevation-400;
+}
+
+.elevation-500 {
+  @include elevation-500;
+}

@@ -48,7 +48,7 @@ body {
 
   // headings
   h1 {
-    @include size-30;
+    @include size-36;
 
     @include breakpoint(medium) {
       @include size-48;
@@ -56,7 +56,7 @@ body {
   }
 
   h2 {
-    @include size-24;
+    @include size-30;
 
     @include breakpoint(medium) {
       @include size-36;
