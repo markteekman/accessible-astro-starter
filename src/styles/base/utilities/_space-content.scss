@@ -1,0 +1,61 @@
+/*
+ | -------------------------------------------------------------
+ |  --> Space content
+ | -------------------------------------------------------------
+ |
+ | 	Space content utility token.
+ |
+*/
+
+@use '../breakpoint' as *;
+@use '../space' as *;
+
+.space-content {
+  // general element flow
+  > * + *,
+  > dl > * + * {
+    margin-top: $space-24;
+    margin-bottom: 0;
+  }
+
+  // component flow
+  > [class^="vuedes__"] {
+    margin-top: $space-32;
+  }
+
+  // headings flow
+  > h2 {
+    margin-top: $space-48;
+
+    @include breakpoint(large) { margin-top: $space-64; }
+  }
+
+  > h3 {
+    margin-top: $space-32;
+
+    @include breakpoint(large) { margin-top: $space-48; }
+  }
+
+  > h4 {
+    margin-top: $space-24;
+
+    @include breakpoint(large) { margin-top: $space-32; }
+  }
+
+  > h5 {
+    margin-top: $space-16;
+
+    @include breakpoint(large) { margin-top: $space-24; }
+  }
+
+  > h6 {
+    margin-top: $space-16;
+
+    @include breakpoint(large) { margin-top: $space-24; }
+  }
+
+  // exclude spacing on first child of content flows
+  > *:first-child {
+    margin-top: 0;
+  }
+}
