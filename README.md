@@ -70,14 +70,14 @@ Grid enables you to build a little more complex layouts if need be. Using `displ
 
 _Examples are included in the index.astro file_
 
-### Using Spacing
+### Using Margin and Padding
 
-To prevent spacing each element in your website individualy and to prevent inconsistencies, you can use the `.space-#` utility classes. A good practice is to set in on your `<section>` elements, for starters. To space out content you can use a special `.space-content` class on your parent div (for example in a `.cell` of your `.grid`). By default, padding top and bottom are set with these utilities. You can also set it explicitly using either `.top` of `.bottom` class tokens. Find or tweak all spacing options in `_space.scss`.
+To prevent spacing each element in your website individually and to prevent inconsistencies, you can use the `.margin-#` and `.padding-#` utility classes. A good practice is to set in on your `<section>` elements, for starters. To space out content you can use a special `.space-content` class on your parent div (for example in a `.cell` of your `.grid`). By default, margin/padding top and bottom are set with these utilities. You can also set it explicitly using either `.top` of `.bottom` class tokens. Find or tweak all spacing options in `_space.scss`.
 
 ```html
-<section class="space-32">
+<section class="padding-32">
   <div class="container">
-    <h2 class="space-16 bottom">Grid example</h2>
+    <h2 class="margin-16 bottom">Grid example</h2>
   </div>
 </section>
 ```
