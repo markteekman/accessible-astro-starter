@@ -15,7 +15,7 @@
 
 body {
   color: var(--font-color);
-  background-color: (--background);
+  background-color: var(--background);
   font-family: var(--font-family-default);
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-rendering: optimizeLegibility;
