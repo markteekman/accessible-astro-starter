@@ -1,0 +1,56 @@
+<button class="responsive-toggle" aria-expanded="false" aria-label="Open menu navigation">
+  Menu
+</button>
+
+<script>
+  // variables
+  const responsiveToggle = document.querySelector('.responsive-toggle')
+
+  // functions
+  const openMenu = (toggle) => {
+    toggle.setAttribute('aria-expanded', true)
+    toggle.setAttribute('aria-label', 'Close menu navigation')
+    toggle.innerHTML = 'Close'
+  }
+
+  const closeMenu = (toggle) => {
+    toggle.setAttribute('aria-expanded', false)
+    toggle.setAttribute('aria-label', 'Open menu navigation')
+    toggle.innerHTML = 'Menu'
+  }
+
+  // execution
+  responsiveToggle.addEventListener('click', _ => {
+    const mainNavigation = document.querySelector('#main-navigation')
+
+    mainNavigation.classList.toggle('show')
+    mainNavigation.classList.contains('show')
+      ? openMenu(responsiveToggle)
+      : closeMenu(responsiveToggle)
+  })
+
+  // check if responsive menu is open when resized and then remove
+  window.addEventListener('resize', _ =>{
+    const mainNavigation = document.querySelector('#main-navigation')
+
+    if (mainNavigation.classList.contains('show') && window.matchMedia("(min-width: 768px)").matches) {
+      mainNavigation.classList.remove('show')
+      closeMenu(responsiveToggle)
+    }
+  })
+</script>
+
+<style lang="scss">
+  @use "../styles/base/breakpoint" as *;
+  @use "../styles/base/outline" as *;
+
+  .responsive-toggle {
+    &:focus {
+      @include outline;
+    }
+
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+</style>

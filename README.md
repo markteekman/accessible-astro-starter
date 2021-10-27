@@ -12,6 +12,7 @@ In this starter you'll find a couple of things:
 - Accessible landmark examples in the `index.astro` file such as `section` and `nav`
 - `SkipLinks.astro` component to skip to either the main menu or the main content
 - `Navigation.astro` component with keyboard accessible navigation (arrow keys, escape key)
+- `ResponsiveToggle.astro` component with an accessible responsive toggle button for the navigation
 - `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme
 - Outline focus indicator which works on dark and light backgrounds
 - `.sr-only` token class for screen reader only text content

@@ -50,16 +50,33 @@
       targetItem.querySelector('a, button, input').focus()
     }
   })
+
 </script>
 
 <style lang="scss">
-  nav > ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  @use '../styles/base/breakpoint' as *;
 
-    @media (min-width: 35rem) {
-      flex-direction: row;
+  nav {
+    display: none;
+    flex-basis: 100%;
+
+    &.show {
+      display: block;
+    }
+
+    @include breakpoint(medium) {
+      display: block;
+      flex-basis: auto;
+    }
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      @include breakpoint(medium) {
+        flex-direction: row;
+      }
     }
   }
 </style>
