@@ -53,20 +53,20 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" global>
   @use '../styles/base/breakpoint' as *;
 
   nav {
     display: none;
     flex-basis: 100%;
 
-    &.show {
-      display: block;
-    }
-
     @include breakpoint(medium) {
       display: block;
       flex-basis: auto;
+    }
+
+    &.show {
+      display: block;
     }
 
     > ul {
