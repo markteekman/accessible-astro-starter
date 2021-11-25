@@ -12,3 +12,13 @@
   -webkit-box-shadow: 0 0 0 2px white;
   box-shadow: 0 0 0 2px white;
 }
+
+*:focus,
+*:focus-visible {
+  @include outline;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
