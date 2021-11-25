@@ -1,11 +1,8 @@
-/*
- | -------------------------------------------------------------
- |	--> font
- | -------------------------------------------------------------
- |
- | 	Default font declarations and sizes.
- |
-*/
+// | -------------------------------------------------------------
+// | > Font
+// | -------------------------------------------------------------
+// |   Default font declarations and sizes.
+// | -------------------------------------------------------------
 
 // used variables and mixins
 @use "breakpoint" as *;
@@ -22,10 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  *:focus {
-    @include outline;
-  }
-
+  // anchor links
   a {
     color: var(--action-color);
 
@@ -47,6 +41,22 @@ body {
   }
 
   // headings
+  :where(h1, h2) {
+    font-family: var(--font-family-special);
+  }
+
+  h1,
+  h2 {
+    font-weight: 800;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+
   h1 {
     @include size-36;
 
@@ -93,21 +103,5 @@ body {
     @include breakpoint(medium) {
       @include size-18;
     }
-  }
-
-  :where(h1, h2) {
-    font-family: var(--font-family-special);
-  }
-
-  h1,
-  h2 {
-    font-weight: 800;
-  }
-
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 600;
   }
 }

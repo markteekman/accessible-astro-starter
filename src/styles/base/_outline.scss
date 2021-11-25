@@ -1,12 +1,9 @@
-/*
- | -------------------------------------------------------------
- |	--> outline
- | -------------------------------------------------------------
- |
- | 	Outline mixin to help with (tab)focus of different elements
- | 	on the page.
- |
-*/
+// | -------------------------------------------------------------
+// | > Outline
+// | -------------------------------------------------------------
+// |   Outline mixin to help with (tab)focus of different
+// |   elements on the page.
+// | -------------------------------------------------------------
 
 @mixin outline {
   outline: 2px dotted black;
@@ -14,4 +11,14 @@
   outline-offset: 0;
   -webkit-box-shadow: 0 0 0 2px white;
   box-shadow: 0 0 0 2px white;
+}
+
+*:focus,
+*:focus-visible {
+  @include outline;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
