@@ -129,3 +129,5 @@ If you find that something isn't working right then I'm also happy to hear it to
 ## Thank you!
 
 A big thank you to the creators of this awesome Astro static site builder and to all using this starter to make the web a bit more accessible for all people around the world :)
+
+[![buymeacoffee-button](https://user-images.githubusercontent.com/3909046/150683481-be070424-7bb0-4dd7-a3cb-43b5605163f5.png)](https://www.buymeacoffee.com/markteekman)
