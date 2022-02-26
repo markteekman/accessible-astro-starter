@@ -1,10 +1,7 @@
 // | -------------------------------------------------------------
-// | > Font
-// | -------------------------------------------------------------
-// |   Default font declarations and sizes.
+// | Font
 // | -------------------------------------------------------------
 
-// used variables and mixins
 @use "breakpoint" as *;
 @use "outline" as *;
 @use "size" as *;
@@ -19,7 +16,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  // anchor links
   a {
     color: var(--action-color);
 
@@ -34,13 +30,11 @@ body {
     }
   }
 
-  // break long urls to prevent horizontal scroll
   :where(main) a {
     word-wrap: break-word;
     word-break: break-word;
   }
 
-  // headings
   :where(h1, h2) {
     font-family: var(--font-family-special);
   }

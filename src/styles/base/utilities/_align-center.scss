@@ -1,10 +1,8 @@
 // | -------------------------------------------------------------
-// | Align Vertical
+// | Align Center
 // | -------------------------------------------------------------
 
-.align-vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+.align-center {
+  display: grid;
+  place-items: center;
 }

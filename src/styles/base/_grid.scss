@@ -1,227 +1,111 @@
 // | -------------------------------------------------------------
-// | > Grid
-// | -------------------------------------------------------------
-// |   This file contains all the settings for making flexible
-// |   grids. Just apply a combination of these classes to build
-// |   your own grid in the front-end.
-// |
-// |   Docs: https://www.markteekman.nl/project/flexbox-grid
+// | Grid
 // | -------------------------------------------------------------
 
-// used variables and mixins
-@use "sass:math";
 @use "breakpoint" as *;
-$grid-columns: 12 !default;
-$container-width: 1200px !default;
-$calc: math.div(100%, $grid-columns) !default;
 
-// default container setting
 .container {
   margin: 0 auto;
-  padding: 0 calc(#{var(--gap-default) / 2});
+  padding: 0 calc(var(--gap-default)/2);
   max-width: 100%;
 
   @include breakpoint(medium) {
-    padding: 0 calc(#{var(--gap-default)});
+    padding: 0 var(--gap-default);
   }
 
   @include breakpoint(large) {
-    padding: 0 calc(#{var(--gap-default) / 2});
-    max-width: $container-width;
+    padding: 0 calc(var(--gap-default)/2);
+    max-width: 1200px;
   }
 
-  // expand container
   &.stretch {
-    padding: 0 calc(#{var(--gap-default) / 2});
     max-width: 100%;
-
-    @include breakpoint(medium) {
-      padding: 0 calc(#{var(--gap-default)});
-    }
-
-    @include breakpoint(large) {
-      padding: 0 calc(#{var(--gap-default) / 2});
-    }
   }
 }
 
-// the grid
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: calc(#{var(--gap-default)} * -1);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: var(--gap-default);
+  align-items: start;
 
-  // cell gutters for direct descendant
-  > .cell {
-    padding-top: var(--gap-default);
-    padding-left: var(--gap-default);
+  &.no-gutters {
+    grid-gap: 0;
   }
 
-  @include breakpoint(default) {
-    @for $i from 1 through $grid-columns {
+  &.equal-height {
+    align-items: stretch;
+  }
+
+  > .x-start {
+    justify-self: start;
+  }
+
+  > .x-center {
+    justify-self: center;
+  }
+
+  > .x-end {
+    justify-self: end;
+  }
+
+  > .y-start {
+    align-self: start;
+  }
+
+  > .y-center {
+    align-self: center;
+  }
+
+  > .y-end {
+    align-self: end;
+  }
+
+  @include breakpoint(small) {
+    @for $i from 1 through 12 {
+      > .small-#{$i} {
+        grid-column-end: span $i;
+      }
+
+      > .offset-small-#{$i} {
+        grid-column-start: calc(#{$i} + 1);
+      }
+
       &.small-grid-#{$i} {
-        > .cell {
-          width: calc(100% / #{$i} - 2rem);
-        }
+        grid-template-columns: repeat(#{$i}, 1fr);
       }
     }
   }
 
   @include breakpoint(medium) {
-    @for $i from 1 through $grid-columns {
+    @for $i from 1 through 12 {
+      > .medium-#{$i} {
+        grid-column-end: span $i;
+      }
+
+      > .offset-medium-#{$i} {
+        grid-column-start: calc(#{$i} + 1);
+      }
+
       &.medium-grid-#{$i} {
-        > .cell {
-          width: calc(100% / #{$i} - 2rem);
-        }
+        grid-template-columns: repeat(#{$i}, 1fr);
       }
     }
   }
 
   @include breakpoint(large) {
-    @for $i from 1 through $grid-columns {
+    @for $i from 1 through 12 {
+      > .large-#{$i} {
+        grid-column-end: span $i;
+      }
+
+      > .offset-large-#{$i} {
+        grid-column-start: calc(#{$i} + 1);
+      }
+
       &.large-grid-#{$i} {
-        > .cell {
-          width: calc(100% / #{$i} - 2rem);
-        }
+        grid-template-columns: repeat(#{$i}, 1fr);
       }
-    }
-  }
-
-  @include breakpoint(huge) {
-    @for $i from 1 through $grid-columns {
-      &.huge-grid-#{$i} {
-        > .cell {
-          width: calc(100% / #{$i} - 2rem);
-        }
-      }
-    }
-  }
-
-  &.vertical-align-top {
-    align-items: flex-start;
-  }
-
-  &.vertical-align-center {
-    align-items: center;
-  }
-
-  &.vertical-align-bottom {
-    align-items: flex-end;
-  }
-
-  &.horizontal-align-left {
-    justify-content: flex-start;
-  }
-
-  &.horizontal-align-center {
-    justify-content: center;
-  }
-
-  &.horizontal-align-right {
-    justify-content: flex-end;
-  }
-
-  // cell and columns
-  .cell {
-    flex: 0 0 100%;
-    max-width: 100%;
-
-    // grid & flex item modifiers
-    &.align-top {
-      align-self: flex-start;
-    }
-
-    &.align-center {
-      align-self: center;
-    }
-
-    &.align-bottom {
-      align-self: flex-end;
-    }
-
-    @include breakpoint(default) {
-      @for $i from 1 through $grid-columns {
-        &.small-#{$i} {
-          flex: 0 0 ($calc * $i);
-        }
-        &.offset-small-#{$i} {
-          margin-left: ($calc * $i);
-        }
-      }
-    }
-
-    @include breakpoint(medium) {
-      @for $i from 1 through $grid-columns {
-        &.medium-#{$i} {
-          flex: 0 0 ($calc * $i);
-        }
-        &.offset-medium-#{$i} {
-          margin-left: ($calc * $i);
-        }
-      }
-    }
-
-    @include breakpoint(large) {
-      @for $i from 1 through $grid-columns {
-        &.large-#{$i} {
-          flex: 0 0 ($calc * $i);
-        }
-        &.offset-large-#{$i} {
-          margin-left: ($calc * $i);
-        }
-      }
-    }
-
-    @include breakpoint(huge) {
-      @for $i from 1 through $grid-columns {
-        &.huge-#{$i} {
-          flex: 0 0 ($calc * $i);
-        }
-        &.offset-huge-#{$i} {
-          margin-left: ($calc * $i);
-        }
-      }
-    }
-  }
-
-  // grid gutters
-  &.no-gutters {
-    margin-left: 0;
-
-    // cell gutters for direct descendant
-    > .cell {
-      padding-top: 0;
-      padding-left: 0;
-    }
-  }
-
-  // nested flex grid
-  .grid {
-    margin-bottom: var(--gap-default);
-  }
-
-  // create edge to edge offsets
-  &.separate {
-    justify-content: space-between;
-  }
-
-  // cell behaviour in block grid
-  &[class*="-grid-"] {
-    margin-right: calc(#{var(--gap-default)} / -2);
-    margin-bottom: calc(#{var(--gap-default)} * -1);
-    margin-left: calc(#{var(--gap-default)} / -2);
-
-    .cell {
-      flex: 0 0 auto;
-      margin-right: calc(#{var(--gap-default)} / 2);
-      margin-bottom: var(--gap-default);
-      margin-left: calc(#{var(--gap-default)} / 2);
-      padding-left: 0;
-      padding-top: 0;
-    }
-
-    &.equal-height > .cell > * {
-      height: 100%;
     }
   }
 }

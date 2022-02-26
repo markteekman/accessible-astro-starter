@@ -1,10 +1,13 @@
 // | -------------------------------------------------------------
-// | Align Vertical
+// | Border Radius
 // | -------------------------------------------------------------
 
-.align-vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+@use '../border' as *;
+
+.radius-small {
+  @include radius-small;
+}
+
+.radius-large {
+  @include radius-large;
 }

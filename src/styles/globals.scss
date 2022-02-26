@@ -1,16 +1,12 @@
 // | -------------------------------------------------------------
-// | > Globals
-// | -------------------------------------------------------------
-// |   This file contains all the global styling.
+// | Globals
 // | -------------------------------------------------------------
 
-// global styles
 @use "base/reset";
 @use "base/root";
 @use "base/font";
 @use "base/list";
 
-// utilities
 @use "base/auto-grid";
 @use "base/grid";
 @use "base/utility";

@@ -1,15 +1,10 @@
 // | -------------------------------------------------------------
-// | > Lists
-// | -------------------------------------------------------------
-// |   A set of default styles for standard ordered and
-// |   unordered lists.
+// | Lists
 // | -------------------------------------------------------------
 
-// used variables and mixins
 @use "breakpoint" as *;
 @use "space" as *;
 
-// unordered list
 :where(main) ul:not([class]) {
   padding: 0 0 0 $space-24;
   list-style-type: none;
@@ -36,13 +31,11 @@
     }
   }
 
-  // nested unordered list
   ul {
     padding: $space-16 0 0 $space-16;
   }
 }
 
-// ordered list increments
 :where(main) ol:not([class]) {
   counter-reset: item;
 
@@ -64,13 +57,11 @@
     }
   }
 
-  // nested ordered and unordered lists
   ol,
   ul {
     margin: $space-12 0 0 $space-16;
   }
 
-  // prevent ul li's from taking over ol li content
   ul {
     li::before {
       content: "";

@@ -1,15 +1,19 @@
 // | -------------------------------------------------------------
-// | Gutter
+// | Heights / Width
 // | -------------------------------------------------------------
 
-.gap-small {
-  gap: var(--gap-small);
+.h-full {
+  height: 100%;
 }
 
-.gap-default {
-  gap: var(--gap-default);
+.h-screen {
+  height: 100vh;
 }
 
-.gap-big {
-  gap: var(--gap-big);
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
 }

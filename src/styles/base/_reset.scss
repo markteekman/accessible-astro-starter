@@ -1,16 +1,11 @@
 // | -------------------------------------------------------------
 // | > Reset
 // | -------------------------------------------------------------
-// |   A set of reset declarations to prevent inconsistencies
-// |   between browser vendors.
-// | -------------------------------------------------------------
 
-// set box sizing and scroll behaviour
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
 
-  // disable smooth scroll if user has this system preference turned on
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
   }
@@ -22,7 +17,6 @@ html {
   box-sizing: inherit;
 }
 
-// reset margins and paddings
 blockquote,
 body,
 figure,
@@ -42,12 +36,10 @@ ul {
   padding: 0;
 }
 
-// lists
 ul {
   list-style: none;
 }
 
-// forms and buttons
 button,
 input,
 select,
@@ -93,7 +85,6 @@ button:hover {
   cursor: pointer;
 }
 
-// responsive media elements
 embed,
 iframe,
 img,
@@ -104,25 +95,21 @@ video {
   max-width: 100%;
 }
 
-// default table styling
 table {
   width: 100%;
   table-layout: fixed;
 }
 
-// hidden atribute
 [hidden] {
   display: none !important;
 }
 
-// noscript
 noscript {
   display: block;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-// remove outline from negative tab indexes
 [tabindex="-1"] {
   outline: none !important;
   box-shadow: none !important;

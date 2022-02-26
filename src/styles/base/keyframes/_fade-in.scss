@@ -1,10 +1,12 @@
 // | -------------------------------------------------------------
-// | Align Vertical
+// | Fade In
 // | -------------------------------------------------------------
 
-.align-vertical {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

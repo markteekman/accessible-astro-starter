@@ -1,8 +1,8 @@
 // | -------------------------------------------------------------
-// | > Colors
+// | Colors
 // | -------------------------------------------------------------
-// |   Colors utility token.
-// | -------------------------------------------------------------
+
+@use '../color' as *;
 
 .color-neutral {
   background-color: var(--neutral-background);
@@ -10,4 +10,15 @@
 
 .color-primary {
   background-color: var(--primary-background);
+}
+
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .text-#{$color}-#{$shade} *:not(button) {
+      color: var(--#{$color}-#{$shade});
+    }
+    .bg-#{$color}-#{$shade} {
+      background-color: var(--#{$color}-#{$shade});
+    }
+  }
 }

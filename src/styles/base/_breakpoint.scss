@@ -1,34 +1,24 @@
 // | -------------------------------------------------------------
-// | > Breakpoint
-// | -------------------------------------------------------------
-// |   Breakpoint mixin used in the other base files or in a
-// |   project.
+// | Breakpoint
 // | -------------------------------------------------------------
 
-// breakpoints map
 $breakpoints: (
   "default": 0,
   "small": 24em,
   "medium": 48em,
-  "large": 75em,
-  "huge": 87.5em,
+  "large": 75em
 ) !default;
 
-// breakpoint mixin
 @mixin breakpoint($breakpoint) {
-  // if key is in map
   @if map-has-key($breakpoints, $breakpoint) {
-    // set media query
     @media (min-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else if (type_of($breakpoint) == number) {
-    // set media query
     @media (min-width: $breakpoint+"px") {
       @content;
     }
   }
-  // if key is not in map or not a valid input, throw error message
   @else {
     @error "Not a correct value, check _base-breakpoints for availible values.";
   }
