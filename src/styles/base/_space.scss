@@ -1,11 +1,7 @@
 // | -------------------------------------------------------------
-// | > Space
-// | -------------------------------------------------------------
-// |   Space variables used in _utility.scss and other base
-// |   files.
+// | Space
 // | -------------------------------------------------------------
 
-// space variables
 $space-2: 0.125rem;
 $space-4: 0.25rem;
 $space-8: 0.5rem;
@@ -24,7 +20,6 @@ $space-512: 32rem;
 $space-640: 40rem;
 $space-768: 48rem;
 
-// space scales for utilities
 $space-scale:
   (2 #{$space-2} #{$space-4})
   (4 #{$space-4} #{$space-8})

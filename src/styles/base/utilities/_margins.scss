@@ -1,7 +1,5 @@
 // | -------------------------------------------------------------
-// | > Margins
-// | -------------------------------------------------------------
-// |   Margins utility token.
+// | Margins
 // | -------------------------------------------------------------
 
 @use '../breakpoint' as *;
@@ -21,14 +19,4 @@
       margin-bottom: #{$space-medium};
     }
   }
-}
-
-// exclude top
-.top {
-  margin-bottom: 0;
-}
-
-// exclude bottom
-.bottom {
-  margin-top: 0;
 }

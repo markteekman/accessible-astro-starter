@@ -1,7 +1,5 @@
 // | -------------------------------------------------------------
-// | > Size Content
-// | -------------------------------------------------------------
-// |   Size Content utility token.
+// | Size Content
 // | -------------------------------------------------------------
 
 @use '../breakpoint' as *;
@@ -18,8 +16,7 @@
   > ol li,
   > ul li *:not(span),
   > ol li *:not(span),
-  > a:not([class]),
-  > a[class*="vuedes__button type-tertiary"] {
+  > a:not([class]) {
     @include size-16;
     @include breakpoint(large) { @include size-18; }
   }
