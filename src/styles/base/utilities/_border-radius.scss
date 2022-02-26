@@ -1,0 +1,13 @@
+// | -------------------------------------------------------------
+// | Border Radius
+// | -------------------------------------------------------------
+
+@use '../border' as *;
+
+.radius-small {
+  @include radius-small;
+}
+
+.radius-large {
+  @include radius-large;
+}
