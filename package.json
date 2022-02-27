@@ -7,7 +7,7 @@
     "build": "astro build"
   },
   "devDependencies": {
-    "astro": "^0.23.1",
+    "astro": "^0.23.2",
     "autoprefixer": "^10.4.0",
     "sass": "^1.49.9",
     "stylelint": "^13.13.1",
