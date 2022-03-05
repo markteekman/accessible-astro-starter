@@ -61,19 +61,17 @@
     align-self: end;
   }
 
-  @include breakpoint(small) {
-    @for $i from 1 through 12 {
-      > .small-#{$i} {
-        grid-column-end: span $i;
-      }
+  @for $i from 1 through 12 {
+    > .small-#{$i} {
+      grid-column-end: span $i;
+    }
 
-      > .offset-small-#{$i} {
-        grid-column-start: calc(#{$i} + 1);
-      }
+    > .offset-small-#{$i} {
+      grid-column-start: calc(#{$i} + 1);
+    }
 
-      &.small-grid-#{$i} {
-        grid-template-columns: repeat(#{$i}, 1fr);
-      }
+    &.small-grid-#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
     }
   }
 
