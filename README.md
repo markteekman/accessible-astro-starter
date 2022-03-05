@@ -190,7 +190,8 @@ If you need an exception on your font-size for a specific reason you can use siz
 If you find that something isn't working right then I'm also happy to hear it to improve this starter! Let me know by either:
 
 1. [Filing an issue](https://github.com/markteekman/accessible-astro-starter/issues)
-2. Or sending a [pull request](https://github.com/markteekman/accessible-astro-starter/pulls)
+2. [Submitting a pull request](https://github.com/markteekman/accessible-astro-starter/pulls)
+3. [Starting a discussion](https://github.com/markteekman/accessible-astro-starter/discussions)
 
 ## Thank you!
 
