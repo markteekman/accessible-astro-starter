@@ -1,13 +1,13 @@
 ---
+import SkipLinks from '../components/SkipLinks.astro'
 import Navigation from '../components/Navigation.astro'
 import ResponsiveToggle from '../components/ResponsiveToggle.astro'
-import SkipLinks from '../components/SkipLinks.astro'
 ---
 
 <header>
   <SkipLinks client:load />
   <section class="padding-16 color-neutral">
-    <div class="container temp">
+    <div class="container">
       <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo">
       <ResponsiveToggle client:load />
       <Navigation client:load />
