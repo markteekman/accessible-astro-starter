@@ -1,13 +1,10 @@
 <section>
-	<div class="container">
-    <nav class="skip-links" aria-label="Skiplinks">
-      <ul>
-        <!-- NOTE: add this when you have content or hyperlinks to skip before you main menu!
-        <li><a href="#main-navigation" data-skip-link>Skip to main menu</a></li> -->
-        <li><a href="#main-content" data-skip-link>Skip to main content</a></li>
-      </ul>
-    </nav>
-	</div>
+  <nav class="skip-links" aria-label="Skiplinks">
+    <ul>
+      <li><a href="#main-navigation" data-skip-link>Skip to main menu</a></li>
+      <li><a href="#main-content" data-skip-link>Skip to main content</a></li>
+    </ul>
+  </nav>
 </section>
 
 <script>
@@ -18,25 +15,22 @@
   if (skipLinks.length > 0) {
     skipLinks.forEach(link => {
       link.addEventListener('keydown', event => {
-        // if keydown event is not on the skip link itself, return and exit
         if (!event.target.closest('[data-skip-link]')) return
         const key = event.key
-        // if keydown event is nog an enter, return and exit
+
         if (key !== 'Enter') return
-        // prevent default anchor behaviour
         event.preventDefault()
         const target = event.target.getAttribute('href')
 
-        // NOTE: add this when you have content or hyperlinks to skip before you main menu!
-        // set focus to first menu item for skip link to main navigation
-        // if (target === '#main-navigation') {
-        //   const navigation = document.querySelector('#main-navigation')
-        //   navigation.querySelector('a').focus()
-        // }
+        if (target === '#main-navigation') {
+          const navigation = document.querySelector('#main-navigation')
+          navigation.querySelector('a').focus()
+        }
 
-        // set focus to first h1 for skip link to main content
         if (target === '#main-content') {
-          document.querySelector('h1').focus()
+          const h1 = document.querySelector('h1')
+          h1.setAttribute('tabindex', '-1')
+          h1.focus()
         }
       })
     })
