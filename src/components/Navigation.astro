@@ -1,8 +1,8 @@
 <nav id="main-navigation">
   <ul>
-    <li><a href="#" aria-current="page">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -10,6 +10,18 @@
   // variables
   const mainNav = document.querySelector('#main-navigation')
   const mainMenu = mainNav.querySelector('ul')
+
+  // functions
+  const setActiveMenuItem = _ => {
+    const menuItems = [...mainMenu.querySelectorAll('a')]
+
+    menuItems.forEach(menuItem => {
+      if (menuItem.pathname === window.location.pathname) {
+        menuItem.classList.add('is-active')
+        menuItem.setAttribute('aria-current', 'page')
+      }
+    })
+  }
 
   // execution
   mainMenu && mainMenu.addEventListener('keydown', event => {
@@ -51,6 +63,7 @@
     }
   })
 
+  setActiveMenuItem()
 </script>
 
 <style lang="scss">
@@ -76,6 +89,10 @@
 
       @include breakpoint(medium) {
         flex-direction: row;
+      }
+
+      .is-active {
+        font-weight: bold;
       }
     }
   }
