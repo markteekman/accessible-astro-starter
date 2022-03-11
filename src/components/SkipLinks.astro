@@ -1,8 +1,16 @@
 <section>
   <nav class="skip-links" aria-label="Skiplinks">
     <ul>
-      <li><a href="#main-navigation" data-skip-link>Skip to main menu</a></li>
-      <li><a href="#main-content" data-skip-link>Skip to main content</a></li>
+      <li>
+        <slot name="main-navigation">
+          <a href="#main-navigation" data-skip-link>Skip to main menu</a>
+        </slot>
+      </li>
+      <li>
+        <slot name="main-content">
+          <a href="#main-content" data-skip-link>Skip to main content</a>
+        </slot>
+      </li>
     </ul>
   </nav>
 </section>
