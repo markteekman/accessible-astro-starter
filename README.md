@@ -23,7 +23,7 @@ In this starter you'll find a couple of things:
 - Outline focus indicator which works on dark and light backgrounds
 - `.sr-only` token class for screen reader only text content
 
-## Utitilies
+## Utilities
 
 👉🏻 &nbsp;  _Note: Examples are included in the **index.astro** file_
 
