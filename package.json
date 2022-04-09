@@ -1,7 +1,7 @@
 {
   "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including accessiblity features and more.",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "Mark Teekman",
   "homepage": "https://accessible-astro.dev",
   "scripts": {
