@@ -5,8 +5,10 @@
   "author": "Mark Teekman",
   "homepage": "https://accessible-astro.dev",
   "scripts": {
+    "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
     "accessible-astro-components": "^1.4.5",
