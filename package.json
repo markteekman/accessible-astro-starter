@@ -1,13 +1,19 @@
 {
   "name": "accessible-astro-starter",
+  "description": "An Accessible Starter Theme for Astro including accessiblity features and more.",
   "version": "1.2.3",
-  "private": true,
+  "author": "Mark Teekman",
+  "homepage": "https://accessible-astro.dev",
   "scripts": {
     "start": "astro dev",
     "build": "astro build"
   },
+  "dependencies": {
+    "accessible-astro-components": "^1.4.5",
+    "astro-icon": "^0.7.1"
+  },
   "devDependencies": {
-    "astro": "^0.23.2",
+    "astro": "^1.0.0-beta.5",
     "autoprefixer": "^10.4.0",
     "sass": "^1.49.9",
     "stylelint": "^13.13.1",
