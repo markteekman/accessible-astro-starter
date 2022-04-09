@@ -1,11 +1,13 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import DarkMode from '../components/DarkMode.astro'
 ---
 
 <DefaultLayout title="About">
   <section class="margin-48">
     <div class="container">
-      <h1>About page</h1>
+      <h1>About page</h1><br>
+      <DarkMode client:load />
     </div>
   </section>
   <section class="margin-24">
