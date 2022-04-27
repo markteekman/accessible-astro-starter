@@ -1,5 +1,5 @@
 <button class="responsive-toggle" aria-expanded="false" aria-label="Open menu navigation">
-  Menu
+  <svg viewBox="0 0 512 512" fill="var(--action-color)"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path></svg>
 </button>
 
 <script>
@@ -10,47 +10,47 @@
   const openMenu = (toggle) => {
     toggle.setAttribute('aria-expanded', true)
     toggle.setAttribute('aria-label', 'Close menu navigation')
-    toggle.innerHTML = 'Close'
+    toggle.innerHTML = `<svg viewBox="0 0 512 512" fill="var(--action-color)"><path d="m289.94 256 95-95A24 24 0 0 0 351 127l-95 95-95-95a24 24 0 0 0-34 34l95 95-95 95a24 24 0 1 0 34 34l95-95 95 95a24 24 0 0 0 34-34z"></path></svg>`
   }
 
   const closeMenu = (toggle) => {
     toggle.setAttribute('aria-expanded', false)
     toggle.setAttribute('aria-label', 'Open menu navigation')
-    toggle.innerHTML = 'Menu'
+    toggle.innerHTML = `<svg viewBox="0 0 512 512" fill="var(--action-color)"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path></svg>`
   }
 
   // execution
   responsiveToggle.addEventListener('click', _ => {
-    const mainNavigation = document.querySelector('#main-navigation')
+    const mobileNavigation = document.querySelector('.mobile-menu')
 
-    mainNavigation.classList.toggle('show')
-    mainNavigation.classList.contains('show')
+    mobileNavigation.classList.toggle('show')
+    mobileNavigation.classList.contains('show')
       ? openMenu(responsiveToggle)
       : closeMenu(responsiveToggle)
   })
-
-  // check if responsive menu is open when resized and then remove
-  window.addEventListener('resize', _ =>{
-    const mainNavigation = document.querySelector('#main-navigation')
-
-    if (mainNavigation.classList.contains('show') && window.matchMedia("(min-width: 768px)").matches) {
-      mainNavigation.classList.remove('show')
-      closeMenu(responsiveToggle)
-    }
-  })
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../assets/scss/base/breakpoint" as *;
   @use "../assets/scss/base/outline" as *;
 
   .responsive-toggle {
-    &:focus {
-      @include outline;
+    display: none;
+    padding: 0;
+    border: none;
+
+    svg {
+      width: 30px;
+    
+      path {
+        transition: fill 0.2s ease-in-out;
+      }
     }
 
-    @include breakpoint(medium) {
-      display: none;
+    &:hover {
+      svg path {
+        fill: var(--primary-400);
+      }
     }
   }
 </style>
