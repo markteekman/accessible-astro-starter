@@ -2,7 +2,7 @@
 
 This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). This starter offers a couple of Accessibility components and some utility classes to get you building your project faster. Also check out the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package which can be used with (or without) this starter!
 
-[Live demo](https://accessible-astro.markteekman.nl/)
+[Live demo](https://starter.accessible-astro.dev)
 
 ## Getting started
 Run the following commands in your project folder to get started:
