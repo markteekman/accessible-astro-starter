@@ -1,18 +1,39 @@
-<nav id="main-navigation">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/contact/">Contact</a></li>
-  </ul>
-</nav>
+---
+import DarkMode from './DarkMode.astro'
+import ResponsiveToggle from './ResponsiveToggle.astro'
+---
+
+<div id="main-navigation" class="is-desktop padding-16 color-neutral">
+  <div class="container">
+    <a href="/">
+      <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo">
+    </a>
+    <div class="wrapper">
+      <nav class="desktop-menu">
+        <ul>
+          <slot />
+        </ul>
+      </nav>
+      <DarkMode client:load />
+      <ResponsiveToggle client:load />
+    </div>
+    <nav class="mobile-menu">
+      <ul>
+        <slot />
+      </ul>
+      </nav>
+  </div>
+</div>
 
 <script>
   // variables
   const mainNav = document.querySelector('#main-navigation')
   const mainMenu = mainNav.querySelector('ul')
+  const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
+
 
   // functions
-  const setActiveMenuItem = _ => {
+  const setActiveMenuItem = () => {
     const menuItems = [...mainMenu.querySelectorAll('a')]
 
     menuItems.forEach(menuItem => {
@@ -23,76 +44,291 @@
     })
   }
 
+  const checkMenuSize = () => {
+    const mainNavWidth = mainNav.getBoundingClientRect().width
+    const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
+    const logoWidthBuffer = 300
+    const totalMenuWidth = parseInt(desktopMenuWidth) + logoWidthBuffer
+
+    if (totalMenuWidth >= mainNavWidth) {
+      mainNav.classList.remove('is-desktop')
+      mainNav.classList.add('is-mobile')
+    } else if (totalMenuWidth <= mainNavWidth) {
+      mainNav.classList.add('is-desktop')
+      mainNav.classList.remove('is-mobile')
+    }
+  }
+
+  const isOutOfViewport = element => {
+    const elementBounds = element.getBoundingClientRect()
+    return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
+  }
+
+  const openDropdownMenu = dropdownMenu => {
+    const dropdownList = dropdownMenu.parentNode.querySelector('ul')
+
+    dropdownMenu.classList.add('show')
+    dropdownMenu.setAttribute('aria-expanded', 'true')
+
+    if (isOutOfViewport(dropdownList)) {
+      dropdownList.style.left = 'auto'
+    }
+  }
+
+  const closeDropdownMenu = dropdownMenu => {
+    dropdownMenu.classList.remove('show')
+    dropdownMenu.setAttribute('aria-expanded', 'false')
+  }
+
+  const closeAllDropdownMenus = () => {
+    for (let i = 0; i < dropdownMenus.length; i++) {
+      closeDropdownMenu(dropdownMenus[i])
+    }
+  }
+
+  const toggleDropdownMenu = event => {
+    if (event.target.getAttribute('aria-expanded') === 'false') {
+      closeAllDropdownMenus()
+      openDropdownMenu(event.target)
+    } else {
+      closeDropdownMenu(event.target)
+    }
+  }
+
   // execution
   mainMenu && mainMenu.addEventListener('keydown', event => {
     const currentMenuItem = event.target.closest('li')
-    const menuItems = [...mainMenu.querySelectorAll('li')]
-    const index = menuItems.findIndex(item => item === currentMenuItem)
+    const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
+    const currentDropdownMenu = event.target.closest('.has-dropdown button')
+    const currentDropdownMenuItem = event.target.closest('.has-dropdown li')
+    const currentIndex = menuItems.findIndex(item => item === currentMenuItem)
 
     const key = event.key
     let targetItem
 
-    // move right on arrow right
     if (key === 'ArrowRight') {
-      // if it's the last item, go the first, else go to next
       if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
         targetItem = menuItems[0]
       } else {
-        targetItem = menuItems[index + 1]
+        targetItem = menuItems[currentIndex + 1]
       }
     }
 
-    // move left on arrow left
     if (key === 'ArrowLeft') {
-      // if it's the first item, go the last, else go to next
       if (menuItems.indexOf(currentMenuItem) === 0) {
         targetItem = menuItems[menuItems.length - 1]
       } else {
-        targetItem = menuItems[index - 1]
+        targetItem = menuItems[currentIndex - 1]
       }
     }
 
-    // escape to go back to first item
     if (key === 'Escape') {
       targetItem = menuItems[0]
     }
 
-    // set focus on target item
+    if (currentDropdownMenu) {
+      const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
+
+      if (key === 'ArrowDown') {
+        event.preventDefault()
+        openDropdownMenu(currentDropdownMenu)
+        targetItem = firstDropdownItem
+      }
+
+      if (key === 'Escape') {
+        closeDropdownMenu(currentDropdownMenu)
+      }
+    }
+
+    if (currentDropdownMenuItem) {
+      const currentDropdownList = currentDropdownMenuItem.parentNode
+      const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
+      const currentIndex = dropdownMenuItems.findIndex(item => item === currentDropdownMenuItem)
+
+      if (key === 'ArrowDown') {
+        event.preventDefault()
+
+        if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === dropdownMenuItems.length - 1) {
+          targetItem = dropdownMenuItems[0]
+        } else {
+          targetItem = dropdownMenuItems[currentIndex + 1]
+        }
+      }
+
+      if (key === 'ArrowUp') {
+        event.preventDefault()
+
+        if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === 0) {
+          targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
+        } else {
+          targetItem = dropdownMenuItems[currentIndex - 1]
+        }
+      }
+
+      if (key === 'Escape') {
+        const currentDropdownMenu = currentDropdownList.previousElementSibling
+        targetItem = currentDropdownMenu.parentNode
+        closeAllDropdownMenus()
+      }
+    }
+
     if (targetItem) {
       targetItem.querySelector('a, button, input').focus()
     }
   })
 
+
+  dropdownMenus && dropdownMenus.forEach(dropdownMenu => {
+    dropdownMenu.addEventListener('click', toggleDropdownMenu)
+  })
+
   setActiveMenuItem()
+  checkMenuSize()
+  window.addEventListener('resize', checkMenuSize)
+  window.addEventListener('click', event => {
+    if (!event.target.hasAttribute('aria-haspopup') && !event.target.classList.contains('submenu-item')) {
+      closeAllDropdownMenus()
+    }
+  })
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
+  @use '../assets/scss/base/border' as *;
   @use '../assets/scss/base/breakpoint' as *;
+  @use '../assets/scss/base/elevation' as *;
+  @use '../assets/scss/base/size' as *;
 
-  nav {
-    display: none;
-    flex-basis: 100%;
-
-    @include breakpoint(medium) {
-      display: block;
-      flex-basis: auto;
-    }
-
-    &.show {
-      display: block;
-    }
-
-    > ul {
+  #main-navigation {
+    > .container {
       display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-      @include breakpoint(medium) {
-        flex-direction: row;
+    &.is-desktop {
+      .desktop-menu { 
+        visibility: visible;
+        z-index: 0;
+        position: static;
       }
 
-      .is-active {
-        font-weight: bold;
+      .mobile-menu { 
+        display: none; 
+      }
+    }
+
+    &.is-mobile {
+      flex-direction: column;
+
+      .mobile-menu { 
+        display: none; 
+
+        &.show {
+          display: block;
+        }
+      }
+
+      .desktop-menu { 
+        visibility: hidden;
+        z-index: -99;
+        position: absolute;
+        left: 0;
+      }
+
+      .responsive-toggle {
+        display: block;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav {
+      > ul {
+        display: flex;
+        gap: 1.5rem;
+
+        .is-active {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .mobile-menu {
+      flex-basis: 100%;
+      padding: 2rem 0;
+
+      > ul {
+        flex-direction: column;
+
+        ul {
+          position: relative;
+          margin-top: 1rem;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+      }
+    }
+
+    .has-dropdown {
+      position: relative;
+
+      > button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0;
+        margin-top: -1px;
+        border: none;
+        color: var(--action-color);
+        text-decoration: underline;
+        @include size-16;
+
+        &::after {
+          content: '';
+          width: 0.75rem;
+          height: 0.75em;
+          margin-top: -0.25rem;
+          border-style: solid;
+          border-width: 0.2em 0.2em 0 0;
+          transform: rotate(135deg);
+        }
+
+        &.show {
+          &::after {
+            margin-top: 0.25rem;
+            transform: rotate(-45deg);
+          }
+
+          ~ ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          }
+        }
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        min-width: 200px;
+        top: 125%;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        padding: 1rem;
+        background-color: var(--neutral-background);
+        border: 2px solid black;
+        @include elevation-300;
+        @include radius-small;
       }
     }
   }

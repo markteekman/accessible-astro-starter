@@ -1,18 +1,49 @@
 ---
 import SkipLinks from '../components/SkipLinks.astro'
 import Navigation from '../components/Navigation.astro'
-import ResponsiveToggle from '../components/ResponsiveToggle.astro'
 ---
 
 <header>
   <SkipLinks client:load />
-  <section class="padding-16 color-neutral">
-    <div class="container">
-      <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo">
-      <ResponsiveToggle client:load />
-      <Navigation client:load />
-    </div>
-  </section>
+  <Navigation client:load>
+    <li class="menu-item">
+      <a href="/">Home</a>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Dropdown</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1">Sub menu item 1</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2">Sub menu item 2</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage3">Sub menu item 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">Dropdown</button>
+      <ul>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage1">Sub menu item 1</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage2">Sub menu item 2</a>
+        </li>
+        <li class="submenu-item">
+          <a href="/dropdown/subpage3">Sub menu item 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="/about/">About</a>
+    </li>
+    <li class="menu-item">
+      <a href="/contact/">Contact</a>
+    </li>
+  </Navigation>
 </header>
 
 <style lang="scss">
