@@ -24,6 +24,10 @@ In this starter you'll find a couple of things:
 - `.sr-only` token class for screen reader only text content
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
 
+## Extra features
+
+- Comes with a demo blog which is rendered using fetched data and the Accessible Astro Card Component
+
 ## Utilities
 
 👉🏻 &nbsp;  _Note: Examples are included in the **index.astro** file_
