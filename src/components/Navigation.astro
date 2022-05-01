@@ -34,7 +34,7 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
 
   // functions
   const setActiveMenuItem = () => {
-    const menuItems = [...mainMenu.querySelectorAll('a')]
+    const menuItems = [...mainMenu.querySelectorAll('a:not([rel*="external"])')]
 
     menuItems.forEach(menuItem => {
       if (menuItem.pathname === window.location.pathname) {
