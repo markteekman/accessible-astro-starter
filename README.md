@@ -1,6 +1,6 @@
 # Accessible Astro Starter
 
-This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). This starter offers a couple of Accessibility components and some utility classes to get you building your project faster. Also check out the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package which can be used with (or without) this starter!
+This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). This starter offers a couple of Accessibility components, a couple of example pages, a blog with dynamic routes, a custom 404 page and some utility classes to get you building your project faster. Also check out the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package which can be used with (or without) this starter!
 
 [Live demo](https://starter.accessible-astro.dev)
 
@@ -14,19 +14,21 @@ npm install && npm start
 
 In this starter you'll find a couple of things:
 
-- Accessible landmarks in the `DefaultLayout.astro` file such as `header`, `main` and `footer`
-- Accessible landmark examples in the `index.astro` file such as `section` and `nav`
+- Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
+- Outline focus indicator which works on dark and light backgrounds
 - `SkipLinks.astro` component to skip to either the main menu or the main content
 - `Navigation.astro` component with keyboard accessible (dropdown) navigation (arrow keys, escape key)
 - `ResponsiveToggle.astro` component with an accessible responsive toggle button for the navigation
 - `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme
-- Outline focus indicator which works on dark and light backgrounds
-- `.sr-only` token class for screen reader only text content
+- `.sr-only` utility class for screen reader only text content (hides text visually)
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
 
 ## Extra features
 
-- Comes with a demo blog which is rendered using fetched data and the Accessible Astro Card Component
+- `blog.astro` and `posts/[id].astro` demonstrate the use of dynamic routes and provide a basic blog
+- `404.astro` provides a custom 404 error page which you can adjust to your needs
+- [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) package comes preinstalled with extra components such as Accordions, Modals and Notifications
+- Nate Moore's awesome [Astro Icon](https://github.com/natemoo-re/astro-icon) package is also preinstalled which can be applied to different use cases
 
 ## Utilities
 
