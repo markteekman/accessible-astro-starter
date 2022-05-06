@@ -12,14 +12,15 @@ npm install && npm start
 
 ## Accessibility features
 
-In this starter you'll find a couple of things:
-
 - Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
 - Outline focus indicator which works on dark and light backgrounds
+- Several `aria` attributes which provide a better experience for screen reader users
 - `SkipLinks.astro` component to skip to either the main menu or the main content
 - `Navigation.astro` component with keyboard accessible (dropdown) navigation (arrow keys, escape key)
-- `ResponsiveToggle.astro` component with an accessible responsive toggle button for the navigation
+- `ResponsiveToggle.astro` component with an accessible responsive toggle button for the mobile navigation
 - `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme
+- `Header.astro` component included in the `DefaultLayout.astro` layout
+- `Footer.astro` component included in the `DefaultLayout.astro` layout
 - `.sr-only` utility class for screen reader only text content (hides text visually)
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
 
@@ -192,6 +193,12 @@ If you need an exception on your font-size for a specific reason you can use siz
 </div>
 ```
 
+## Other Accessible Astro projects
+
+- [Accessible Astro Dashboard](https://github.com/markteekman/accessible-astro-dashboard/)
+- [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components/)
+- [Accessible Astro Documentation](https://accessible-astro.dev)
+
 ## Helping out
 
 If you find that something isn't working right then I'm always happy to hear it to improve this starter! You can contribute in many ways and forms. Let me know by either:
@@ -199,7 +206,7 @@ If you find that something isn't working right then I'm always happy to hear it 
 1. [Filing an issue](https://github.com/markteekman/accessible-astro-starter/issues)
 2. [Submitting a pull request](https://github.com/markteekman/accessible-astro-starter/pulls)
 3. [Starting a discussion](https://github.com/markteekman/accessible-astro-starter/discussions)
-4. [Buying me a coffee!](https://www.buymeacoffee.com/markteekman) This keeps the servers up and running 😊
+4. [Buying me a coffee!](https://www.buymeacoffee.com/markteekman)
 
 ## Thank you!
 
