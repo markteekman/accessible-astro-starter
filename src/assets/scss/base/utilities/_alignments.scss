@@ -1,6 +1,19 @@
 // | -------------------------------------------------------------
-// | Align Vertical
+// | Alignments
 // | -------------------------------------------------------------
+
+.align-center {
+  display: grid;
+  place-items: center;
+}
+
+.align-horizontal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
 
 .align-vertical {
   display: flex;

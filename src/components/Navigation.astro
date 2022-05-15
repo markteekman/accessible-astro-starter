@@ -1,6 +1,6 @@
 ---
-import DarkMode from './DarkMode.astro'
 import ResponsiveToggle from './ResponsiveToggle.astro'
+import { DarkMode } from 'accessible-astro-components'
 ---
 
 <div id="main-navigation" class="is-desktop padding-16 color-neutral">
@@ -196,6 +196,7 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
   @use '../assets/scss/base/border' as *;
   @use '../assets/scss/base/breakpoint' as *;
   @use '../assets/scss/base/elevation' as *;
+  @use '../assets/scss/base/outline' as *;
   @use '../assets/scss/base/size' as *;
 
   #main-navigation {
@@ -330,6 +331,38 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
         border: 2px solid black;
         @include elevation-300;
         @include radius-small;
+      }
+    }
+  }
+
+  .darkmode-toggle {
+    padding: 0;
+    border: none;
+
+    svg {
+      width: 30px;
+    }
+
+    svg path {
+      fill: var(--secondary-500);
+      transition: fill 0.2s ease-in-out;
+
+      &:hover {
+        fill: var(--primary-400);
+      }
+    }
+
+    &:focus {
+      @include outline;
+    }
+  }
+
+  .darkmode .darkmode-toggle {
+    svg path {
+      fill: var(--secondary-100);
+
+      &:hover {
+        fill: var(--primary-400);
       }
     }
   }

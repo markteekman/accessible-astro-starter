@@ -1,6 +1,6 @@
 # Accessible Astro Starter
 
-This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). This starter offers a couple of Accessibility components, a couple of example pages, a blog with dynamic routes, a custom 404 page and some utility classes to get you building your project faster. Also check out the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package which can be used with (or without) this starter!
+This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). To help you build your project *faster*, this theme includes some dedicated accessible components (such as a keyboard accessible and responsive navigation) and several components coming from the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package. This theme also includes example pages, a blog with dynamic routes, a custom 404 page and many **Design System** utility classes, patterns and primatives (such as grids, buttons, lists, spacings, sizes and more).
 
 [Live demo](https://starter.accessible-astro.dev)
 
@@ -15,14 +15,16 @@ npm install && npm start
 - Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
 - Outline focus indicator which works on dark and light backgrounds
 - Several `aria` attributes which provide a better experience for screen reader users
-- `SkipLinks.astro` component to skip to either the main menu or the main content
+- `SkipLinks.astro` component to skip to either the main menu or the main content *
 - `Navigation.astro` component with keyboard accessible (dropdown) navigation (arrow keys, escape key)
 - `ResponsiveToggle.astro` component with an accessible responsive toggle button for the mobile navigation
-- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme
+- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme *
 - `Header.astro` component included in the `DefaultLayout.astro` layout
 - `Footer.astro` component included in the `DefaultLayout.astro` layout
 - `.sr-only` utility class for screen reader only text content (hides text visually)
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
+
+**Provided by the Accessible Astro Components package.*
 
 ## Extra features
 
@@ -119,7 +121,17 @@ With two border radius utility classes (`radius-small` and `radius-large`) you c
 </div>
 ```
 
-## Colors
+### Buttons
+
+A Button primitive to easily apply button styles to your `<button>` and `<a>` tags. Simply apply the class `button` to your element. There are different variations in colors (`color-secondary`, `color-info`, `color-success`, `color-warning`, `color-error`) which is primary by default, sizing (`size-tiny`, `size-large`, `size-huge`) which is medium by default and behavior (`behavior-full`) which stretches the button to 100% width.
+
+```html
+<a href="/" class="button color-success size-huge behavior-full">
+  Click me to go to space!
+</a>
+```
+
+### Colors
 
 You can setup your own color schemes in the `_colors.scss` file. You'll find a SCSS map, which gets printed inside `_root.scss` as custom properties. There are also several color utilities such as `text-primary-#` and `bg-neutral-#` based on all colors you've defined. `text-primary-#` should be used on a parent element to give the child's the respective color.
 
