@@ -1,0 +1,122 @@
+// | -------------------------------------------------------------
+// | Button
+// | -------------------------------------------------------------
+
+@use '../size' as *;
+@use '../space' as *;
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: var(--neutral-900);
+  background-color: var(--primary-300);
+  border: 2px solid var(--primary-300);
+  border-radius: 3px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: var(--neutral-900);
+    background-color: var(--primary-200);
+    border: 2px solid var(--primary-200);
+  }
+
+  &:visited {
+    color: var(--neutral-900);
+  }
+
+  &.color-secondary {
+    background-color: var(--secondary-200);
+    border-color: (var(--secondary-200));
+
+    &:hover,
+    &:focus {
+      border-color: var(--secondary-100);
+      background-color: var(--secondary-100);
+    }
+  }
+
+  &.color-neutral {
+    background-color: var(--neutral-500);
+    border-color: (var(--neutral-500));
+
+    &:hover,
+    &:focus {
+      border-color: var(--neutral-400);
+      background-color: var(--neutral-400);
+    }
+  }
+
+  &.color-info {
+    background-color: var(--info-300);
+    border-color: (var(--info-300));
+
+    &:hover,
+    &:focus {
+      border-color: var(--info-200);
+      background-color: var(--info-200);
+    }
+  }
+
+  &.color-success {
+    background-color: var(--success-400);
+    border-color: (var(--success-400));
+
+    &:hover,
+    &:focus {
+      border-color: var(--success-300);
+      background-color: var(--success-300);
+    }
+  }
+
+  &.color-warning {
+    background-color: var(--warning-400);
+    border-color: (var(--warning-400));
+
+    &:hover,
+    &:focus {
+      border-color: var(--warning-300);
+      background-color: var(--warning-300);
+    }
+  }
+
+  &.color-error {
+    background-color: var(--error-300);
+    border-color: (var(--error-300));
+
+    &:hover,
+    &:focus {
+      border-color: var(--error-200);
+      background-color: var(--error-200);
+    }
+  }
+
+  &.size-tiny {
+    padding: $space-2 $space-4;
+    @include size-12;
+  }
+
+  &.size-small {
+    padding: $space-4 $space-8;
+    @include size-14;
+  }
+
+  &.size-large {
+    padding: $space-12 $space-16;
+    @include size-18;
+  }
+
+  &.size-huge {
+    padding: $space-16 $space-32;
+    @include size-20;
+  }
+
+  &.behaviour-full {
+    display: block;
+    width: 100%;
+  }
+}
