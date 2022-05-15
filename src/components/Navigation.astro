@@ -346,8 +346,10 @@ import { DarkMode } from 'accessible-astro-components'
     svg path {
       fill: var(--secondary-500);
       transition: fill 0.2s ease-in-out;
+    }
 
-      &:hover {
+    &:hover {
+      svg path {
         fill: var(--primary-400);
       }
     }
@@ -360,8 +362,10 @@ import { DarkMode } from 'accessible-astro-components'
   .darkmode .darkmode-toggle {
     svg path {
       fill: var(--secondary-100);
+    }
 
-      &:hover {
+    &:hover {
+      svg path {
         fill: var(--primary-400);
       }
     }
