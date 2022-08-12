@@ -1,5 +1,5 @@
 <button class="responsive-toggle" aria-expanded="false" aria-label="Open menu navigation">
-  <svg viewBox="0 0 512 512" aria-hidden="true" fill="var(--action-color)"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path></svg>
+  <svg width="26" height="19" aria-hidden="true" fill="var(--action-color)" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.667h24m-24 8h24m-24 8h24" stroke="var(--action-color)" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
 <script>
@@ -10,13 +10,13 @@
   const openMenu = (toggle) => {
     toggle.setAttribute('aria-expanded', true)
     toggle.setAttribute('aria-label', 'Close menu navigation')
-    toggle.innerHTML = `<svg viewBox="0 0 512 512 aria-hidden="true"" fill="var(--action-color)"><path d="m289.94 256 95-95A24 24 0 0 0 351 127l-95 95-95-95a24 24 0 0 0-34 34l95 95-95 95a24 24 0 1 0 34 34l95-95 95 95a24 24 0 0 0 34-34z"></path></svg>`
+    toggle.innerHTML = `<svg width="20" height="20" aria-hidden="true" fill="var(--action-color)" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 2 2m8 8 8 8m-8-8 8-8m-8 8-8 8" stroke="var(--action-color)" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   }
 
   const closeMenu = (toggle) => {
     toggle.setAttribute('aria-expanded', false)
     toggle.setAttribute('aria-label', 'Open menu navigation')
-    toggle.innerHTML = `<svg viewBox="0 0 512 512 aria-hidden="true"" fill="var(--action-color)"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path></svg>`
+    toggle.innerHTML = `<svg width="26" height="19" aria-hidden="true" fill="var(--action-color)" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.667h24m-24 8h24m-24 8h24" stroke="var(--action-color)" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/></svg>`
   }
 
   // execution
