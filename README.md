@@ -37,7 +37,7 @@ npm install && npm start
 
 👉🏻 &nbsp;  _Note: Examples are included in the **index.astro** file_
 
-This starter contains some extra **Design System** like utility classes to aid in the global layout of your project. All of this can be found in the `public/scss/base` directory, and compiles in the `globals.scss` file. Using these primitives is totally optional, use or remove at your own preference :) What it contains:
+This starter contains some extra **Design System** like utility classes to aid in the global layout of your project. All of this can be found in the `src/assets/scss/base` directory, and compiles in the `src/assets/globals.scss` file. Using these primitives is totally optional, use or remove at your own preference :) What it contains:
 
 - Reset file to reset browser defaults and ensure everything looks good
 - Some basic font settings, such as responsive heading sizes
