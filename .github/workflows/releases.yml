@@ -1,5 +1,5 @@
 ---
-name: "pre-release"
+name: "prepare-release"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   pre-release:
-    name: "Pre Release"
+    name: "Prepare Release"
     runs-on: "ubuntu-latest"
 
     steps:
@@ -17,4 +17,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Pre release"
+          title: "Next Release"
