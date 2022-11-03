@@ -10,23 +10,4 @@
       --#{$color}-#{$shade}: #{$value};
     }
   }
-  --radius-small: 3px;
-  --radius-large: 6px;
-  --gap-default: 2rem;
-  --font-measure: 70ch;
-  --font-family-default: "Open Sans", sans-serif;
-  --font-family-special: "Open Sans", sans-serif;
-  --font-color: var(--neutral-900);
-  --action-color: var(--secondary-500);
-  --background: var(--neutral-100);
-  --primary-background: var(--primary-100);
-  --neutral-background: var(--neutral-200);
-}
-
-.darkmode {
-  --font-color: var(--neutral-100);
-  --action-color: var(--secondary-100);
-  --background: var(--neutral-800);
-  --primary-background: var(--primary-500);
-  --neutral-background: var(--neutral-900);
 }
