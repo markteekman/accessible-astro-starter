@@ -41,7 +41,7 @@ ul {
   padding: 0;
 }
 
-ul {
+ul:where([class]) {
   list-style: none;
 }
 
