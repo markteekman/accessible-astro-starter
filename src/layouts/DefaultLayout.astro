@@ -1,10 +1,15 @@
 ---
 import '../assets/scss/globals.scss'
+import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
-const {title} = Astro.props
-let subtitle = 'Accessible Astro Starter'
+const {
+  title = 'Astro',
+  description = 'A starter project with accessible features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  url,
+  image = '/social-preview-image.png',
+} = Astro.props
 ---
 
 <html lang="en" dir="ltr">
@@ -21,15 +26,16 @@ let subtitle = 'Accessible Astro Starter'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- open graph -->
-    <meta property="og:title" content="Accessible Astro Starter">
-    <meta property="og:description" content="A starter project with accessible features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://starter.accessible-astro.dev">
-    <meta property="og:image" content="/social-preview-image.png">
-
-    <!-- page title -->
-    <title>{title} - {subtitle}</title>
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      url={
+        Astro.site 
+          ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
+          : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`
+      }
+      image={image}
+    />
   </head>
   <body>
     <Header />
@@ -41,6 +47,31 @@ let subtitle = 'Accessible Astro Starter'
 </html>
 
 <style lang="scss">
+  // theme settings
+  :root {
+    --radius-small: 3px;
+    --radius-large: 6px;
+    --gap-default: 2rem;
+    --font-measure: 70ch;
+    --font-family-default: "Open Sans", sans-serif;
+    --font-family-special: "Open Sans", sans-serif;
+    // light theme
+    --font-color: var(--neutral-900);
+    --action-color: var(--secondary-500);
+    --background: var(--neutral-100);
+    --primary-background: var(--primary-100);
+    --neutral-background: var(--neutral-200);
+  }
+
+  // dark color scheme overrides
+  .darkmode {
+    --font-color: var(--neutral-100);
+    --action-color: var(--secondary-100);
+    --background: var(--neutral-800);
+    --primary-background: var(--primary-500);
+    --neutral-background: var(--neutral-900);
+  }
+
   // sticky footer on low content pages
   html,
   body {

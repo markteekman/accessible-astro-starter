@@ -5,39 +5,38 @@
 @use "breakpoint" as *;
 @use "space" as *;
 
-:where(main) ul:not([class]) {
-  padding: 0 0 0 $space-24;
-  list-style-type: none;
+ul:not([class]),
+ol:not([class]) {
+  margin-left: $space-16;
 
-  li {
-    position: relative;
-    margin-bottom: $space-8;
-
-    @include breakpoint(medium) {
-      margin-bottom: $space-12;
-    }
-
-    &::before {
-      position: relative;
-      z-index: 2;
-      float: left;
-      clear: both;
-      margin: 9px 10px 0 -19px;
-      width: 8px;
-      height: 8px;
-      border-radius: 60px;
-      background: var(--action-color);
-      content: "";
-    }
+  ul,
+  ol {
+    padding: $space-8 $space-16 0;
   }
 
-  ul {
-    padding: $space-16 0 0 $space-16;
+  li {
+    margin-bottom: $space-8;
   }
 }
 
-:where(main) ol:not([class]) {
+ul:not([class]) {
+  > li::marker {
+    display: block;
+    color: var(--primary-800);
+  }
+}
+
+ol.incremented {
   counter-reset: item;
+
+  ol{
+    counter-reset: item;
+  }
+
+  ol,
+  ul {
+    margin: $space-12 0 0 $space-16;
+  }
 
   li {
     display: block;
@@ -52,14 +51,13 @@
       counter-increment: item;
     }
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     p {
       display: inline;
     }
-  }
-
-  ol,
-  ul {
-    margin: $space-12 0 0 $space-16;
   }
 
   ul {
