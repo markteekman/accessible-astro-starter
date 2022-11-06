@@ -209,12 +209,15 @@ import { DarkMode } from 'accessible-astro-components'
     &.is-desktop {
       .desktop-menu { 
         visibility: visible;
-        z-index: 0;
         position: static;
       }
 
       .mobile-menu { 
         display: none; 
+      }
+
+      .darkmode-toggle {
+        margin-top: -6px;
       }
     }
 
