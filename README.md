@@ -2,6 +2,8 @@
 
 This starter project is build upon the (awesome) [Astro Static Site Builder](https://astro.build/). To help you build your project *faster*, this theme includes some dedicated accessible components (such as a keyboard accessible and responsive navigation) and several components coming from the [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) npm package. This theme also includes example pages, a blog with dynamic routes, a custom 404 page and many **Design System** utility classes, patterns and primatives (such as grids, buttons, lists, spacings, sizes and more).
 
+![accessible-astro-starter](https://user-images.githubusercontent.com/3909046/203257395-163f7002-65ff-4c55-a00c-256d708f6b2d.png)
+
 [Live demo](https://starter.accessible-astro.dev)
 
 ## Getting started
@@ -19,6 +21,8 @@ npm install && npm start
 - `Navigation.astro` component with keyboard accessible (dropdown) navigation (arrow keys, escape key)
 - `ResponsiveToggle.astro` component with an accessible responsive toggle button for the mobile navigation
 - `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme *
+- `Breadcrumbs.astro` component provides a way to navigate the blog posts *
+- `Pagination.astro` component provides another way to navigate the blog posts *
 - `Header.astro` component included in the `DefaultLayout.astro` layout
 - `Footer.astro` component included in the `DefaultLayout.astro` layout
 - `.sr-only` utility class for screen reader only text content (hides text visually)
@@ -28,7 +32,8 @@ npm install && npm start
 
 ## Extra features
 
-- `blog.astro` and `posts/[id].astro` demonstrate the use of dynamic routes and provide a basic blog
+- `SiteMeta.astro` SEO component for setting custom meta deta on different pages
+- `[...page].astro` and `[post].astro` demonstrate the use of dynamic routes and provide a basic blog with breadcrumbs and pagination
 - `404.astro` provides a custom 404 error page which you can adjust to your needs
 - [Accessible Astro Components](https://github.com/markteekman/accessible-astro-components) package comes preinstalled with extra components such as Accordions, Modals and Notifications
 - Nate Moore's awesome [Astro Icon](https://github.com/natemoo-re/astro-icon) package is also preinstalled which can be applied to different use cases
