@@ -34,13 +34,17 @@ import { DarkMode } from 'accessible-astro-components'
 
   // functions
   const setActiveMenuItem = () => {
-    const menuItems = [...mainMenu.querySelectorAll('a:not([rel*="external"])')]
+    const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
+    
+    mobileDesktopMenus.forEach(menu => {
+      const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')]
 
-    menuItems.forEach(menuItem => {
-      if (menuItem.pathname === window.location.pathname) {
-        menuItem.classList.add('is-active')
-        menuItem.setAttribute('aria-current', 'page')
-      }
+      menuItems.forEach(menuItem => {
+        if (menuItem.pathname === window.location.pathname) {
+          menuItem.classList.add('is-active')
+          menuItem.setAttribute('aria-current', 'page')
+        }
+      })
     })
   }
 
@@ -184,6 +188,7 @@ import { DarkMode } from 'accessible-astro-components'
 
   setActiveMenuItem()
   checkMenuSize()
+
   window.addEventListener('resize', checkMenuSize)
   window.addEventListener('click', event => {
     if (!event.target.hasAttribute('aria-haspopup') && !event.target.classList.contains('submenu-item')) {
