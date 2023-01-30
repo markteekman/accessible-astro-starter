@@ -5,7 +5,7 @@ import { DarkMode } from 'accessible-astro-components'
 
 <div id="main-navigation" class="is-desktop py-8">
   <div class="container">
-    <a href="/" class="flex items-center gap-2 no-underline hover:underline">
+    <a href="/" class="flex items-center gap-2">
       <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo" />
       <span class="font-bold">Accessible Astro</span>
     </a>
@@ -306,6 +306,15 @@ import { DarkMode } from 'accessible-astro-components'
         text-decoration: underline;
         @include size-16;
 
+        &:hover {
+          color: var(--action-color-state);
+          text-decoration: none;
+
+          &::after {
+            border-color: var(--action-color-state);
+          }
+        }
+
         &::after {
           content: '';
           width: 0.75rem;
@@ -313,6 +322,7 @@ import { DarkMode } from 'accessible-astro-components'
           margin-top: -0.25rem;
           border-style: solid;
           border-width: 0.2em 0.2em 0 0;
+          border-color: var(--action-color);
           transform: rotate(135deg);
         }
 
