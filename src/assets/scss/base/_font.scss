@@ -2,10 +2,10 @@
 // | Font
 // | -------------------------------------------------------------
 
-@use "breakpoint" as *;
-@use "outline" as *;
-@use "size" as *;
-@use "space" as *;
+@use 'breakpoint' as *;
+@use 'outline' as *;
+@use 'size' as *;
+@use 'space' as *;
 
 body {
   font-family: var(--font-family-default);
@@ -17,8 +17,9 @@ body {
   -webkit-font-smoothing: antialiased;
   @include size-16;
 
-  a {
+  a:not(.button) {
     color: var(--action-color);
+    text-decoration: underline;
 
     &:visited {
       color: var(--action-color);
@@ -26,8 +27,8 @@ body {
 
     &:hover,
     &:focus {
-      color: var(--neutral-100);
-      text-decoration: underline;
+      color: var(--action-color-state);
+      text-decoration: none;
     }
   }
 
