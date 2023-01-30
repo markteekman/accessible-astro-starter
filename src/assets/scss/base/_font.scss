@@ -8,11 +8,11 @@
 @use "space" as *;
 
 body {
-  color: var(--font-color);
-  background-color: var(--background);
   font-family: var(--font-family-default);
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   @include size-16;
@@ -26,8 +26,8 @@ body {
 
     &:hover,
     &:focus {
-      color: var(--action-color);
-      text-decoration: none;
+      color: var(--neutral-100);
+      text-decoration: underline;
     }
   }
 

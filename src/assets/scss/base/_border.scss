@@ -24,11 +24,3 @@ $border-large: 6px !default;
   border-style: $border-style;
   border-color: $color;
 }
-
-@mixin radius-small {
-  border-radius: var(--radius-small);
-}
-
-@mixin radius-large {
-  border-radius: var(--radius-large);
-}

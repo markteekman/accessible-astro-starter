@@ -4,14 +4,6 @@
 
 @use '../color' as *;
 
-.color-neutral {
-  background-color: var(--neutral-background);
-}
-
-.color-primary {
-  background-color: var(--primary-background);
-}
-
 @each $color, $shades in $colors {
   @each $shade, $value in $shades {
     .text-#{$color}-#{$shade} *:not(button) {

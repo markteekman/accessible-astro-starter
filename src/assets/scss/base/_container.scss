@@ -1,0 +1,24 @@
+// | -------------------------------------------------------------
+// | Container
+// | -------------------------------------------------------------
+
+@use "breakpoint" as *;
+
+.container {
+  margin: 0 auto;
+  padding: 0 calc(2rem / 2);
+  max-width: 100%;
+
+  @include breakpoint(medium) {
+    padding: 0 2rem;
+  }
+
+  @include breakpoint(large) {
+    padding: 0 calc(2rem / 2);
+    max-width: 1200px;
+  }
+
+  &.stretch {
+    max-width: 100%;
+  }
+}
