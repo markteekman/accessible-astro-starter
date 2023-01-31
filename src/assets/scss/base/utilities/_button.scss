@@ -127,6 +127,17 @@
       background-color: transparent;
     }
   }
+
+  &.has-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    [astro-icon] {
+      width: 30px;
+    }
+  }
 }
 
 .darkmode .button.type-secondary {

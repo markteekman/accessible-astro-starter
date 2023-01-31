@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon'
+const { img = '/astronaut-hero-img.png', alt = '' } = Astro.props
+---
+
+<section class="hero my-24" data-animation="fade-in">
+  <div class="container">
+    <div class="grid grid-cols-2 items-center gap-8">
+      <div class="flex flex-col gap-8">
+        <h1 class="text-8xl">
+          <slot><span class="text-gradient">Accessible</span> Starter for Astro</slot>
+        </h1>
+        <div class="flex gap-3">
+          <a class="button has-icon" href="https://github.com/markteekman/accessible-astro-starter">
+            <Icon pack="ion" name="star-outline" />
+            Star on GitHub
+          </a>
+          <a class="button has-icon color-secondary" href="https://www.accessible-astro.dev/">
+            <Icon pack="ion" name="bookmark-outline" />
+            Read the Docs
+          </a>
+        </div>
+      </div>
+      <img src={img} alt={alt} />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .hero .container > div > * {
+    transform: translateY(5rem);
+    animation: slide-in 0.5s ease-in-out forwards;
+  }
+
+  .text-gradient {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes slide-in {
+    to {
+      transform: translateY(0);
+    }
+  }
+</style>
