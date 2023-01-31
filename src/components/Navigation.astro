@@ -10,16 +10,16 @@ import { DarkMode } from 'accessible-astro-components'
       <span class="font-bold">Accessible Astro</span>
     </a>
     <div class="wrapper">
-      <nav class="desktop-menu">
-        <ul>
+      <nav class="desktop-menu" aria-label="Main navigation desktop">
+        <ul class="menu">
           <slot />
         </ul>
       </nav>
       <DarkMode />
       <ResponsiveToggle />
     </div>
-    <nav class="mobile-menu">
-      <ul>
+    <nav class="mobile-menu" aria-label="Main navigation mobile">
+      <ul class="menu">
         <slot />
       </ul>
     </nav>
@@ -41,7 +41,7 @@ import { DarkMode } from 'accessible-astro-components'
       const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')]
 
       menuItems.forEach((menuItem) => {
-        if (currenPathname.includes(menuItem.pathname) && menuItem.textContent !== 'Home') {
+        if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
           menuItem.classList.add('is-active')
           menuItem.setAttribute('aria-current', 'page')
         } else if (menuItem.textContent === 'Home' && currenPathname === '/') {
@@ -363,6 +363,7 @@ import { DarkMode } from 'accessible-astro-components'
 
     svg {
       width: 30px;
+      margin-top: 4px;
     }
 
     svg path {
@@ -378,6 +379,11 @@ import { DarkMode } from 'accessible-astro-components'
 
     &:focus {
       @include outline;
+
+      &:not(:focus-visible) {
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 </style>
