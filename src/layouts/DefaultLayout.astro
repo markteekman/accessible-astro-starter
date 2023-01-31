@@ -14,26 +14,24 @@ const {
 
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
 
     <SiteMeta
       title={title}
       description={description.substring(0, 100)}
-      url={
-        Astro.site 
-          ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
-          : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`
-      }
+      url={Astro.site
+        ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
+        : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}
       image={image}
     />
   </head>
@@ -43,53 +41,61 @@ const {
       <slot />
     </main>
     <Footer />
+    <style lang="scss" is:global>
+      // theme settings
+      :root {
+        --radius-small: 3px;
+        --radius-large: 6px;
+        --gap-default: 2rem;
+        --font-measure: 70ch;
+        --font-family-default: 'Open Sans', sans-serif;
+        --font-family-special: 'Open Sans', sans-serif;
+        // light theme
+        --font-color: var(--neutral-900);
+        --action-color: var(--primary-300);
+        --action-color-state: var(--primary-500);
+        --background: var(--neutral-100);
+        --primary-background: var(--primary-100);
+        --neutral-background: var(--neutral-200);
+      }
+
+      // dark color scheme overrides
+      .darkmode {
+        --font-color: var(--neutral-100);
+        --action-color: var(--secondary-100);
+        --action-color-state: var(--secondary-500);
+        --background: var(--dark-100);
+        --primary-background: var(--primary-500);
+        --neutral-background: var(--neutral-900);
+      }
+
+      // sticky footer on low content pages
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        color: var(--font-color);
+        background-color: var(--background);
+
+        main {
+          flex: 1 0 auto;
+        }
+
+        footer {
+          flex-shrink: 0;
+        }
+      }
+
+      pre {
+        padding: 1rem;
+        border-radius: 0.35rem;
+        border: 2px solid var(--action-color);
+      }
+    </style>
   </body>
 </html>
-
-<style lang="scss">
-  // theme settings
-  :root {
-    --radius-small: 3px;
-    --radius-large: 6px;
-    --gap-default: 2rem;
-    --font-measure: 70ch;
-    --font-family-default: "Open Sans", sans-serif;
-    --font-family-special: "Open Sans", sans-serif;
-    // light theme
-    --font-color: var(--neutral-900);
-    --action-color: var(--secondary-500);
-    --background: var(--neutral-100);
-    --primary-background: var(--primary-100);
-    --neutral-background: var(--neutral-200);
-  }
-
-  // dark color scheme overrides
-  .darkmode {
-    --font-color: var(--neutral-100);
-    --action-color: var(--secondary-100);
-    --background: var(--neutral-800);
-    --primary-background: var(--primary-500);
-    --neutral-background: var(--neutral-900);
-  }
-
-  // sticky footer on low content pages
-  html,
-  body {
-    height: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background);
-
-    main {
-      flex: 1 0 auto;
-    }
-
-    footer {
-      flex-shrink: 0;
-    }
-  }
-</style>
