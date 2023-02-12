@@ -1,8 +1,72 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
+import Feature from '../components/Feature.astro'
+import Counter from '../components/Counter.astro'
+import ContentMedia from '../components/ContentMedia.astro'
 ---
 
 <DefaultLayout title="Home">
   <Hero />
+  <section class="my-64">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Features</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Feature icon="mdi:tailwind" title="Tailwind CSS">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:looks" title="Prettier">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:eslint" title="ESLint">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:book-open-page-variant" title="Blog">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:theme-light-dark" title="Darkmode">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:cog" title="Design System">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, nemo?
+        </Feature>
+      </div>
+    </div>
+  </section>
+  <ContentMedia imgSrc="/accessible-components.png">
+    <h2>Accessible Components</h2>
+    <p class="text-2xl">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquam consectetur sunt reiciendis recusandae
+      iste similique voluptatibus saepe maiores! Repudiandae! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quasi, repellendus.
+    </p>
+  </ContentMedia>
+  <ContentMedia imgSrc="/wcag-compliant.png" reverseImg={true}>
+    <h2>WCAG 2.1 AA Compliant</h2>
+    <p class="text-2xl">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aliquam consectetur sunt reiciendis recusandae
+      iste similique voluptatibus saepe maiores! Repudiandae! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quasi, repellendus.
+    </p>
+  </ContentMedia>
+  <section class="mt-64 mb-32">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Counters</h2>
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+        <Counter count="130" title="Stars" sub="On GitHub" />
+        <Counter count="17" title="Accessible" sub="Components" />
+        <Counter count="500" title="Commits" sub="Merged" />
+        <Counter count="18+" title="Months" sub="Since launch" />
+      </div>
+    </div>
+  </section>
 </DefaultLayout>
