@@ -1,0 +1,32 @@
+---
+const { count, title, sub } = Astro.props
+---
+
+<div class="animate text-center">
+  <p class="text-6xl font-bold">{count}</p>
+  <p class="text-4xl font-semibold">{title}</p>
+  <p class="text-2xl">{sub}</p>
+</div>
+
+<style lang="scss">
+  div > p:first-child {
+    color: var(--action-color);
+  }
+
+  .animate {
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{$i * 0.1}s;
+        }
+      }
+    }
+  }
+</style>
