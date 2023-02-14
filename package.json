@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^0.15.2",
+    "@astrojs/partytown": "^1.0.3",
     "@astrojs/tailwind": "^3.0.0",
     "accessible-astro-components": "^1.6.4",
     "astro": "^2.0.1",
