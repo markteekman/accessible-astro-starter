@@ -1,5 +1,4 @@
 ---
-import { Media } from 'accessible-astro-components'
 import { Icon } from 'astro-icon'
 
 const { src = '/astronaut-hero-img.webp' } = Astro.props
@@ -23,7 +22,7 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
           </a>
         </div>
       </div>
-      <Media class="hidden lg:block" src={src} />
+      <img class="hidden lg:block" src={src} alt="" decoding="async" />
     </div>
   </div>
 </section>
