@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon'
 const { src = '/astronaut-hero-img.webp' } = Astro.props
 ---
 
-<section class="hero my-24" data-animation="fade-in">
+<section class="hero my-24">
   <div class="container">
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
@@ -28,21 +28,10 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
 </section>
 
 <style lang="scss">
-  .hero .container > div > * {
-    transform: translateY(5rem);
-    animation: slide-in 0.5s ease-in-out forwards;
-  }
-
   .text-gradient {
     background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
     background-clip: border-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  @keyframes slide-in {
-    to {
-      transform: translateY(0);
-    }
   }
 </style>
