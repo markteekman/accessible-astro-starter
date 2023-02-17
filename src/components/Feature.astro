@@ -14,7 +14,7 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
   </div>
 </div>
 
-<style lang="scss" is:global>
+<style lang="scss">
   @use '../assets/scss/base/breakpoint' as *;
 
   .feature {
@@ -38,17 +38,15 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
       inset: 1rem -1rem -1rem 1rem;
       border-radius: 1rem;
     }
-
-    [astro-icon] {
-      width: 4rem;
-      color: var(--action-color);
-    }
   }
 
-  .darkmode {
-    .feature {
-      background-color: var(--dark-100);
-      box-shadow: 0 0 0 6px var(--dark-100);
-    }
+  :global(.feature [astro-icon]) {
+    width: 4rem;
+    color: var(--action-color);
+  }
+
+  :global(.darkmode .feature) {
+    background-color: var(--dark-100);
+    box-shadow: 0 0 0 6px var(--dark-100);
   }
 </style>
