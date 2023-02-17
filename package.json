@@ -11,7 +11,6 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.15.0",
     "@astrojs/mdx": "^0.15.2",
     "@astrojs/partytown": "^1.0.3",
     "@astrojs/tailwind": "^3.0.0",
