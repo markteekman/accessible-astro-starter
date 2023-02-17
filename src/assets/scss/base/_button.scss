@@ -2,9 +2,6 @@
 // | Button
 // | -------------------------------------------------------------
 
-@use '../size' as *;
-@use '../space' as *;
-
 .button {
   display: inline-block;
   padding: 0.75rem 1rem;
@@ -95,23 +92,27 @@
   }
 
   &.size-tiny {
-    padding: $space-2 $space-4;
-    @include size-12;
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
   }
 
   &.size-small {
-    padding: $space-4 $space-8;
-    @include size-14;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
   }
 
   &.size-large {
-    padding: $space-12 $space-16;
-    @include size-18;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
   }
 
   &.size-huge {
-    padding: $space-16 $space-32;
-    @include size-20;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
   }
 
   &.behavior-full {

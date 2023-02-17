@@ -3,9 +3,6 @@
 // | -------------------------------------------------------------
 
 @use 'breakpoint' as *;
-@use 'outline' as *;
-@use 'size' as *;
-@use 'space' as *;
 
 @font-face {
   font-family: 'Open Sans';
@@ -48,10 +45,11 @@ body {
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-rendering: optimizeLegibility;
   font-synthesis: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  @include size-16;
 
   a:not(.button) {
     color: var(--action-color);
@@ -90,50 +88,62 @@ body {
   }
 
   h1 {
-    @include size-36;
+    font-size: 2.25rem;
+    line-height: 3.375rem;
 
     @include breakpoint(medium) {
-      @include size-48;
+      font-size: 3rem;
+      line-height: 3.625rem;
     }
   }
 
   h2 {
-    @include size-30;
+    font-size: 1.875rem;
+    line-height: 2.8125rem;
 
     @include breakpoint(medium) {
-      @include size-36;
+      font-size: 2.25rem;
+      line-height: 3.375rem;
     }
   }
 
   h3 {
-    @include size-24;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
 
     @include breakpoint(medium) {
-      @include size-30;
+      font-size: 1.875rem;
+      line-height: 2.8125rem;
     }
   }
 
   h4 {
-    @include size-20;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
 
     @include breakpoint(medium) {
-      @include size-24;
+      font-size: 1.5rem;
+      line-height: 2.25rem;
     }
   }
 
   h5 {
-    @include size-18;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
 
     @include breakpoint(medium) {
-      @include size-20;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      h6 {
+        font-size: 1rem;
+      }
     }
-  }
 
-  h6 {
-    @include size-16;
+    line-height: 1.5rem;
 
     @include breakpoint(medium) {
-      @include size-18;
+      font-size: 1.125rem;
+      line-height: 1.6875rem;
     }
   }
 }

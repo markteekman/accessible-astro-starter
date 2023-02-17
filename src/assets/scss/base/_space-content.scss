@@ -1,0 +1,57 @@
+// | -------------------------------------------------------------
+// | Space Content
+// | -------------------------------------------------------------
+
+@use 'breakpoint' as *;
+
+.space-content {
+  > * + *,
+  > dl > * + * {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  > h2 {
+    margin-top: 3rem;
+
+    @include breakpoint(large) {
+      margin-top: 4rem;
+    }
+  }
+
+  > h3 {
+    margin-top: 2rem;
+
+    @include breakpoint(large) {
+      margin-top: 3rem;
+    }
+  }
+
+  > h4 {
+    margin-top: 1.5rem;
+
+    @include breakpoint(large) {
+      margin-top: 2rem;
+    }
+  }
+
+  > h5 {
+    margin-top: 1rem;
+
+    @include breakpoint(large) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  > h6 {
+    margin-top: 1rem;
+
+    @include breakpoint(large) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
