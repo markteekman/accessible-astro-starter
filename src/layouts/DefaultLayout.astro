@@ -21,11 +21,6 @@ const {
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
-
     <SiteMeta
       title={title}
       description={description.substring(0, 100)}
@@ -97,21 +92,5 @@ const {
         border: 2px solid var(--action-color);
       }
     </style>
-    <script>
-      const elements = [...document.querySelectorAll('.animate')]
-      const callback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-          }
-        })
-      }
-      const observer = new IntersectionObserver(callback, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
-      })
-      elements.forEach((element) => observer.observe(element))
-    </script>
   </body>
 </html>
