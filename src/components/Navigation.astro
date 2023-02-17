@@ -204,9 +204,7 @@ import { DarkMode } from 'accessible-astro-components'
 
 <style lang="scss" is:global>
   @use '../assets/scss/base/breakpoint' as *;
-  @use '../assets/scss/base/elevation' as *;
   @use '../assets/scss/base/outline' as *;
-  @use '../assets/scss/base/size' as *;
 
   #main-navigation {
     > .container {
@@ -268,7 +266,8 @@ import { DarkMode } from 'accessible-astro-components'
         a,
         button {
           text-decoration: none;
-          @include size-18;
+          font-size: 1.125rem;
+          line-height: 1.6875rem;
         }
 
         a:hover,
@@ -366,7 +365,7 @@ import { DarkMode } from 'accessible-astro-components'
         padding: 1rem;
         background-color: var(--neutral-background);
         border: 2px solid black;
-        @include elevation-300;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       }
     }
   }
