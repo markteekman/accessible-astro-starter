@@ -22,9 +22,7 @@ const { page } = Astro.props
       <p class="text-2xl">
         An example of a blog with dynamic content fetched from <a href="https://jsonplaceholder.typicode.com/posts"
           >JSONPlaceholder</a
-        > using the title, body and userId. The <a href="https://components.accessible-astro.dev/card"
-          >Accessible Astro Card Component</a
-        > is used here to display al the posts.
+        > using the title, body and userId. The Accessible Astro Card Component is used here to display al the posts.
       </p>
     </div>
   </section>
@@ -46,7 +44,7 @@ const { page } = Astro.props
           ))
         }
       </ul>
-      <div class="align-center mt-12">
+      <div class="mt-12 grid place-content-center">
         <Pagination
           firstPage={page.url.prev ? '/blog' : null}
           previousPage={page.url.prev ? page.url.prev : null}
