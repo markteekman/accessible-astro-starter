@@ -1,6 +1,6 @@
 # Accessible Astro Starter
 
-![accessible-astro-starter](https://user-images.githubusercontent.com/3909046/203257395-163f7002-65ff-4c55-a00c-256d708f6b2d.png)
+![social-preview-image](https://user-images.githubusercontent.com/3909046/219942674-9894853e-def8-4180-84b8-6b577dacfcaa.png)
 
 Accessible Astro Starter is a ready to use, SEO and a11y friendly blogging theme. It contains plenty of accessible components to build several page types, Tailwind CSS to help you build faster and example pages such as a dynamic Blog, 404, Markdown and MDX. This theme is designed to help you build your project faster and provide a solid base for accessibility!
 
