@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro'
 
 const {
   title = 'Astro',
-  description = 'A starter project with accessible features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
   url,
   image = '/social-preview-image.png',
+  author = 'Mark Teekman',
 } = Astro.props
 ---
 
@@ -28,6 +29,7 @@ const {
         ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
         : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}
       image={image}
+      author={author}
     />
   </head>
   <body>
@@ -90,6 +92,17 @@ const {
         padding: 1rem;
         border-radius: 0.35rem;
         border: 2px solid var(--action-color);
+      }
+
+      body .pagination a {
+        &:hover,
+        &:focus-visible {
+          background-color: var(--action-color-state);
+
+          svg path {
+            stroke: white;
+          }
+        }
       }
     </style>
   </body>
