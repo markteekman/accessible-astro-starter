@@ -1,0 +1,150 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon'
+import {
+  Accordion,
+  AccordionItem,
+  Breadcrumbs,
+  BreadcrumbsItem,
+  Card,
+  Media,
+  Modal,
+  Notification,
+  Pagination,
+} from 'accessible-astro-components'
+---
+
+<DefaultLayout title="Accessible Components">
+  <section class="my-12">
+    <div class="space-content container">
+      <h1>Accessible Components</h1>
+      <p class="text-2xl">
+        This theme has a lot of extra a11y components provided by the <a
+          href="https://github.com/markteekman/accessible-astro-components#Pagination">Accessible Astro Component</a
+        > NPM package to help you build accessible pages faster:
+      </p>
+    </div>
+  </section>
+  <section class="mb-12 mt-32">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
+        <div class="space-content">
+          <h2>Accordion</h2>
+          <Accordion>
+            <AccordionItem header="First Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+              <a href="#">Tab to me!</a>
+            </AccordionItem>
+            <AccordionItem header="Second Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem header="Third Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem header="Fourth Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem header="Fifth Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+          </Accordion>
+        </div>
+        <div class="space-content">
+          <h2>Breadcrumbs</h2>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home" />
+            <BreadcrumbsItem href="/blog" label="Blog" />
+            <BreadcrumbsItem currentPage={true} label="My blog post" />
+          </Breadcrumbs>
+        </div>
+        <div class="space-content">
+          <h2>Cards</h2>
+          <Card
+            img="https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+          />
+        </div>
+        <div class="space-content">
+          <h2>DarkMode Toggle</h2>
+          <p>This component can be viewed in the top right corner besides the main navigation.</p>
+        </div>
+        <div class="space-content">
+          <h2>Media</h2>
+          <Media
+            class="rounded-lg"
+            src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+          />
+        </div>
+        <div class="space-content">
+          <h2>Modals</h2>
+          <button id="modal1-trigger" class="button">Modal 1</button>&nbsp;
+          <button id="modal2-trigger" class="button color-secondary">Modal 2</button>
+          <Modal triggerId="modal1-trigger" title="Modal 1">
+            <p>Why hello, I be the <strong>first</strong> Modal.</p>
+          </Modal>
+          <Modal triggerId="modal2-trigger" title="Modal 2" closeText="Cancel">
+            <p>
+              Ah yes, and I be the <strong>second</strong> Modal. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Sed, a! Ratione eaque temporibus alias tempora pariatur dolorem.
+            </p>
+            <button class="button" onclick="closeModal()">Confirm action</button>
+          </Modal>
+        </div>
+        <div class="space-content">
+          <h2>Notification</h2>
+          <Notification>
+            <Icon pack="ion" name="notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
+          </Notification>
+          <Notification type="info">
+            <Icon pack="ion" name="information-circle-outline" /><p>
+              <strong>Info:</strong> This is a notification of type info.
+            </p>
+          </Notification>
+          <Notification type="success">
+            <Icon pack="ion" name="checkbox-outline" /><p>
+              <strong>Success:</strong> This is a notification of type success.
+            </p>
+          </Notification>
+          <Notification type="warning">
+            <Icon pack="ion" name="warning-outline" /><p>
+              <strong>Warning:</strong> This is a notification of type warning and goes on multiple lines to see how that
+              looks.
+            </p>
+          </Notification>
+          <Notification type="error">
+            <Icon pack="ion" name="alert-circle-outline" /><p>
+              <strong>Error:</strong> This is a notification of type error.
+            </p>
+          </Notification>
+        </div>
+        <div class="space-content">
+          <h2>Pagination</h2>
+          <Pagination totalPages="200" />
+        </div>
+        <div class="space-content">
+          <h2>SkipLinks</h2>
+          <p>This component can be viewed by shift+tabbing untill they show up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

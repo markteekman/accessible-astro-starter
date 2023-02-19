@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon'
+
+const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
+---
+
+<div class="feature flex flex-col gap-4">
+  <Icon name={icon} />
+  <div class="content">
+    <h3>{title}</h3>
+    <p>
+      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
+    </p>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../assets/scss/base/breakpoint' as *;
+
+  .feature {
+    position: relative;
+    padding: 2rem;
+    width: calc(100% - 0.5rem);
+    background-color: var(--neutral-100);
+    border: 3px solid var(--neutral-700);
+    border-radius: 1rem;
+    box-shadow: 0 0 0 6px var(--neutral-100);
+
+    @include breakpoint(large) {
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background-color: var(--action-color);
+      inset: 1rem -1rem -1rem 1rem;
+      border-radius: 1rem;
+    }
+  }
+
+  :global(.feature [astro-icon]) {
+    width: 4rem;
+    color: var(--action-color);
+  }
+
+  :global(.darkmode .feature) {
+    background-color: var(--dark-100);
+    box-shadow: 0 0 0 6px var(--dark-100);
+  }
+</style>

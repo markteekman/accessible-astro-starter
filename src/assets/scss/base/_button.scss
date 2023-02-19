@@ -2,9 +2,6 @@
 // | Button
 // | -------------------------------------------------------------
 
-@use '../size' as *;
-@use '../space' as *;
-
 .button {
   display: inline-block;
   padding: 0.75rem 1rem;
@@ -12,17 +9,16 @@
   text-decoration: none;
   text-align: center;
   color: var(--neutral-900);
-  background-color: var(--primary-300);
-  border: 2px solid var(--primary-300);
+  background-color: var(--primary-100);
+  border: 3px solid var(--primary-100);
   border-radius: 3px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
   &:hover,
   &:focus {
     text-decoration: underline;
-    color: var(--neutral-900);
     background-color: var(--primary-200);
-    border: 2px solid var(--primary-200);
+    border-color: var(--primary-200);
   }
 
   &:visited {
@@ -30,13 +26,13 @@
   }
 
   &.color-secondary {
-    background-color: var(--secondary-200);
-    border-color: (var(--secondary-200));
+    background-color: var(--secondary-100);
+    border-color: (var(--secondary-100));
 
     &:hover,
     &:focus {
-      border-color: var(--secondary-100);
-      background-color: var(--secondary-100);
+      background-color: var(--secondary-400);
+      border-color: var(--secondary-400);
     }
   }
 
@@ -46,8 +42,8 @@
 
     &:hover,
     &:focus {
-      border-color: var(--neutral-400);
       background-color: var(--neutral-400);
+      border-color: var(--neutral-400);
     }
   }
 
@@ -57,8 +53,8 @@
 
     &:hover,
     &:focus {
-      border-color: var(--info-200);
       background-color: var(--info-200);
+      border-color: var(--info-200);
     }
   }
 
@@ -68,8 +64,8 @@
 
     &:hover,
     &:focus {
-      border-color: var(--success-300);
       background-color: var(--success-300);
+      border-color: var(--success-300);
     }
   }
 
@@ -79,8 +75,8 @@
 
     &:hover,
     &:focus {
-      border-color: var(--warning-300);
       background-color: var(--warning-300);
+      border-color: var(--warning-300);
     }
   }
 
@@ -90,33 +86,60 @@
 
     &:hover,
     &:focus {
-      border-color: var(--error-200);
       background-color: var(--error-200);
+      border-color: var(--error-200);
     }
   }
 
   &.size-tiny {
-    padding: $space-2 $space-4;
-    @include size-12;
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
   }
 
   &.size-small {
-    padding: $space-4 $space-8;
-    @include size-14;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
   }
 
   &.size-large {
-    padding: $space-12 $space-16;
-    @include size-18;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
   }
 
   &.size-huge {
-    padding: $space-16 $space-32;
-    @include size-20;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
   }
 
   &.behavior-full {
     display: block;
     width: 100%;
   }
+
+  &.type-secondary {
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  &.has-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    [astro-icon] {
+      width: 30px;
+    }
+  }
+}
+
+.darkmode .button.type-secondary {
+  color: var(--neutral-100);
 }

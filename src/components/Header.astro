@@ -1,6 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro'
 import { SkipLinks } from 'accessible-astro-components'
+import { Icon } from 'astro-icon'
 ---
 
 <header>
@@ -13,45 +14,52 @@ import { SkipLinks } from 'accessible-astro-components'
       <a href="/blog/">Blog</a>
     </li>
     <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Dropdown</button>
-      <ul>
+      <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
+      <ul class="dropdown-menu">
         <li class="submenu-item">
-          <a href="/dropdown/subpage1/">Sub menu item 1</a>
+          <a href="/mdx-page/">MDX Page</a>
         </li>
         <li class="submenu-item">
-          <a href="/dropdown/subpage2/">Sub menu item 2</a>
+          <a href="/markdown-page/">Markdown Page</a>
         </li>
         <li class="submenu-item">
-          <a href="/dropdown/subpage3/">Sub menu item 3</a>
+          <a href="/accessible-components">Accessible Components</a>
         </li>
       </ul>
     </li>
     <li class="menu-item">
-      <a href="/example-page/">Example Page</a>
+      <a href="https://accessible-astro.dev" title="external link" rel="external noopener noreferrer">External Link</a>
     </li>
-    <li class="menu-item">
-      <a href="https://github.com/markteekman/accessible-astro-starter" title="external link" rel="external noopener noreferrer">External Link</a>
+    <li class="menu-item type-icon">
+      <a href="https://github.com/markteekman/accessible-astro-starter" title="Go to the GitHub page">
+        <Icon pack="ion" name="logo-github" />
+      </a>
     </li>
   </Navigation>
 </header>
 
-<style lang="scss">
-  @use '../assets/scss/base/breakpoint' as *;
+<style lang="scss" is:global>
+  @use '../assets/scss/base/outline' as *;
 
-  .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+  header {
+    .type-icon a {
+      display: block;
 
-    @include breakpoint(medium) {
-      flex-wrap: nowrap;
-    }
+      [astro-icon] {
+        margin-top: -4px;
+        width: 30px;
 
-    img {
-      max-height: 40px;
+        path {
+          fill: var(--action-color);
+          transition: fill 0.2s ease-in-out;
+        }
+      }
+
+      &:hover {
+        [astro-icon] path {
+          fill: var(--action-color-state);
+        }
+      }
     }
   }
 </style>

@@ -3,25 +3,26 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
 ---
 
-<div id="main-navigation" class="is-desktop padding-16 color-neutral">
+<div id="main-navigation" class="is-desktop py-8">
   <div class="container">
-    <a href="/">
-      <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo">
+    <a href="/" class="flex items-center gap-2 !no-underline">
+      <img src={(await import('../assets/img/logo.svg')).default} alt="Your Logo" width="47" height="37" />
+      <span class="font-bold">Accessible Astro</span>
     </a>
     <div class="wrapper">
-      <nav class="desktop-menu">
-        <ul>
+      <nav class="desktop-menu" aria-label="Main navigation desktop">
+        <ul class="menu">
           <slot />
         </ul>
       </nav>
       <DarkMode />
       <ResponsiveToggle />
     </div>
-    <nav class="mobile-menu">
-      <ul>
+    <nav class="mobile-menu" aria-label="Main navigation mobile">
+      <ul class="menu">
         <slot />
       </ul>
-      </nav>
+    </nav>
   </div>
 </div>
 
@@ -31,16 +32,19 @@ import { DarkMode } from 'accessible-astro-components'
   const mainMenu = mainNav.querySelector('ul')
   const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
-
   // functions
   const setActiveMenuItem = () => {
     const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
-    
-    mobileDesktopMenus.forEach(menu => {
+    const currenPathname = window.location.pathname
+
+    mobileDesktopMenus.forEach((menu) => {
       const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')]
 
-      menuItems.forEach(menuItem => {
-        if (menuItem.pathname === window.location.pathname) {
+      menuItems.forEach((menuItem) => {
+        if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
+          menuItem.classList.add('is-active')
+          menuItem.setAttribute('aria-current', 'page')
+        } else if (menuItem.textContent === 'Home' && currenPathname === '/') {
           menuItem.classList.add('is-active')
           menuItem.setAttribute('aria-current', 'page')
         }
@@ -63,12 +67,12 @@ import { DarkMode } from 'accessible-astro-components'
     }
   }
 
-  const isOutOfViewport = element => {
+  const isOutOfViewport = (element) => {
     const elementBounds = element.getBoundingClientRect()
     return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
   }
 
-  const openDropdownMenu = dropdownMenu => {
+  const openDropdownMenu = (dropdownMenu) => {
     const dropdownList = dropdownMenu.parentNode.querySelector('ul')
 
     dropdownMenu.classList.add('show')
@@ -79,7 +83,7 @@ import { DarkMode } from 'accessible-astro-components'
     }
   }
 
-  const closeDropdownMenu = dropdownMenu => {
+  const closeDropdownMenu = (dropdownMenu) => {
     dropdownMenu.classList.remove('show')
     dropdownMenu.setAttribute('aria-expanded', 'false')
   }
@@ -90,7 +94,7 @@ import { DarkMode } from 'accessible-astro-components'
     }
   }
 
-  const toggleDropdownMenu = event => {
+  const toggleDropdownMenu = (event) => {
     if (event.target.getAttribute('aria-expanded') === 'false') {
       closeAllDropdownMenus()
       openDropdownMenu(event.target)
@@ -100,97 +104,98 @@ import { DarkMode } from 'accessible-astro-components'
   }
 
   // execution
-  mainMenu && mainMenu.addEventListener('keydown', event => {
-    const currentMenuItem = event.target.closest('li')
-    const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-    const currentDropdownMenu = event.target.closest('.has-dropdown button')
-    const currentDropdownMenuItem = event.target.closest('.has-dropdown li')
-    const currentIndex = menuItems.findIndex(item => item === currentMenuItem)
+  mainMenu &&
+    mainMenu.addEventListener('keydown', (event) => {
+      const currentMenuItem = event.target.closest('li')
+      const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
+      const currentDropdownMenu = event.target.closest('.has-dropdown button')
+      const currentDropdownMenuItem = event.target.closest('.has-dropdown li')
+      const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
-    const key = event.key
-    let targetItem
+      const key = event.key
+      let targetItem
 
-    if (key === 'ArrowRight') {
-      if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
+      if (key === 'ArrowRight') {
+        if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
+          targetItem = menuItems[0]
+        } else {
+          targetItem = menuItems[currentIndex + 1]
+        }
+      }
+
+      if (key === 'ArrowLeft') {
+        if (menuItems.indexOf(currentMenuItem) === 0) {
+          targetItem = menuItems[menuItems.length - 1]
+        } else {
+          targetItem = menuItems[currentIndex - 1]
+        }
+      }
+
+      if (key === 'Escape') {
         targetItem = menuItems[0]
-      } else {
-        targetItem = menuItems[currentIndex + 1]
-      }
-    }
-
-    if (key === 'ArrowLeft') {
-      if (menuItems.indexOf(currentMenuItem) === 0) {
-        targetItem = menuItems[menuItems.length - 1]
-      } else {
-        targetItem = menuItems[currentIndex - 1]
-      }
-    }
-
-    if (key === 'Escape') {
-      targetItem = menuItems[0]
-    }
-
-    if (currentDropdownMenu) {
-      const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
-
-      if (key === 'ArrowDown') {
-        event.preventDefault()
-        openDropdownMenu(currentDropdownMenu)
-        targetItem = firstDropdownItem
       }
 
-      if (key === 'Escape') {
-        closeDropdownMenu(currentDropdownMenu)
-      }
-    }
+      if (currentDropdownMenu) {
+        const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
 
-    if (currentDropdownMenuItem) {
-      const currentDropdownList = currentDropdownMenuItem.parentNode
-      const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
-      const currentIndex = dropdownMenuItems.findIndex(item => item === currentDropdownMenuItem)
+        if (key === 'ArrowDown') {
+          event.preventDefault()
+          openDropdownMenu(currentDropdownMenu)
+          targetItem = firstDropdownItem
+        }
 
-      if (key === 'ArrowDown') {
-        event.preventDefault()
-
-        if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === dropdownMenuItems.length - 1) {
-          targetItem = dropdownMenuItems[0]
-        } else {
-          targetItem = dropdownMenuItems[currentIndex + 1]
+        if (key === 'Escape') {
+          closeDropdownMenu(currentDropdownMenu)
         }
       }
 
-      if (key === 'ArrowUp') {
-        event.preventDefault()
+      if (currentDropdownMenuItem) {
+        const currentDropdownList = currentDropdownMenuItem.parentNode
+        const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
+        const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
 
-        if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === 0) {
-          targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
-        } else {
-          targetItem = dropdownMenuItems[currentIndex - 1]
+        if (key === 'ArrowDown') {
+          event.preventDefault()
+
+          if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === dropdownMenuItems.length - 1) {
+            targetItem = dropdownMenuItems[0]
+          } else {
+            targetItem = dropdownMenuItems[currentIndex + 1]
+          }
+        }
+
+        if (key === 'ArrowUp') {
+          event.preventDefault()
+
+          if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === 0) {
+            targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
+          } else {
+            targetItem = dropdownMenuItems[currentIndex - 1]
+          }
+        }
+
+        if (key === 'Escape') {
+          const currentDropdownMenu = currentDropdownList.previousElementSibling
+          targetItem = currentDropdownMenu.parentNode
+          closeAllDropdownMenus()
         }
       }
 
-      if (key === 'Escape') {
-        const currentDropdownMenu = currentDropdownList.previousElementSibling
-        targetItem = currentDropdownMenu.parentNode
-        closeAllDropdownMenus()
+      if (targetItem) {
+        targetItem.querySelector('a, button, input').focus()
       }
-    }
+    })
 
-    if (targetItem) {
-      targetItem.querySelector('a, button, input').focus()
-    }
-  })
-
-
-  dropdownMenus && dropdownMenus.forEach(dropdownMenu => {
-    dropdownMenu.addEventListener('click', toggleDropdownMenu)
-  })
+  dropdownMenus &&
+    dropdownMenus.forEach((dropdownMenu) => {
+      dropdownMenu.addEventListener('click', toggleDropdownMenu)
+    })
 
   setActiveMenuItem()
   checkMenuSize()
 
   window.addEventListener('resize', checkMenuSize)
-  window.addEventListener('click', event => {
+  window.addEventListener('click', (event) => {
     if (!event.target.hasAttribute('aria-haspopup') && !event.target.classList.contains('submenu-item')) {
       closeAllDropdownMenus()
     }
@@ -198,11 +203,8 @@ import { DarkMode } from 'accessible-astro-components'
 </script>
 
 <style lang="scss" is:global>
-  @use '../assets/scss/base/border' as *;
   @use '../assets/scss/base/breakpoint' as *;
-  @use '../assets/scss/base/elevation' as *;
   @use '../assets/scss/base/outline' as *;
-  @use '../assets/scss/base/size' as *;
 
   #main-navigation {
     > .container {
@@ -212,13 +214,13 @@ import { DarkMode } from 'accessible-astro-components'
     }
 
     &.is-desktop {
-      .desktop-menu { 
+      .desktop-menu {
         visibility: visible;
         position: static;
       }
 
-      .mobile-menu { 
-        display: none; 
+      .mobile-menu {
+        display: none;
       }
 
       .darkmode-toggle {
@@ -229,15 +231,15 @@ import { DarkMode } from 'accessible-astro-components'
     &.is-mobile {
       flex-direction: column;
 
-      .mobile-menu { 
-        display: none; 
+      .mobile-menu {
+        display: none;
 
         &.show {
           display: block;
         }
       }
 
-      .desktop-menu { 
+      .desktop-menu {
         visibility: hidden;
         z-index: -99;
         position: absolute;
@@ -260,6 +262,25 @@ import { DarkMode } from 'accessible-astro-components'
         display: flex;
         gap: 1.5rem;
         list-style-type: none;
+
+        a,
+        button {
+          text-decoration: none;
+          font-size: 1.125rem;
+          line-height: 1.6875rem;
+          transition: color 0.15s ease-in-out;
+        }
+
+        a:hover,
+        a:focus,
+        .is-active,
+        .has-dropdown > button:hover,
+        .has-dropdown > button:focus {
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-decoration-style: wavy;
+          text-underline-offset: 7px;
+        }
 
         .is-active {
           font-weight: bold;
@@ -299,16 +320,23 @@ import { DarkMode } from 'accessible-astro-components'
         margin-top: -1px;
         border: none;
         color: var(--action-color);
-        text-decoration: underline;
-        @include size-16;
+
+        &:hover {
+          color: var(--action-color-state);
+
+          &::after {
+            border-color: var(--action-color-state);
+          }
+        }
 
         &::after {
           content: '';
-          width: 0.75rem;
+          width: 0.85rem;
           height: 0.75em;
           margin-top: -0.25rem;
           border-style: solid;
           border-width: 0.2em 0.2em 0 0;
+          border-color: var(--action-color);
           transform: rotate(135deg);
         }
 
@@ -330,7 +358,7 @@ import { DarkMode } from 'accessible-astro-components'
         display: none;
         position: absolute;
         z-index: 100;
-        min-width: 200px;
+        min-width: 260px;
         top: 125%;
         right: 0;
         bottom: auto;
@@ -338,8 +366,7 @@ import { DarkMode } from 'accessible-astro-components'
         padding: 1rem;
         background-color: var(--neutral-background);
         border: 2px solid black;
-        @include elevation-300;
-        @include radius-small;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -350,32 +377,26 @@ import { DarkMode } from 'accessible-astro-components'
 
     svg {
       width: 30px;
+      margin-top: 4px;
     }
 
     svg path {
-      fill: var(--secondary-500);
+      fill: var(--action-color);
       transition: fill 0.2s ease-in-out;
     }
 
     &:hover {
       svg path {
-        fill: var(--primary-400);
+        fill: var(--action-color-state);
       }
     }
 
     &:focus {
       @include outline;
-    }
-  }
 
-  .darkmode .darkmode-toggle {
-    svg path {
-      fill: var(--secondary-100);
-    }
-
-    &:hover {
-      svg path {
-        fill: var(--primary-400);
+      &:not(:focus-visible) {
+        outline: none;
+        box-shadow: none;
       }
     }
   }

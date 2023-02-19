@@ -2,20 +2,19 @@
 // | Lists
 // | -------------------------------------------------------------
 
-@use "breakpoint" as *;
-@use "space" as *;
+@use 'breakpoint' as *;
 
 ul:not([class]),
 ol:not([class]) {
-  margin-left: $space-16;
+  margin-left: 1rem;
 
   ul,
   ol {
-    padding: $space-8 $space-16 0;
+    padding: 0.5rem 1rem 0;
   }
 
   li {
-    margin-bottom: $space-8;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -29,25 +28,25 @@ ul:not([class]) {
 ol.incremented {
   counter-reset: item;
 
-  ol{
+  ol {
     counter-reset: item;
   }
 
   ol,
   ul {
-    margin: $space-12 0 0 $space-16;
+    margin: 0.75rem 0 0 1rem;
   }
 
   li {
     display: block;
-    margin-bottom: $space-8;
+    margin-bottom: 0.5rem;
 
     @include breakpoint(medium) {
-      margin-bottom: $space-12;
+      margin-bottom: 0.75rem;
     }
 
     &::before {
-      content: counters(item, ".") ". ";
+      content: counters(item, '.') '. ';
       counter-increment: item;
     }
 
@@ -62,7 +61,7 @@ ol.incremented {
 
   ul {
     li::before {
-      content: "";
+      content: '';
     }
   }
 }

@@ -1,56 +1,72 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
+import Feature from '../components/Feature.astro'
+import Counter from '../components/Counter.astro'
+import ContentMedia from '../components/ContentMedia.astro'
 ---
 
 <DefaultLayout title="Home">
-  <section class="margin-48">
+  <Hero />
+  <section class="my-64">
     <div class="container">
-      <h1>Accessible Astro <em>Starter</em></h1><br>
+      <h2 class="mb-16 text-6xl">Features</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Feature icon="mdi:tailwind" title="Tailwind CSS">
+          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
+        </Feature>
+        <Feature icon="mdi:wheelchair-accessibility" title="a11y Components">
+          17 components and counting, all tried and tested for the most optimal accessible experience for your visitors.
+        </Feature>
+        <Feature icon="mdi:looks" title="Prettier">
+          Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
+        </Feature>
+        <Feature icon="mdi:eslint" title="ESLint">
+          Lint your code with strict a11y settings to ensure you stay on track with the WCAG standards.
+        </Feature>
+        <Feature icon="mdi:book-open-page-variant" title="Blog">
+          This theme comes with a fully integrated blog, dynamic pages and SEO optimization.
+        </Feature>
+        <Feature icon="mdi:language-markdown" title="Markdown & MDX">
+          Easily use .md and .mdx pages to build your websites or use it with Netlify CMS.
+        </Feature>
+        <Feature icon="mdi:theme-light-dark" title="Dark mode">
+          Fully integrated Dark mode gives your users the choice for their favorite viewing mode.
+        </Feature>
+        <Feature icon="mdi:cog" title="Design System">
+          The theme offers some very handy utilities to help you build your website faster.
+        </Feature>
+        <Feature icon="mdi:lighthouse" title="Lighthouse Scores">
+          Excellent lighthouse scores means your website will load faster and get better SEO rankings.
+        </Feature>
+      </div>
     </div>
   </section>
-  <section class="padding-48 color-primary">
+  <ContentMedia imgSrc="/accessible-components.webp">
+    <h2>Accessible Components</h2>
+    <p class="text-2xl">
+      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
+      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
+        >separate package</a
+      >. They'll get you up and running in building an accessible solution for your visitors.
+    </p>
+  </ContentMedia>
+  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
+    <h2>WCAG 2.1 AA Compliant</h2>
+    <p class="text-2xl">
+      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
+      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
+      reaching WCAG AA compliance.
+    </p>
+  </ContentMedia>
+  <section class="mt-64 mb-32">
     <div class="container">
-      <h2 class="margin-16 bottom">Auto Grid</h2>
-    </div>
-    <div class="container" data-auto-grid="3">
-      <div class="text-neutral-100 bg-neutral-900 space-32 radius-large elevation-500" data-animation="fade-in">
-        <h3>Column 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem. </p>
-      </div>
-      <div class="text-neutral-100 bg-neutral-900 space-32 radius-large elevation-500" data-animation="fade-in" data-animation-delay="0.25s">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem.</p>
-      </div>
-      <div class="text-neutral-100 bg-neutral-900 space-32 radius-large elevation-500" data-animation="fade-in" data-animation-delay="0.5s">
-        <h3>Column 3</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem accusantium placeat eius officiis veniam totam. Earum eos et voluptate dolorem.</p>
-      </div>
-    </div>
-    <div class="container margin-16 top">
-      <a href="#" class="button">Tab to me first!</a>&nbsp;
-      <a href="#" class="button color-secondary">Then it's my turn</a>
-    </div>
-  </section>
-  <section class="margin-64">
-    <div class="container">
-      <div class="grid">
-        <div class="small-12">
-          <h2>12 Column Grid</h2>
-        </div>
-        <div class="small-12 medium-3 space-content">
-          <h3>Sidebar</h3>
-          <ul>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-          </ul>
-        </div>
-        <div class="small-12 medium-8 offset-medium-4 space-content">
-          <h3>Main</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis. <strong><a href="#">And lastly tab to me</a></strong>.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi mollitia alias sunt accusamus reiciendis fuga delectus, repellendus molestiae dolore illo iusto eligendi eaque qui hic facilis assumenda! Velit, minus, nobis.</p>
-        </div>
+      <h2 class="mb-16 text-6xl">Counters</h2>
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+        <Counter count="130" title="Stars" sub="On GitHub" />
+        <Counter count="17" title="Accessible" sub="Components" />
+        <Counter count="500" title="Commits" sub="Merged" />
+        <Counter count="18+" title="Months" sub="Since launch" />
       </div>
     </div>
   </section>
