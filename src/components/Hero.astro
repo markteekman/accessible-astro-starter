@@ -16,7 +16,10 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
             <Icon pack="ion" name="star-outline" />
             Star on GitHub
           </a>
-          <a class="button has-icon color-secondary" href="https://www.accessible-astro.dev/">
+          <a
+            class="button has-icon color-secondary"
+            href="https://github.com/markteekman/accessible-astro-starter/blob/main/README.md"
+          >
             <Icon pack="ion" name="bookmark-outline" />
             Read the Docs
           </a>
@@ -29,6 +32,13 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
 
 <style lang="scss">
   .text-gradient {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-500));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  :global(.darkmode .text-gradient) {
     background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
     background-clip: border-box;
     -webkit-background-clip: text;
