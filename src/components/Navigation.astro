@@ -38,7 +38,7 @@ import { DarkMode } from 'accessible-astro-components'
     const currenPathname = window.location.pathname
 
     mobileDesktopMenus.forEach((menu) => {
-      const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')]
+      const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
 
       menuItems.forEach((menuItem) => {
         if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
@@ -56,7 +56,7 @@ import { DarkMode } from 'accessible-astro-components'
     const mainNavWidth = mainNav.getBoundingClientRect().width
     const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
     const logoWidthBuffer = 300
-    const totalMenuWidth = parseInt(desktopMenuWidth) + logoWidthBuffer
+    const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
 
     if (totalMenuWidth >= mainNavWidth) {
       mainNav.classList.remove('is-desktop')
@@ -106,10 +106,11 @@ import { DarkMode } from 'accessible-astro-components'
   // execution
   mainMenu &&
     mainMenu.addEventListener('keydown', (event) => {
-      const currentMenuItem = event.target.closest('li')
+      const el = event.target as Element
+      const currentMenuItem = el.closest('li')
       const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-      const currentDropdownMenu = event.target.closest('.has-dropdown button')
-      const currentDropdownMenuItem = event.target.closest('.has-dropdown li')
+      const currentDropdownMenu = el.closest('.has-dropdown button')
+      const currentDropdownMenuItem = el.closest('.has-dropdown li')
       const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
       const key = event.key
@@ -157,7 +158,7 @@ import { DarkMode } from 'accessible-astro-components'
         if (key === 'ArrowDown') {
           event.preventDefault()
 
-          if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === dropdownMenuItems.length - 1) {
+          if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
             targetItem = dropdownMenuItems[0]
           } else {
             targetItem = dropdownMenuItems[currentIndex + 1]
@@ -167,7 +168,7 @@ import { DarkMode } from 'accessible-astro-components'
         if (key === 'ArrowUp') {
           event.preventDefault()
 
-          if (dropdownMenuItems.indexOf(currentDropdownMenuItem) === 0) {
+          if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === 0) {
             targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
           } else {
             targetItem = dropdownMenuItems[currentIndex - 1]
@@ -175,7 +176,7 @@ import { DarkMode } from 'accessible-astro-components'
         }
 
         if (key === 'Escape') {
-          const currentDropdownMenu = currentDropdownList.previousElementSibling
+          const currentDropdownMenu = (currentDropdownList as  Element).previousElementSibling
           targetItem = currentDropdownMenu.parentNode
           closeAllDropdownMenus()
         }
@@ -196,7 +197,8 @@ import { DarkMode } from 'accessible-astro-components'
 
   window.addEventListener('resize', checkMenuSize)
   window.addEventListener('click', (event) => {
-    if (!event.target.hasAttribute('aria-haspopup') && !event.target.classList.contains('submenu-item')) {
+    const el = event.target as Element
+    if (!el.hasAttribute('aria-haspopup') && !el.classList.contains('submenu-item')) {
       closeAllDropdownMenus()
     }
   })
