@@ -20,6 +20,6 @@ $breakpoints: (
     }
   }
   @else {
-    @error "Not a correct value, check _base-breakpoints for availible values.";
+    @error "Not a correct value, check _base-breakpoints for available values.";
   }
 }
