@@ -106,11 +106,11 @@ import { DarkMode } from 'accessible-astro-components'
   // execution
   mainMenu &&
     mainMenu.addEventListener('keydown', (event) => {
-      const el = event.target as Element
-      const currentMenuItem = el.closest('li')
+      const element = event.target as Element
+      const currentMenuItem = element.closest('li')
       const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-      const currentDropdownMenu = el.closest('.has-dropdown button')
-      const currentDropdownMenuItem = el.closest('.has-dropdown li')
+      const currentDropdownMenu = element.closest('.has-dropdown button')
+      const currentDropdownMenuItem = element.closest('.has-dropdown li')
       const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
       const key = event.key
@@ -176,7 +176,7 @@ import { DarkMode } from 'accessible-astro-components'
         }
 
         if (key === 'Escape') {
-          const currentDropdownMenu = (currentDropdownList as  Element).previousElementSibling
+          const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
           targetItem = currentDropdownMenu.parentNode
           closeAllDropdownMenus()
         }
@@ -197,8 +197,8 @@ import { DarkMode } from 'accessible-astro-components'
 
   window.addEventListener('resize', checkMenuSize)
   window.addEventListener('click', (event) => {
-    const el = event.target as Element
-    if (!el.hasAttribute('aria-haspopup') && !el.classList.contains('submenu-item')) {
+    const element = event.target as Element
+    if (!element.hasAttribute('aria-haspopup') && !element.classList.contains('submenu-item')) {
       closeAllDropdownMenus()
     }
   })
