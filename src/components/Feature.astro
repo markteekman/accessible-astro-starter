@@ -19,24 +19,38 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
 
   .feature {
     position: relative;
-    padding: 2rem;
     width: calc(100% - 0.5rem);
-    background-color: var(--neutral-100);
-    border: 3px solid var(--neutral-700);
-    border-radius: 1rem;
-    box-shadow: 0 0 0 6px var(--neutral-100);
+    padding: 2rem;
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
 
     @include breakpoint(large) {
       width: 100%;
     }
 
+    &::before,
     &::after {
       content: '';
       position: absolute;
-      z-index: -1;
-      background-color: var(--action-color);
-      inset: 1rem -1rem -1rem 1rem;
+    }
+
+    &::before {
+      inset: 0;
+      background-color: var(--neutral-100);
+      border: 3px solid var(--neutral-700);
       border-radius: 1rem;
+      box-shadow: 0 0 0 6px var(--neutral-100);
+      z-index: 1;
+    }
+
+    &::after {
+      background-color: var(--action-color);
+      inset: 1rem -0.85rem -0.85rem 1rem;
+      border-radius: 1rem;
+      z-index: 0;
     }
   }
 
@@ -45,7 +59,7 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
     color: var(--action-color);
   }
 
-  :global(.darkmode .feature) {
+  :global(.darkmode .feature::before) {
     background-color: var(--dark-100);
     box-shadow: 0 0 0 6px var(--dark-100);
   }
