@@ -11,7 +11,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^0.15.2",
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/partytown": "^1.0.3",
     "@astrojs/tailwind": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
