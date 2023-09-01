@@ -1,7 +1,7 @@
 {
   "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including several accessiblity features and tools to help you build faster.",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "author": "Mark Teekman",
   "homepage": "https://accessible-astro.netlify.app/",
   "scripts": {
