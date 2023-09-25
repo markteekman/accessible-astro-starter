@@ -69,18 +69,9 @@ legend {
   max-width: 100%;
 }
 
-button,
-input,
-textarea {
-  border: 1px solid gray;
-}
 
-button {
-  padding: 0.75em 1em;
-  border-radius: 0;
-  background-color: transparent;
-  line-height: 1;
-}
+
+
 
 button * {
   pointer-events: none;

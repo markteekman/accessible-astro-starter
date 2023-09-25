@@ -1,0 +1,36 @@
+---
+interface Props {
+    background: string,
+    title: string,
+    text: string
+}
+
+const {background, text, title} = Astro.props;
+---
+
+
+<div class=`card-shadow block ${background} w-1/5 min-h-[300px] max-w-md p-6 bg-pink-400 border-2 border-black dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`>
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        {title}
+    </h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">
+        {text}
+
+
+
+    </p>
+</div>
+
+
+<style lang="scss">
+
+    .card-shadow {
+        transition: all 0.3s ease;
+    }
+
+    .card-shadow:hover {
+        box-shadow: 5px 5px 0px 0px #000;
+        transition: all 0.3s ease;
+    }
+
+</style>

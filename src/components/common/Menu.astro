@@ -1,0 +1,39 @@
+---
+interface Props {
+    links: {
+        title: string,
+        href: string
+    }[]
+}
+
+const {links} = Astro.props;
+---
+
+
+<ul class="flex gap-5">
+    {links.map((link) => {
+        return (
+                <>
+                    <li>
+                        <a class="border-link text-lg" href={link.href}>{link.title}</a>
+                    </li>
+                </>
+        )
+    })}
+</ul>
+
+
+<style lang="scss">
+    .border-link::after {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 1px;
+        background: #000;
+        transition: 0.3s all ease-out;
+    }
+
+    .border-link:hover::after {
+        width: 100%;
+    }
+</style>

@@ -1,0 +1,31 @@
+---
+interface Props {
+    background: string
+}
+
+const {background} = Astro.props;
+---
+
+
+<button class=`btn-press border-2 border-black py-2 px-16`>
+    <slot/>
+
+</button>
+
+
+
+
+<style lang="scss">
+    .btn-press {
+        font-weight: 600;
+        box-shadow: 5px 5px 0px 0px #000;
+
+    }
+
+    .btn-press:active {
+        box-shadow: none;
+        transform: translate(4px);
+    }
+
+
+</style>

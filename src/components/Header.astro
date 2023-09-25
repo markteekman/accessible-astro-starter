@@ -1,65 +1,20 @@
 ---
 import Navigation from '../components/Navigation.astro'
-import { SkipLinks } from 'accessible-astro-components'
-import { Icon } from 'astro-icon'
+import {SkipLinks} from 'accessible-astro-components'
+import {Icon} from 'astro-icon'
+import Menu from "./common/Menu.astro";
+
+const links= [{title: 'Home', href: '/home'}, {
+    title: 'Contact',
+    href: '/contact'
+}, {title: 'Information', href: '/information'}]
 ---
 
-<header>
-  <SkipLinks />
-  <Navigation>
-    <li class="menu-item">
-      <a href="/">Home</a>
-    </li>
-    <li class="menu-item">
-      <a href="/blog/">Blog</a>
-    </li>
-    <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
-      <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/mdx-page/">MDX Page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/markdown-page/">Markdown Page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/accessible-components">Accessible Components</a>
-        </li>
-      </ul>
-    </li>
-    <li class="menu-item">
-      <a href="https://accessible-astro.dev" title="external link" rel="external noopener noreferrer">External Link</a>
-    </li>
-    <li class="menu-item type-icon">
-      <a href="https://github.com/markteekman/accessible-astro-starter" title="Go to the GitHub page">
-        <Icon pack="ion" name="logo-github" />
-      </a>
-    </li>
-  </Navigation>
+<header class="flex justify-between px-20 py-10 border-2 border-black">
+    <div class="text-2xl">
+        devexc
+    </div>
+    <Menu links={links}/>
 </header>
 
-<style lang="scss" is:global>
-  @use '../assets/scss/base/outline' as *;
 
-  header {
-    .type-icon a {
-      display: block;
-
-      [astro-icon] {
-        margin-top: -4px;
-        width: 30px;
-
-        path {
-          fill: var(--action-color);
-          transition: fill 0.2s ease-in-out;
-        }
-      }
-
-      &:hover {
-        [astro-icon] path {
-          fill: var(--action-color-state);
-        }
-      }
-    }
-  }
-</style>

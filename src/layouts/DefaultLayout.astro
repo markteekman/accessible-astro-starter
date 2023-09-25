@@ -4,107 +4,76 @@ import '../assets/scss/globals.scss'
 import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import ButtonHover from "../components/common/ButtonHover.svelte";
+import ButtonPress from "../components/common/ButtonPress.astro";
+import Input from "../components/common/Input.astro";
+import Card from "../components/common/Card.astro";
+import CheckBox from "../components/common/CheckBox.svelte";
 
 const {
-  title = 'Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
-  url,
-  image = '/social-preview-image.png',
-  author = 'Mark Teekman',
+    title = 'Astro',
+    description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+    url,
+    image = '/social-preview-image.png',
+    author = 'Mark Teekman',
 } = Astro.props
 ---
 
+
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 
     <SiteMeta
-      title={title}
-      description={description.substring(0, 100)}
-      url={Astro.site
-        ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
-        : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}
-      image={image}
-      author={author}
+            title={title}
+            description={description.substring(0, 100)}
+            url={Astro.site
+                ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
+                : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}
+            image={image}
+            author={author}
     />
-  </head>
-  <body>
-    <Header />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer />
-    <style lang="scss" is:global>
-      // theme settings
-      :root {
-        --radius-small: 3px;
-        --radius-large: 6px;
-        --gap-default: 2rem;
-        --font-measure: 70ch;
-        --font-family-default: 'Open Sans', sans-serif;
-        --font-family-special: 'Open Sans', sans-serif;
-        // light theme
-        --font-color: var(--neutral-900);
-        --action-color: var(--primary-300);
-        --action-color-state: var(--primary-500);
-        --background: var(--neutral-100);
-        --primary-background: var(--primary-100);
-        --neutral-background: var(--neutral-200);
-      }
+</head>
+<body>
+<Header/>
+<main id="main-content">
+    <div class="w-full flex items-center justify-center mt-20 gap-5">
+        <div>
+            <ButtonHover client:visible background='bg-pink-500'>
+                Button
+            </ButtonHover>
+        </div>
+        <div>
+            <ButtonPress>
+                Press
+            </ButtonPress>
+        </div>
+        <div>
+            <Input title="Email" type="email" placeholder="type you email"/>
 
-      // dark color scheme overrides
-      .darkmode {
-        --font-color: var(--neutral-100);
-        --action-color: var(--secondary-100);
-        --action-color-state: var(--secondary-500);
-        --background: var(--dark-100);
-        --primary-background: var(--primary-500);
-        --neutral-background: var(--neutral-900);
-      }
+        </div>
+    </div>
+    <div class="mt-10 w-full flex gap-5 justify-center items-center">
+        <Card title="Title" text='text'/>
+        <div class="flex items-center">
+            <CheckBox client:visible/>
+        </div>
+    </div>
 
-      // sticky footer on low content pages
-      html,
-      body {
-        height: 100%;
-        overflow-x: hidden;
-      }
+    <slot/>
+</main>
+<Footer/>
 
-      body {
-        display: flex;
-        flex-direction: column;
-        color: var(--font-color);
-        background-color: var(--background);
-
-        main {
-          flex: 1 0 auto;
-        }
-
-        footer {
-          flex-shrink: 0;
-        }
-      }
-
-      pre {
-        padding: 1rem;
-        border-radius: 0.35rem;
-        border: 2px solid var(--action-color);
-      }
-
-      body .pagination a {
-        &:hover,
-        &:focus-visible {
-          background-color: var(--action-color-state);
-
-          svg path {
-            stroke: white;
-          }
-        }
-      }
-    </style>
-  </body>
+</body>
 </html>
+
+
+
+
+
+
