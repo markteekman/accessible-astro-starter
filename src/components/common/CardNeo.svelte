@@ -10,7 +10,7 @@
                     also be used in print design, with an example being a bold shape
                     with a vibrant color fill applied to it.`
 
-    export let initialShadow = false;
+    export let initialShadow = true;
     export let rounded = 'none'
 </script>
 

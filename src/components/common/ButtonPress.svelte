@@ -14,8 +14,7 @@
 
 <style lang="scss">
 
-  .btn-hover {
-  }
+
 
   .btn-hover:hover {
     box-shadow: 3px 3px 0px 0px #000;

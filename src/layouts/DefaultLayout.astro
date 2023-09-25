@@ -4,12 +4,12 @@ import '../assets/scss/globals.scss'
 import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import ButtonHover from "../components/common/ButtonHover.svelte";
 import ButtonPress from "../components/common/ButtonPress.svelte";
-import Input from "../components/common/Input.astro";
-import Card from "../components/common/Card.astro";
+import Input from "../components/common/Input.svelte";
 import CheckBox from "../components/common/CheckBox.svelte";
-import CardNeo from "../components/neo-ui/CardNeo.svelte";
+import CardNeo from "../components/common/CardNeo.svelte";
+import Dialog from "../components/common/Dialog.svelte";
+import DropDown from "../components/common/DropDown.svelte";
 
 const {
     title = 'Astro',
@@ -43,40 +43,29 @@ const {
 <body>
 <Header/>
 <main id="main-content">
-    <div class="w-full flex items-center justify-center mt-20 gap-5">
-        <div>
-            <ButtonHover client:visible background='bg-pink-500'>
-                Button
-            </ButtonHover>
-        </div>
-        <div>
-            <ButtonPress>
-                Press
-            </ButtonPress>
-        </div>
-        <div>
-            <Input title="Email" type="email" placeholder="type you email"/>
 
-        </div>
-    </div>
-    <div class="mt-10 w-full flex gap-5 justify-center items-center">
-        <Card title="Title" text='text'/>
-        <div class="flex items-center">
-            <CheckBox client:visible/>
-        </div>
-    </div>
+
     <div class="flex flex-col gap-3 justify-center items-center mt-20">
         <h1>NEO</h1>
         <div>
             <CardNeo/>
         </div>
         <div>
-            <ButtonPress initialShadow={false} rounded="none">
+            <ButtonPress  rounded="none">
                 Click
             </ButtonPress>
         </div>
         <div>
             <CheckBox client:visible/>
+        </div>
+        <div>
+            <Input title="Passord" type="password" placeholder="Type your password" />
+        </div>
+        <div>
+            <Dialog/>
+        </div>
+        <div>
+            <DropDown client:visible  options={['1','2','3']}/>
         </div>
 
     </div>
