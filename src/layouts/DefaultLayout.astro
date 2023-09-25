@@ -5,10 +5,11 @@ import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import ButtonHover from "../components/common/ButtonHover.svelte";
-import ButtonPress from "../components/common/ButtonPress.astro";
+import ButtonPress from "../components/common/ButtonPress.svelte";
 import Input from "../components/common/Input.astro";
 import Card from "../components/common/Card.astro";
 import CheckBox from "../components/common/CheckBox.svelte";
+import CardNeo from "../components/neo-ui/CardNeo.svelte";
 
 const {
     title = 'Astro',
@@ -63,6 +64,21 @@ const {
         <div class="flex items-center">
             <CheckBox client:visible/>
         </div>
+    </div>
+    <div class="flex flex-col gap-3 justify-center items-center mt-20">
+        <h1>NEO</h1>
+        <div>
+            <CardNeo/>
+        </div>
+        <div>
+            <ButtonPress initialShadow={false} rounded="none">
+                Click
+            </ButtonPress>
+        </div>
+        <div>
+            <CheckBox client:visible/>
+        </div>
+
     </div>
 
     <slot/>

@@ -4,6 +4,7 @@
   "version": "3.0.0",
   "author": "Mark Teekman",
   "homepage": "https://accessible-astro.netlify.app/",
+  "type": "commonjs",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -32,6 +33,9 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^4.0.2",
+    "@sveltejs/adapter-auto": "^2.1.0",
+    "@sveltejs/kit": "^1.25.1",
+    "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "sharp": "^0.32.5",
     "svelte": "^4.2.1"
   }
