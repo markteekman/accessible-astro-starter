@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+
 const { title, description, url, image, author } = Astro.props
 
 let subtitle = 'Accessible Astro Starter'
@@ -20,3 +22,5 @@ let subtitle = 'Accessible Astro Starter'
 
 <!-- page title -->
 <title>{title} - {subtitle}</title>
+
+<ViewTransitions />

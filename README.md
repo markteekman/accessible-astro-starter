@@ -8,6 +8,7 @@ Accessible Astro Starter is a ready to use, SEO and a11y friendly blogging theme
 
 ## ♿ (Accessibility) Features
 
+- Astro 4.0
 - Tailwind CSS support
 - Prettier integration with `prettier-plugin-astro` and `prettier-plugin-tailwind`
 - ESLint integration with strict accessibility settings for `eslint-plugin-jsx-a11y`
@@ -30,6 +31,7 @@ Accessible Astro Starter is a ready to use, SEO and a11y friendly blogging theme
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
 - Ships with many components such as Accordions, Breadcrumbs, Modals, Pagination [and many more](https://accessible-astro.dev/accessible-components)
 - A collection of utility classes such as breakpoints, button classes, font settings, resets and outlines in `src/assets/scss/base`
+- View Transitions (⚠️ see [astro-docs](https://docs.astro.build/en/guides/view-transitions/#accessibility) for accessibility considerations)
 
 ## 🚀 Getting started
 
