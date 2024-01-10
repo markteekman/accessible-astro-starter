@@ -45,7 +45,7 @@ import { Icon } from 'astro-icon/components'
     .type-icon a {
       display: block;
 
-      [astro-icon] {
+      [data-icon] {
         margin-top: -4px;
         width: 30px;
 
@@ -55,7 +55,7 @@ import { Icon } from 'astro-icon/components'
       }
 
       &:hover {
-        [astro-icon] path {
+        [data-icon] path {
           fill: var(--action-color-state);
         }
       }
