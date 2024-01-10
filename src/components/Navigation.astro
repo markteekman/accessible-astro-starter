@@ -142,6 +142,12 @@ import logo from '../assets/img/logo.svg'
 
       if (currentDropdownMenu) {
         const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
+        
+        if (key === 'Tab' && (event.target.getAttribute('aria-expanded') === 'true')) {
+          event.preventDefault()
+          openDropdownMenu(currentDropdownMenu)
+          targetItem = firstDropdownItem
+        }
 
         if (key === 'ArrowDown') {
           event.preventDefault()
@@ -158,6 +164,16 @@ import logo from '../assets/img/logo.svg'
         const currentDropdownList = currentDropdownMenuItem.parentNode
         const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
         const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
+
+        if (key === 'Tab') {
+          event.preventDefault()
+
+          if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
+            targetItem = menuItems[currentIndex + 1]
+          } else {
+            targetItem = dropdownMenuItems[currentIndex + 1]
+          }
+        }
 
         if (key === 'ArrowDown') {
           event.preventDefault()
