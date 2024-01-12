@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import {
   Accordion,
   AccordionItem,
@@ -112,26 +112,26 @@ import {
         <div class="space-content">
           <h2>Notification</h2>
           <Notification>
-            <Icon pack="ion" name="notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
+            <Icon name="ion:notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
           </Notification>
           <Notification type="info">
-            <Icon pack="ion" name="information-circle-outline" /><p>
+            <Icon name="ion:information-circle-outline" /><p>
               <strong>Info:</strong> This is a notification of type info.
             </p>
           </Notification>
           <Notification type="success">
-            <Icon pack="ion" name="checkbox-outline" /><p>
+            <Icon name="ion:checkbox-outline" /><p>
               <strong>Success:</strong> This is a notification of type success.
             </p>
           </Notification>
           <Notification type="warning">
-            <Icon pack="ion" name="warning-outline" /><p>
+            <Icon name="ion:warning-outline" /><p>
               <strong>Warning:</strong> This is a notification of type warning and goes on multiple lines to see how that
               looks.
             </p>
           </Notification>
           <Notification type="error">
-            <Icon pack="ion" name="alert-circle-outline" /><p>
+            <Icon name="ion:alert-circle-outline" /><p>
               <strong>Error:</strong> This is a notification of type error.
             </p>
           </Notification>

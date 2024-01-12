@@ -3,13 +3,13 @@ layout: ../layouts/MarkdownLayout.astro
 title: MDX Page
 ---
 
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import { Notification } from 'accessible-astro-components'
 
 # MDX Page
 
 <Notification type="info">
-  <Icon pack="ion" name="information-circle-outline" />
+  <Icon name="ion:information-circle-outline" />
   <p>
     <strong>Info:</strong> This page utilizes Astro's MDX feature which let's you use components in a markdown file and
     supports out-of-the-box syntax highlighting with Shiki.

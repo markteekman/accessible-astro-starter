@@ -134,7 +134,8 @@
     align-items: center;
     gap: 0.5rem;
 
-    [astro-icon] {
+    [data-icon] {
+      height: auto;
       width: 30px;
     }
   }
