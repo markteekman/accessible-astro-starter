@@ -183,6 +183,14 @@ import logo from '../assets/img/logo.svg'
             targetItem = currentDropdownMenu.parentNode
             closeAllDropdownMenus()
           }
+
+          if (key === 'Tab') {
+            const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
+
+            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
+              closeDropdownMenu(currentDropdownMenu)
+            }
+          }
         }
 
         if (targetItem) {
