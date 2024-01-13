@@ -21,6 +21,7 @@ const fontSources = [
     path: './public/fonts/OpenSans-ExtraBold.woff2'
   },
   {
+    preload: true,
     style: 'bold',
     weight: '800',
     path: './public/fonts/OpenSans-Bold.woff2'
@@ -56,7 +57,7 @@ const fontSources = [
         {
           name: "Open Sans",
           src: fontSources,
-          preload: true,
+          preload: false,
           display: "swap",
           fallback: "sans-serif",
           cssVariable: "font-family-special",
