@@ -1,4 +1,5 @@
 ---
+import { AstroFont } from 'astro-font'
 import '@astrojs/tailwind/base.css'
 import '../assets/scss/globals.scss'
 import SiteMeta from '../components/SiteMeta.astro'
@@ -12,6 +13,29 @@ const {
   image = '/social-preview-image.png',
   author = 'Mark Teekman',
 } = Astro.props
+
+const fontSources = [
+  {
+    style: 'bold',
+    weight: '900',
+    path: './public/fonts/OpenSans-ExtraBold.woff2'
+  },
+  {
+    style: 'bold',
+    weight: '800',
+    path: './public/fonts/OpenSans-Bold.woff2'
+  },
+  {
+    style: 'italic',
+    weight: '400',
+    path: './public/fonts/OpenSans-Italic.woff2'
+  },
+  {
+    style: 'normal',
+    weight: '400',
+    path: './public/fonts/OpenSans-Regular.woff2'
+  },
+]
 ---
 
 <html lang="en" dir="ltr">
@@ -19,7 +43,26 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+    <AstroFont
+      config={[
+        {
+          name: "Open Sans",
+          src: fontSources,
+          preload: false,
+          display: "swap",
+          fallback: "sans-serif",
+          cssVariable: "font-family-default",
+        },
+        {
+          name: "Open Sans",
+          src: fontSources,
+          preload: true,
+          display: "swap",
+          fallback: "sans-serif",
+          cssVariable: "font-family-special",
+        },
+      ]}
+    />
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -46,8 +89,6 @@ const {
         --radius-large: 6px;
         --gap-default: 2rem;
         --font-measure: 70ch;
-        --font-family-default: 'Open Sans', sans-serif;
-        --font-family-special: 'Open Sans', sans-serif;
         // light theme
         --font-color: var(--neutral-900);
         --action-color: var(--primary-300);
