@@ -1,6 +1,8 @@
 ---
 import CallToAction from './CallToAction.astro'
 
+const { src = '/cc-by-nc-sa.png' } = Astro.props
+
 const currentYear = new Date().getFullYear()
 ---
 
@@ -9,7 +11,13 @@ const currentYear = new Date().getFullYear()
   <section class="py-8">
     <div class="container">
       <p>
-        &copy; {currentYear} - Starter Theme for <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a
+        <img src={src} alt="conrtent licensed under Creative Commons By NC-SA."/>
+        Content &copy; {currentYear} Made with ❤️ by <a
+          href="https://github.com/skamansam">"Skaman" Samuel Tyler</a
+        >.
+      </p>
+      <p>
+        Theme &copy; {currentYear} - Starter Theme for <a href="https://astro.build/">Astro</a>. Made with ❤️ by <a
           href="https://github.com/markteekman">Mark Teekman</a
         >.
       </p>
