@@ -1,4 +1,5 @@
 ---
+import { join } from 'node:path' 
 import { AstroFont } from 'astro-font'
 import '@astrojs/tailwind/base.css'
 import '../assets/scss/globals.scss'
@@ -14,27 +15,29 @@ const {
   author = 'Mark Teekman',
 } = Astro.props
 
+const makeFontPath = (name: string) => join(process.cwd(), 'public', 'fonts', name)
+
 const fontSources = [
   {
     style: 'bold',
     weight: '900',
-    path: './public/fonts/OpenSans-ExtraBold.woff2'
+    path: makeFontPath('OpenSans-ExtraBold.woff2')
   },
   {
     preload: true,
     style: 'bold',
     weight: '800',
-    path: './public/fonts/OpenSans-Bold.woff2'
+    path: makeFontPath('OpenSans-Bold.woff2')
   },
   {
     style: 'italic',
     weight: '400',
-    path: './public/fonts/OpenSans-Italic.woff2'
+    path: makeFontPath('OpenSans-Italic.woff2')
   },
   {
     style: 'normal',
     weight: '400',
-    path: './public/fonts/OpenSans-Regular.woff2'
+    path: makeFontPath('OpenSans-Regular.woff2')
   },
 ]
 ---
