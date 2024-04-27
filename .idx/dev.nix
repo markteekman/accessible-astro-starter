@@ -1,7 +1,11 @@
 { pkgs, ... }: {
   idx.extensions = [
     "astro-build.astro-vscode"
+    "eliostruyf.vscode-front-matter"
   ];
+  idx.workspace.onCreate = {
+    npm-install = "npm install";
+  };
   idx.previews = {
     enable = true;
     previews = [
