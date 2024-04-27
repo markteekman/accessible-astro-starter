@@ -136,9 +136,65 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
-"the-old-man.md": {
-	id: "the-old-man.md";
-  slug: "the-old-man";
+"a-note-on-odd-occurrences.md": {
+	id: "a-note-on-odd-occurrences.md";
+  slug: "a-note-on-odd-occurrences";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"an-exploration-of-dreams.md": {
+	id: "an-exploration-of-dreams.md";
+  slug: "an-exploration-of-dreams";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"group-hallucinations.md": {
+	id: "group-hallucinations.md";
+  slug: "group-hallucinations";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"my-purpose.md": {
+	id: "my-purpose.md";
+  slug: "my-purpose";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"my-vision.md": {
+	id: "my-vision.md";
+  slug: "my-vision";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"on-life-and-death.md": {
+	id: "on-life-and-death.md";
+  slug: "on-life-and-death";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"what-is-the-machine.md": {
+	id: "what-is-the-machine.md";
+  slug: "what-is-the-machine";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"who-are-the-eight.md": {
+	id: "who-are-the-eight.md";
+  slug: "who-are-the-eight";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
+"who-is-the-old-man.md": {
+	id: "who-is-the-old-man.md";
+  slug: "who-is-the-old-man";
   body: string;
   collection: "posts";
   data: InferEntrySchema<"posts">

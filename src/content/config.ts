@@ -11,6 +11,7 @@ const postsCollection = defineCollection({
       order: z.number(),
       image: z.object({
         url: z.string(),
+        banner: z.string(),
         alt: z.string()
       }),
       tags: z.array(z.string())
