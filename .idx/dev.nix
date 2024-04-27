@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   idx.extensions = [
     "astro-build.astro-vscode"
-  ]
+  ];
   idx.previews = {
     enable = true;
     previews = [
