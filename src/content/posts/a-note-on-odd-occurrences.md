@@ -6,13 +6,12 @@ author: samuel-c-tyler
 order: 7
 icon: mdi:set-left
 image: 
-    url: "null"
-    banner: "null"
-    alt: the old man
+    url: images/odd-occurrence.jpg
+    banner: images/odd-occurrence-banner.jpg
+    alt: two people looking meaningfully at each other, with a duplicate of one just behind the original. generated on openart.ai with the prompt "two people looking at each other in a inquizitive way"
 tags: 
-    - the machine
-    - characters
-    - deities
+    - dreams
+    - meaning
 relatedPosts:
 - about-me
 - my-vision
