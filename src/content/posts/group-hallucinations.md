@@ -3,11 +3,11 @@ title: "Group Hallucinations?"
 pubDate: 2024-04-27
 description: Are these visions real or just group hallucinations?
 author: samuel-c-tyler
-order: 1
-icon: 
+order: 5
+icon: mdi:account-group
 image: 
     url: "null"
-    banner: ""
+    banner: "null"
     alt: the old man
 tags: 
     - the machine
@@ -18,4 +18,4 @@ relatedPosts:
 - my-vision
 ---
 
-# What Is The Machine?
+# Group Hallucinations?

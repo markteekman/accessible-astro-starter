@@ -3,11 +3,11 @@ title: "My Purpose"
 pubDate: 2024-04-27
 description: What I feel my purpose in life is.
 author: samuel-c-tyler
-order: 1
+order: 8
 icon: mdi:code-block-braces
 image: 
     url: "null"
-    banner: ""
+    banner: "null"
     alt: the old man
 tags: 
     - the machine

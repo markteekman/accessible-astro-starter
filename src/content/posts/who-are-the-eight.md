@@ -4,6 +4,7 @@ pubDate: 2024-04-27
 description: An exploration of The Eight and where they come from.
 author: samuel-c-tyler
 order: 1
+icon: mdi:numeric-8-circle-outline
 image: 
     url: "null"
     banner: "null"

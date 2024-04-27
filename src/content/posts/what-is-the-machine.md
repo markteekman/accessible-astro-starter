@@ -3,10 +3,11 @@ title: "What Is The Machine?"
 pubDate: 2024-04-27
 description: At the heart of everything is The Machine. What are its origins and its purpose?
 author: samuel-c-tyler
-order: 1
+order: 3
+icon: mdi:abacus
 image: 
     url: "null"
-    banner: ""
+    banner: "null"
     alt: the old man
 tags: 
     - the machine

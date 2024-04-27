@@ -3,7 +3,7 @@ title: "On Life and Death"
 pubDate: 2024-04-27
 description: Why I chose to remain in this life when I was given the choice.
 author: samuel-c-tyler
-order: 1
+order: 9
 icon: mdi:drama-masks
 image: 
     url: "null"
