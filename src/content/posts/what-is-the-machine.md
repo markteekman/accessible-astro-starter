@@ -1,6 +1,6 @@
 ---
 title: "What Is The Machine?"
-pubDate: 04/27/2024
+pubDate: 2024-04-27
 description: At the heart of everything is The Machine. What are its origins and its purpose?
 author: samuel-c-tyler
 order: 1

@@ -1,6 +1,6 @@
 ---
 title: "Who is The Old Man?"
-pubDate: 04/27/2024
+pubDate: 2024-04-27
 description: Why does the old man show himself in so many different ways?
 author: samuel-c-tyler # references `src/content/authors/samuel-c-tyler.json`
 order: 2
