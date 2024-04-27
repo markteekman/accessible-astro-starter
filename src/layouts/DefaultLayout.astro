@@ -9,7 +9,7 @@ const {
   title = 'Story of The Eight',
   description = 'A Collection of stories as told by Samuel C Tyler, concerning the collected lore of The Eight.',
   url,
-  image = '/eight-social-preview.png',
+  image = 'eight-social-preview.png',
   author = 'Samuel C Tyler',
 } = Astro.props
 ---
@@ -26,9 +26,7 @@ const {
     <SiteMeta
       title={title}
       description={description.substring(0, 100)}
-      url={Astro.site
-        ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
-        : `https://story-of-the-eight.vercel.app/${title.toLowerCase().replaceAll(' ', '-')}`}
+      url={`${Astro.site}${url}`}
       image={image}
       author={author}
     />

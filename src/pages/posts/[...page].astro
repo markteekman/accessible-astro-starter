@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
   let data = await getCollection("posts");
-  // data = data.sort((postA, postB) => postA.order > postB.order)
+  data.sort((postA, postB) => postA.data.order < postB.data.order ? -1 : 1)
 
   return paginate(data, { pageSize: 9 })
 }
@@ -34,10 +34,10 @@ const { page } = Astro.props
             <li>
               {post}
               <Card
-                img={post?.data?.image?.banner}
                 url={`/posts/${post.slug}`}
                 title={post?.data?.title}
                 footer={'posted by: ' + post?.data?.author}
+                img={`/${post?.data?.image?.banner}`}
               >
                 {post?.data?.description}
               </Card>

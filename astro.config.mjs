@@ -10,4 +10,5 @@ export default defineConfig({
   integrations: [mdx(), icon(), tailwind({
     applyBaseStyles: false,
   }), compress()],
+  site: 'https://story-of-the-eight.vercel.app',
 })

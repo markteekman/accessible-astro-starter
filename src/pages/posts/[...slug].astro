@@ -1,55 +1,55 @@
 ---
 import { getCollection } from 'astro:content';
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts');
   return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+    params: { slug: entry.slug }, props: { post: entry },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await post.render();
 ---
 
-<DefaultLayout title={post.title} description={post.body} url={post.title}>
+<DefaultLayout title={post.data.title} description={post.data.description} url={`posts/${post.slug}`}>
     <div class="container">
       <div class="mt-12">
         <Breadcrumbs>
           <BreadcrumbsItem href="/" label="Home" />
           <BreadcrumbsItem href="/blog" label="Blog" />
-          <BreadcrumbsItem currentPage={true} label={post.title} />
+          <BreadcrumbsItem currentPage={true} label={post.data.title} />
         </Breadcrumbs>
       </div>
     </div>
     <section class="my-12">
       <div class="container">
-        <h1>{post.title}</h1><br />
-        <p>By userId: {post.userId}</p>
+        <h1>{post.data.title}</h1><br />
+        <p>By: {post.data.author}</p>
       </div>
     </section>
     <section class="my-12">
       <div class="container">
-        <p class="text-2xl">{post.body}</p>
+        <p class="text-2xl"><Content/></p>
       </div>
     </section>
   </DefaultLayout>
-  
+
   <style lang="scss">
     ul {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 4rem;
-  
+
       @media (min-width: 550px) {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
       }
-  
+
       @media (min-width: 950px) {
         grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
-  
