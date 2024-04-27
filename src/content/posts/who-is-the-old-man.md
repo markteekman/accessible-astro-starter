@@ -6,8 +6,8 @@ author: samuel-c-tyler # references `src/content/authors/samuel-c-tyler.json`
 order: 2
 icon: mdi:account-cowboy-hat-outline
 image: 
-    url: /images/the-old-man.jpg
-    banner: /images/the-old-man-banner.jpg
+    url: images/the-old-man.jpg
+    banner: images/the-old-man-banner.jpg
     alt: the old man
 tags: 
     - old man

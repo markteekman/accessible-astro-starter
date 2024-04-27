@@ -6,9 +6,9 @@ author: samuel-c-tyler
 order: 3
 icon: mdi:abacus
 image: 
-    url: "null"
-    banner: "null"
-    alt: the old man
+    url: images/the-clock-forest.jpg
+    banner: images/the-machine-open-space-banner.jpg
+    alt: a clock in the middle of a forest. created by openart.ai, using the prompt "a grandfather clock in the middle of a forest"
 tags: 
     - the machine
     - characters

@@ -6,9 +6,9 @@ author: samuel-c-tyler
 order: 5
 icon: mdi:account-group
 image: 
-    url: "null"
-    banner: "null"
-    alt: the old man
+    url: images/group-hallucination.jpg
+    banner: images/group-hallucination-banner.jpg
+    alt: created in openart.ai, using prompt "hallucinations of animals, people, buildings"
 tags: 
     - the machine
     - characters
