@@ -21,7 +21,7 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/svg+xml" href="/octagonal-design-favicon.png" />
+    <link rel="icon" type="image/png" href="/octagonal-design-favicon.png" />
 
     <SiteMeta
       title={title}
@@ -29,6 +29,12 @@ const {
       url={`${Astro.site}${url}`}
       image={image}
       author={author}
+    />
+    <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Stories of The Eight"
+        href={`${Astro.site}rss.xml`}
     />
   </head>
   <body>
