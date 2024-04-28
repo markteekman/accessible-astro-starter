@@ -19,7 +19,7 @@ posts.sort((postA, postB) => postA.data.order < postB.data.order ? -1 : 1)
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {
           posts.map((post) => (
-            <Feature icon={post.data.icon} title={post.data.title} onClick="window.location.href='{`/posts/${post.slug}`}'">
+            <Feature icon={post.data.icon} title={post.data.title} url={`/posts/${post.slug}`}>
               {post.data.description}
             </Feature>
           ))
