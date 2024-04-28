@@ -4,6 +4,11 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+
+import { getCollection } from "astro:content";
+
+let posts = await getCollection("posts");
+posts.sort((postA, postB) => postA.data.order < postB.data.order ? -1 : 1)
 ---
 
 <DefaultLayout title="Home">
@@ -12,62 +17,14 @@ import ContentMedia from '../components/ContentMedia.astro'
     <div class="container">
       <h2 class="mb-16 text-6xl">Stories</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <Feature icon="mdi:numeric-8-circle-outline" title="Who Are The Eight?">
-          An exploration of The Eight and where they come from.
-        </Feature>
-        <Feature icon="mdi:account-cowboy-hat-outline" title="Who is The Old Man?">
-          Why does the old man show himself in so many different ways?
-        </Feature>
-        <Feature icon="mdi:abacus" title="What is The Machine?">
-          At the heart of everything is The Machine. What are its origins and its purpose?
-        </Feature>
-        <Feature icon="mdi:thought-bubble" title="An Exploration of Dreams">
-          Dreams and hallucinations merge our subconscious and conscious minds, allowing us to understand the universe better.
-        </Feature>
-        <Feature icon="mdi:account-group" title="Group Hallucinations?">
-          Are these visions real or just group hallucinations?
-        </Feature>
-        <Feature icon="mdi:looks" title="My Vision">
-          My first real vision and what it means.
-        </Feature>
-        <Feature icon="mdi:set-left" title="A Note on Odd Occurrences">
-          Some Odd Occurrences are just random. Others are not so.
-        </Feature>
-        <Feature icon="mdi:code-block-braces" title="My Purpose">
-          What I feel my purpose in life is.
-        </Feature>
-        <Feature icon="mdi:drama-masks" title="On Life and Death">
-          Why I chose to remain in this life when I was given the choice.
-        </Feature>
+        {
+          posts.map((post) => (
+            <Feature icon={post.data.icon} title={post.data.title} onClick="window.location.href='{`/posts/${post.slug}`}'">
+              {post.data.description}
+            </Feature>
+          ))
+        }
       </div>
     </div>
   </section>
-  <!-- <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia> 
-  <section class="mb-32 mt-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="520" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
-      </div>
-    </div>
-  </section> -->
 </DefaultLayout>

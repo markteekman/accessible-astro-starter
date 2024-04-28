@@ -9,6 +9,7 @@ const postsCollection = defineCollection({
       description: z.string(),
       author: z.string(),
       order: z.number(),
+      icon: z.string(),
       image: z.object({
         url: z.string(),
         banner: z.string(),
