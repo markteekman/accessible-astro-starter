@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
-import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
+import { Breadcrumbs, BreadcrumbsItem, Media } from 'accessible-astro-components'
+import BannerImage from '../../components/BannerImage.astro'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts');
@@ -18,8 +19,8 @@ const { Content } = await post.render();
     <div class="container">
       <div class="mt-12">
         <Breadcrumbs>
-          <BreadcrumbsItem href="/" label="Home" />
-          <BreadcrumbsItem href="/blog" label="Blog" />
+          <BreadcrumbsItem href="/" label="The Story of The Eight" />
+          <BreadcrumbsItem href="/blog" label="Posts" />
           <BreadcrumbsItem currentPage={true} label={post.data.title} />
         </Breadcrumbs>
       </div>
@@ -31,8 +32,12 @@ const { Content } = await post.render();
         <p>By: {post.data.author}</p>
       </div>
     </section>
+    <BannerImage
+      classes="elevation-300 radius-large"
+      src={`/${post.data.image.banner}`}
+      alt={post.data.image.alt}
+    />
     <section class="my-12">
-      <img src={`/${post.data.image.banner}`}>
       <div class="container">
         <p class="text-2xl"><Content/></p>
       </div>

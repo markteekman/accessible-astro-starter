@@ -1,0 +1,13 @@
+---
+const { alt, classes='', src, description, imgClasses='', captionClasses='' } = Astro.props
+---
+
+<figure class={`${classes} max-w-full flex justify-center flex-col`}>
+  <img class={`${imgClasses} h-auto max-w-full rounded-lg`}
+    src={src}
+    alt={alt || description || 'Image'}
+  />
+  <figcaption class={`${captionClasses} mt-2 text-sm text-center text-gray-500 dark:text-gray-400`}>
+    {description || alt || 'Image'}
+  </figcaption>
+</figure>
