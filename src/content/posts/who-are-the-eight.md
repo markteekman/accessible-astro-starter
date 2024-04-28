@@ -20,7 +20,7 @@ relatedPosts:
 
 No one really knows who The Eight were originally. Now, they are the remnants of the souls of the original Eight. They are
 the paradigms of the original Eight. These paradigms have no real worldly analog, but are found throughout literature 
-throughout history - Warrior, Mage, Knight, Wolf, Druid, Ranger, Scholar, Apprentice, and Friend. All of these possess
+throughout history - Warrior, Mage, Knight, Wolf, Druid, Ranger, Scholar, Apprentice, and The Old Man. All of these possess
 a bit of knowledge of Home, but none seem to hold enough to be able to tell the entire Story, as their souls are too
 fragmented now. Not even I know the whole Story, but I am attempted to tell what I know here.
 
@@ -54,7 +54,10 @@ perfectly happy around others, in the middle of all the action.
 ## Apprentice
 
 The Apprentice prefers to experience life through others. They will attach themselves to their friends and love
-listening to the lives of others.
+listening to the lives of others. They are messengers to and from The Old Man. 
 
 
-## Friend
+## The Old Man
+
+The Old Man is the only whole soul. The original soul, still intact. He is a guide. He is a trickster. 
+He has manifested as many different demons and deities
