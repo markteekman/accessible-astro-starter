@@ -2,8 +2,6 @@
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
-import Counter from '../components/Counter.astro'
-import ContentMedia from '../components/ContentMedia.astro'
 
 import { getCollection } from "astro:content";
 
@@ -13,7 +11,22 @@ posts.sort((postA, postB) => postA.data.order < postB.data.order ? -1 : 1)
 
 <DefaultLayout title="Home">
   <Hero />
-  <section class="my-64">
+  <section class="my-6 mx-6 p-3 font-bold border rounded-xl shadow-lg border-violet-600 shadow-violet-600 text-xl [&>p+p]:mt-3 [&>p]:text-violet-400">
+    <p>Do you believe in something higher, but nothing else fits quite right? Ever
+      wondered why there are so many similarities in the stories of people from different cultures and
+      times? Ever felt like you are not alone, but you can't quite put your finger on it? Ever seen
+      demons or others from the other side? Ever felt like you are being watched?
+    </p>
+    <p>
+      Well you are not alone. There are many of us who have had similar experiences. I have created this
+      site as a collection of stories and experiences from people who have had similar experiences. I hope
+      you find some comfort in knowing that you are not alone. I hope you find some answers to your questions.
+    </p>
+    <p>
+      If you want to contribute your story or thoughts, you can <a href="https://github.com/skamansam/story-of-the-eight">contribute on GitHub</a>.
+    </p>
+  </section>
+  <section class="my-24">
     <div class="container">
       <h2 class="mb-16 text-6xl">Stories</h2>
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
