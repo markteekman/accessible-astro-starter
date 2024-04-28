@@ -13,3 +13,5 @@
 This site is a collection of stories, as told by me, of information I have uncovered by communing with The Eight's many avatars on earth.
 
 Go to https://story-of-the-eight.vercel.app/ to view the site and read more.
+
+> If you would like to contribute to this site, see CONTRIBUTING.md for more.
