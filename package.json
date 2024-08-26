@@ -21,6 +21,7 @@
     "accessible-astro-components": "^2.3.5",
     "astro": "^4.0.7",
     "astro-compress": "^2.0.6",
+    "astro-font": "^0.0.72",
     "astro-icon": "^1.0.2",
     "eslint": "^8.33.0",
     "eslint-plugin-astro": "^0.23.0",
