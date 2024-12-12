@@ -11,6 +11,10 @@ import {
   Modal,
   Notification,
   Pagination,
+  Tabs,
+  TabsList,
+  TabsTab,
+  TabsPanel,
 } from 'accessible-astro-components'
 ---
 
@@ -20,7 +24,7 @@ import {
       <h1>Accessible Components</h1>
       <p class="text-2xl">
         This theme has a lot of extra a11y components provided by the <a
-          href="https://github.com/markteekman/accessible-astro-components#Pagination">Accessible Astro Component</a
+          href="https://github.com/markteekman/accessible-astro-components">Accessible Astro Component</a
         > NPM package to help you build accessible pages faster:
       </p>
     </div>
@@ -29,38 +33,79 @@ import {
     <div class="container">
       <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
         <div class="space-content">
-          <h2>Accordion</h2>
+          <h2>Accordion (normal)</h2>
           <Accordion>
-            <AccordionItem header="First Item">
+            <AccordionItem title="First Item">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
-                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
-                veritatis laboriosam est tenetur.
+                accusantium debitis <a href="#">sapiente obcaecati</a> magnam incidunt sit. Molestiae exercitationem quibusdam
+                quod veritatis laboriosam est tenetur.
               </p>
               <a href="#">Tab to me!</a>
             </AccordionItem>
-            <AccordionItem header="Second Item">
+            <AccordionItem title="Second Item">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem header="Third Item">
+            <AccordionItem title="Third Item">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem header="Fourth Item">
+            <AccordionItem title="Fourth Item">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem header="Fifth Item">
+            <AccordionItem title="Fifth Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+          </Accordion>
+        </div>
+        <div class="space-content">
+          <h2>Accordion (exclusive)</h2>
+          <Accordion>
+            <AccordionItem name="exclusive" title="First Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis <a href="#">sapiente obcaecati</a> magnam incidunt sit. Molestiae exercitationem quibusdam
+                quod veritatis laboriosam est tenetur.
+              </p>
+              <a href="#">Tab to me!</a>
+            </AccordionItem>
+            <AccordionItem name="exclusive" title="Second Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem name="exclusive" title="Third Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem name="exclusive" title="Fourth Item">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+                accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+                veritatis laboriosam est tenetur.
+              </p>
+            </AccordionItem>
+            <AccordionItem name="exclusive" title="Fifth Item">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
@@ -101,7 +146,7 @@ import {
           <Modal triggerId="modal1-trigger" title="Modal 1">
             <p>Why hello, I be the <strong>first</strong> Modal.</p>
           </Modal>
-          <Modal triggerId="modal2-trigger" title="Modal 2" closeText="Cancel">
+          <Modal triggerId="modal2-trigger" title="Modal 2" closeText="Close Modal">
             <p>
               Ah yes, and I be the <strong>second</strong> Modal. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Sed, a! Ratione eaque temporibus alias tempora pariatur dolorem.
@@ -144,6 +189,62 @@ import {
           <h2>SkipLinks</h2>
           <p>This component can be viewed by shift+tabbing until they show up.</p>
         </div>
+      </div>
+      <div class="my-32"></div>
+      <div class="space-content">
+        <h2>Tabs</h2>
+        <Tabs>
+          <TabsList>
+            <TabsTab id="tab-1" controls="panel-1" selected>First Panel</TabsTab>
+            <TabsTab id="tab-2" controls="panel-2">Second Panel</TabsTab>
+            <TabsTab id="tab-3" controls="panel-3">Third Panel</TabsTab>
+          </TabsList>
+
+          <TabsPanel id="panel-1" labelledby="tab-1" selected>
+            <h3>First Panel</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+              accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+              veritatis laboriosam est tenetur. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed eveniet
+              quidem earum at nobis enim.
+            </p>
+            <a href="#">Tab to me!</a>
+          </TabsPanel>
+          <TabsPanel id="panel-2" labelledby="tab-2">
+            <h3>Second Panel</h3>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <Media
+                class="rounded-lg"
+                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+              />
+              <Media
+                class="rounded-lg"
+                src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+              />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
+              accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
+              veritatis laboriosam est tenetur. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed eveniet
+              quidem earum at nobis enim.
+            </p>
+            <a href="#">Tab to me!</a>
+          </TabsPanel>
+          <TabsPanel id="panel-3" labelledby="tab-3">
+            <h3>Third Panel</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, nulla! Sapiente saepe voluptate nemo in
+              id aperiam tempore quo unde, ipsum similique explicabo non maiores qui voluptates dolore obcaecati. Atque
+              voluptates similique ad ipsam nostrum quibusdam doloremque cum porro, aperiam beatae voluptas dolore et
+              neque voluptate alias nesciunt blanditiis totam voluptatem necessitatibus. Similique aliquid molestiae
+              iusto nam nobis ut aspernatur blanditiis provident iste corporis minima, quidem autem nulla doloremque
+              eaque a obcaecati! Nisi quod quam repellendus facilis? Libero voluptas doloribus maxime, suscipit odio
+              veritatis optio nulla officia quos cum at ea hic numquam perferendis molestiae! Aperiam quia veritatis
+              earum tempora.
+            </p>
+            <a href="#">Tab to me!</a>
+          </TabsPanel>
+        </Tabs>
       </div>
     </div>
   </section>
