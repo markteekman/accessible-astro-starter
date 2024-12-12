@@ -2,9 +2,12 @@
 // | Root
 // | -------------------------------------------------------------
 
-@use "color" as *;
+@use 'color' as *;
 
 :root {
+  color-scheme: light dark;
+  interpolate-size: allow-keywords;
+
   @each $color, $shades in $colors {
     @each $shade, $value in $shades {
       --#{$color}-#{$shade}: #{$value};

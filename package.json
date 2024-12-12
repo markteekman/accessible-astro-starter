@@ -1,7 +1,7 @@
 {
   "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "author": "Mark Teekman",
   "homepage": "https://accessible-astro.netlify.app/",
   "scripts": {
@@ -18,7 +18,6 @@
     "@iconify-json/mdi": "^1.2.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "accessible-astro-components": "^2.4.0",
     "astro": "^4.16.16",
     "astro-compress": "^2.3.5",
     "astro-icon": "^1.1.4",
@@ -31,5 +30,8 @@
     "sass": "^1.81.0",
     "svgo": "^3.3.2",
     "tailwindcss": "^3.4.15"
+  },
+  "dependencies": {
+    "accessible-astro-components": "^3.0.0"
   }
 }
