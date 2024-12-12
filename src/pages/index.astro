@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import { Accordion, AccordionItem } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Home">
@@ -52,13 +53,71 @@ import ContentMedia from '../components/ContentMedia.astro'
     </p>
   </ContentMedia>
   <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
+    <h2>WCAG 2.2 AA Compliant</h2>
     <p class="text-2xl">
       Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
       navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
       reaching WCAG AA compliance.
     </p>
   </ContentMedia>
+  <section class="my-64">
+    <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
+      <div class="flex flex-col items-start gap-4">
+        <h2 class="text-6xl">FAQ</h2>
+        <p class="text-2xl">
+          This section demonstrates how to effectively use the Accordion component to organize and display frequently
+          asked questions in an accessible and user-friendly way.
+        </p>
+        <a class="button" href="/faq">Contact support team</a>
+      </div>
+      <div class="space-content">
+        <Accordion>
+          <AccordionItem name="exclusive" title="What is WCAG and why is it important?">
+            <p>
+              WCAG (Web Content Accessibility Guidelines) is a set of internationally recognized standards for web
+              accessibility. Following WCAG ensures your website is usable by people with various disabilities,
+              including visual, auditory, physical, and cognitive impairments. It's important not just for
+              accessibility, but also for legal compliance, SEO, and reaching a wider audience.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="What's the difference between ARIA labels and alt text?">
+            <p>
+              Alt text is specifically for describing images to screen reader users, while ARIA labels (aria-label,
+              aria-labelledby) can describe any element on a page. Alt text is HTML's native way to provide alternative
+              text for images, while ARIA labels are part of the ARIA specification that helps make dynamic content and
+              advanced UI controls more accessible.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="Why is keyboard navigation important?">
+            <p>
+              Keyboard navigation is essential for users who can't use a mouse, including people with motor
+              disabilities, visual impairments, or those who simply prefer keyboard controls. A website should be fully
+              operable using only a keyboard, with visible focus indicators and logical tab order. This includes being
+              able to access all interactive elements and navigate through content efficiently.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="What is a sufficient color contrast ratio?">
+            <p>
+              According to WCAG 2.2 AA standards, text should have a minimum contrast ratio of 4.5:1 against its
+              background for regular text, and 3:1 for large text (18pt or 14pt bold). For non-text elements like icons
+              or buttons, a minimum ratio of 3:1 is required. This ensures content is readable for users with visual
+              impairments or color blindness.
+            </p>
+          </AccordionItem>
+          <AccordionItem name="exclusive" title="How do I make custom components accessible?">
+            <p>
+              To make custom components accessible, focus on these key aspects: use semantic HTML where possible,
+              implement proper keyboard support, add appropriate ARIA attributes, manage focus when needed, and ensure
+              adequate color contrast. Always test with screen readers and keyboard navigation. Consider using
+              established design patterns from the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/"
+                >ARIA Authoring Practices Guide</a
+              >.
+            </p>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  </section>
   <section class="mb-32 mt-64">
     <div class="container">
       <h2 class="mb-16 text-6xl">Counters</h2>
