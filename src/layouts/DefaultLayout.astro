@@ -8,8 +8,8 @@ import Footer from '../components/Footer.astro'
 const {
   title = 'Astro',
   description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
-  url,
-  image = '/social-preview-image.png',
+  url = Astro.site,
+  image = 'social-preview-image.png',
   author = 'Mark Teekman',
 } = Astro.props
 ---
@@ -23,15 +23,7 @@ const {
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <SiteMeta
-      title={title}
-      description={description.substring(0, 100)}
-      url={Astro.site
-        ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
-        : `https://accessible-astro.dev/${title.toLowerCase().replaceAll(' ', '-')}`}
-      image={image}
-      author={author}
-    />
+    <SiteMeta title={title} description={description.substring(0, 100)} url={url} image={image} author={author} />
   </head>
   <body>
     <Header />
