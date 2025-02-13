@@ -223,14 +223,14 @@ import logo from '../assets/img/logo.svg'
   #main-navigation {
     > .container {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     &.is-desktop {
       .desktop-menu {
-        visibility: visible;
         position: static;
+        visibility: visible;
       }
 
       .mobile-menu {
@@ -254,10 +254,10 @@ import logo from '../assets/img/logo.svg'
       }
 
       .desktop-menu {
-        visibility: hidden;
-        z-index: -99;
         position: absolute;
         left: 0;
+        visibility: hidden;
+        z-index: -99;
       }
 
       .responsive-toggle {
@@ -279,9 +279,9 @@ import logo from '../assets/img/logo.svg'
 
         a,
         button {
-          text-decoration: none;
           font-size: 1.125rem;
           line-height: 1.6875rem;
+          text-decoration: none;
         }
 
         a:hover,
@@ -290,8 +290,8 @@ import logo from '../assets/img/logo.svg'
         .has-dropdown > button:hover,
         .has-dropdown > button:focus {
           text-decoration: underline;
-          text-decoration-thickness: 1px;
           text-decoration-style: wavy;
+          text-decoration-thickness: 1px;
           text-underline-offset: 7px;
         }
 
@@ -317,8 +317,8 @@ import logo from '../assets/img/logo.svg'
       a,
       button {
         display: block;
-        width: 100%;
         padding: 0.5rem 0;
+        width: 100%;
       }
     }
 
@@ -329,9 +329,9 @@ import logo from '../assets/img/logo.svg'
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0;
         margin-top: -1px;
         border: none;
+        padding: 0;
         color: var(--action-color);
 
         &:hover {
@@ -343,20 +343,20 @@ import logo from '../assets/img/logo.svg'
         }
 
         &::after {
-          content: '';
+          transform: rotate(135deg);
+          margin-top: -0.25rem;
+          border-width: 0.2em 0.2em 0 0;
+          border-style: solid;
+          border-color: var(--action-color);
           width: 0.85rem;
           height: 0.75em;
-          margin-top: -0.25rem;
-          border-style: solid;
-          border-width: 0.2em 0.2em 0 0;
-          border-color: var(--action-color);
-          transform: rotate(135deg);
+          content: '';
         }
 
         &.show {
           &::after {
-            margin-top: 0.25rem;
             transform: rotate(-45deg);
+            margin-top: 0.25rem;
           }
 
           ~ ul {
@@ -370,48 +370,48 @@ import logo from '../assets/img/logo.svg'
       ul {
         display: none;
         position: absolute;
-        z-index: 100;
-        min-width: 260px;
         top: 125%;
         right: 0;
         bottom: auto;
         left: 0;
-        padding: 1rem;
-        background-color: var(--neutral-background);
-        border: 2px solid black;
+        z-index: 100;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border: 2px solid black;
+        background-color: var(--neutral-background);
+        padding: 1rem;
+        min-width: 260px;
       }
     }
-  }
 
-  .darkmode-toggle {
-    padding: 0;
-    border: none;
+    .darkmode-toggle {
+      border: none;
+      padding: 0;
 
-    .icon {
-      inline-size: 30px;
-      block-size: 30px;
-      margin-top: 4px;
-    }
-
-    svg path {
-      fill: var(--action-color);
-    }
-
-    &:hover {
-      box-shadow: none;
+      .icon {
+        margin-top: 4px;
+        inline-size: 30px;
+        block-size: 30px;
+      }
 
       svg path {
-        fill: var(--action-color-state);
+        fill: var(--action-color);
       }
-    }
 
-    &:focus {
-      @include outline;
-
-      &:not(:focus-visible) {
-        outline: none;
+      &:hover {
         box-shadow: none;
+
+        svg path {
+          fill: var(--action-color-state);
+        }
+      }
+
+      &:focus {
+        @include outline;
+
+        &:not(:focus-visible) {
+          outline: none;
+          box-shadow: none;
+        }
       }
     }
   }
