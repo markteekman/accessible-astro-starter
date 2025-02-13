@@ -1,11 +1,11 @@
 ---
 import Navigation from '../components/Navigation.astro'
-import { SkipLinks } from 'accessible-astro-components'
+import { SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 ---
 
 <header>
-  <SkipLinks />
+  <SkipLink />
   <Navigation>
     <li class="menu-item">
       <a href="/">Home</a>
@@ -28,7 +28,7 @@ import { Icon } from 'astro-icon/components'
       </ul>
     </li>
     <li class="menu-item">
-      <a href="#" title="external link" rel="external noopener noreferrer">External Link</a>
+      <a href="https://accessible-astro.incluud.dev/" rel="external">Docs</a>
     </li>
     <li class="menu-item type-icon">
       <a href="https://github.com/markteekman/accessible-astro-starter" title="Go to the GitHub page">
