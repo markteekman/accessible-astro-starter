@@ -388,8 +388,9 @@ import logo from '../assets/img/logo.svg'
     padding: 0;
     border: none;
 
-    svg {
-      width: 30px;
+    .icon {
+      inline-size: 30px;
+      block-size: 30px;
       margin-top: 4px;
     }
 
@@ -398,6 +399,8 @@ import logo from '../assets/img/logo.svg'
     }
 
     &:hover {
+      box-shadow: none;
+
       svg path {
         fill: var(--action-color-state);
       }

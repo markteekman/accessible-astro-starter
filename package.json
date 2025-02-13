@@ -1,8 +1,9 @@
 {
   "name": "accessible-astro-starter",
   "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
-  "version": "3.2.5",
-  "author": "Mark Teekman",
+  "version": "3.3.0",
+  "author": "Incluud",
+  "license": "MIT",
   "homepage": "https://accessible-astro.netlify.app/",
   "scripts": {
     "dev": "astro dev",
@@ -10,15 +11,35 @@
     "build": "astro build",
     "preview": "astro preview"
   },
+  "keywords": [
+    "astro",
+    "astro-component",
+    "astro-components",
+    "accessible",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "responsive",
+    "ui-library",
+    "ui-components",
+    "blog"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incluud/accessible-astro-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/incluud/accessible-astro-starter/issues"
+  },
   "devDependencies": {
-    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/mdx": "^4.0.8",
     "@astrojs/partytown": "^2.1.3",
-    "@astrojs/tailwind": "^5.1.4",
+    "@astrojs/tailwind": "^6.0.0",
     "@iconify-json/ion": "^1.2.1",
     "@iconify-json/mdi": "^1.2.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "astro": "^5.1.3",
+    "astro": "^5.3.0",
     "astro-compress": "^2.3.5",
     "astro-icon": "^1.1.4",
     "eslint": "^8.57.0",
@@ -32,6 +53,6 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
-    "accessible-astro-components": "^3.0.1"
+    "accessible-astro-components": "^4.0.1"
   }
 }

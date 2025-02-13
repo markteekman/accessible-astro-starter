@@ -15,6 +15,7 @@ import {
   TabsList,
   TabsTab,
   TabsPanel,
+  Video,
 } from 'accessible-astro-components'
 ---
 
@@ -25,7 +26,8 @@ import {
       <p class="text-2xl">
         This theme has a lot of extra a11y components provided by the <a
           href="https://github.com/markteekman/accessible-astro-components">Accessible Astro Components</a
-        > NPM package to help you build accessible pages faster:
+        > NPM package to help you build accessible pages faster. To learn more about the components and how to use them,
+        checkout our <a href="https://accessible-astro.incluud.dev/">documentation website</a>.
       </p>
     </div>
   </section>
@@ -33,7 +35,7 @@ import {
     <div class="container">
       <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
         <div class="space-content">
-          <h2>Accordion (normal)</h2>
+          <h2>Accordion (default)</h2>
           <Accordion>
             <AccordionItem title="First Item">
               <p>
@@ -74,9 +76,9 @@ import {
           </Accordion>
         </div>
         <div class="space-content">
-          <h2>Accordion (exclusive)</h2>
+          <h2>Accordion (chevron)</h2>
           <Accordion>
-            <AccordionItem name="exclusive" title="First Item">
+            <AccordionItem name="exclusive" title="First Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis <a href="#">sapiente obcaecati</a> magnam incidunt sit. Molestiae exercitationem quibusdam
@@ -84,28 +86,28 @@ import {
               </p>
               <a href="#">Tab to me!</a>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Second Item">
+            <AccordionItem name="exclusive" title="Second Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Third Item">
+            <AccordionItem name="exclusive" title="Third Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Fourth Item">
+            <AccordionItem name="exclusive" title="Fourth Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
                 veritatis laboriosam est tenetur.
               </p>
             </AccordionItem>
-            <AccordionItem name="exclusive" title="Fifth Item">
+            <AccordionItem name="exclusive" title="Fifth Item" variant="chevron">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo
                 accusantium debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod
@@ -120,6 +122,26 @@ import {
             <BreadcrumbsItem href="/" label="Home" />
             <BreadcrumbsItem href="/blog" label="Blog" />
             <BreadcrumbsItem currentPage={true} label="My blog post" />
+          </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home" hasIcon>
+              <Icon name="ion:home" slot="icon" />
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation" />
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
+          </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="ion:chevron-forward-outline" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="ion:chevron-forward-outline" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
           </Breadcrumbs>
         </div>
         <div class="space-content">
@@ -157,26 +179,26 @@ import {
         <div class="space-content">
           <h2>Notification</h2>
           <Notification>
-            <Icon name="ion:notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
+            <Icon name="ion:notifications-outline" size="24" /><p><strong>Message:</strong> This is a notification!</p>
           </Notification>
           <Notification role="status" type="info">
-            <Icon name="ion:information-circle-outline" /><p>
+            <Icon name="ion:information-circle-outline" size="24" /><p>
               <strong>Info:</strong> This is a notification of type info.
             </p>
           </Notification>
           <Notification role="status" type="success">
-            <Icon name="ion:checkbox-outline" /><p>
+            <Icon name="ion:checkbox-outline" size="24" /><p>
               <strong>Success:</strong> This is a notification of type success.
             </p>
           </Notification>
           <Notification role="status" type="warning">
-            <Icon name="ion:warning-outline" /><p>
+            <Icon name="ion:warning-outline" size="24" /><p>
               <strong>Warning:</strong> This is a notification of type warning and goes on multiple lines to see how that
               looks.
             </p>
           </Notification>
           <Notification role="alert" type="error">
-            <Icon name="ion:alert-circle-outline" /><p>
+            <Icon name="ion:alert-circle-outline" size="24" /><p>
               <strong>Error:</strong> This is a notification of type error.
             </p>
           </Notification>
@@ -245,6 +267,20 @@ import {
             <a href="#">Tab to me!</a>
           </TabsPanel>
         </Tabs>
+      </div>
+    </div>
+  </section>
+  <section class="mb-12 mt-32">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-32 md:grid-cols-2">
+        <div class="space-content">
+          <h2>Video (default)</h2>
+          <Video src="https://www.youtube.com/watch?v=j8K-ESJF814" title="Video" />
+        </div>
+        <div class="space-content">
+          <h2>Video (aspect ratio)</h2>
+          <Video src="https://www.youtube.com/watch?v=j8K-ESJF814" title="Video" ratio="1:1" />
+        </div>
       </div>
     </div>
   </section>
