@@ -62,7 +62,7 @@ Clone this theme locally and run any of the following commands in your terminal:
 - [Accessible Astro Dashboard](https://github.com/incluud/accessible-astro-dashboard/): User-friendly dashboard interface with a login screen and widgets.
 - [Accessible Astro Docs](https://github.com/incluud/accessible-astro-docs): Comprehensive documentation for all Accessible Astro projects.
 
-Check out our [roadmap](https://github.com/orgs/incluud/projects/4/views/1) to see what's coming next!
+Check out our [roadmap](https://github.com/orgs/incluud/projects/4/views/1) to see what's coming next! 
 
 ## Contributing
 
