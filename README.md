@@ -6,7 +6,7 @@
 
 A ready-to-use, SEO and accessibility-focused Astro starter template. Built with modern web standards and WCAG guidelines in mind, it provides a solid foundation for creating inclusive websites. Features Tailwind CSS integration, comprehensive component library, and example pages including a dynamic blog, 404, and MDX support.
 
-[![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.netlify.app//) &nbsp;
+[![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro-starter.incluud.dev/) &nbsp;
 [![DOCUMENTATION](https://img.shields.io/badge/DOCUMENTATION-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.incluud.dev/) &nbsp;
 [![Follow on X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/incluud) &nbsp;
 [![Follow on BlueSky](https://img.shields.io/badge/BlueSky-0285FF?style=for-the-badge&logo=bluesky&logoColor=white)](https://bsky.app/profile/incluud.dev) &nbsp;
@@ -40,7 +40,7 @@ A ready-to-use, SEO and accessibility-focused Astro starter template. Built with
 - `SiteMeta.astro` SEO component for setting custom meta data on different pages
 - `.sr-only` utility class for screen reader only text content (hides text visually)
 - `prefers-reduced-motion` disables animations for users that have this preference turned on
-- Ships with many components such as Accordions, Breadcrumbs, Modals, Pagination [and many more](https://accessible-astro.dev/accessible-components)
+- Ships with many components such as Accordions, Breadcrumbs, Modals, Pagination [and many more](https://accessible-astro-starter.incluud.dev/accessible-components/)
 - A collection of utility classes such as breakpoints, button classes, font settings, resets and outlines in `src/assets/scss/base`
 - Astro's View Transitions
 
