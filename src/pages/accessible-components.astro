@@ -143,12 +143,36 @@ import {
             </BreadcrumbsItem>
             <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
           </Breadcrumbs>
+          <Breadcrumbs>
+            <BreadcrumbsItem href="/" label="Home" hasIcon>
+              <Icon name="ion:home" slot="icon" />
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="ion:chevron-forward-outline" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem href="/docs" label="Documentation">
+              <span slot="separator" class="separator" aria-hidden="true">
+                <Icon name="ion:chevron-forward-outline" />
+              </span>
+            </BreadcrumbsItem>
+            <BreadcrumbsItem label="Breadcrumbs" currentPage={true} />
+          </Breadcrumbs>
         </div>
         <div class="space-content">
           <h2>Cards</h2>
           <Card
-            img="https://images.unsplash.com/photo-1636819488524-1f019c4e1c44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-          />
+            img="https://images.unsplash.com/photo-1620428268482-cf1851a36764?auto=format&fit=crop&q=80&w=800"
+            title="Card Title"
+            footer="Author name"
+          >
+            <span slot="meta">
+              <Icon name="ion:time-outline" />
+              10 min read
+            </span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi nobis optio? Qui in quo accusantium
+            debitis sapiente obcaecati magnam incidunt sit. Molestiae exercitationem quibusdam quod veritatis laboriosam
+            est tenetur.
+          </Card>
         </div>
         <div class="space-content">
           <h2>DarkMode Toggle</h2>
@@ -158,7 +182,7 @@ import {
           <h2>Media</h2>
           <Media
             class="rounded-lg"
-            src="https://images.unsplash.com/photo-1636819488537-a9b1ffb315ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?auto=format&fit=crop&q=80&w=800"
           />
         </div>
         <div class="space-content">
@@ -179,26 +203,26 @@ import {
         <div class="space-content">
           <h2>Notification</h2>
           <Notification>
-            <Icon name="ion:notifications-outline" size="24" /><p><strong>Message:</strong> This is a notification!</p>
+            <Icon name="ion:notifications-outline" /><p><strong>Message:</strong> This is a notification!</p>
           </Notification>
           <Notification role="status" type="info">
-            <Icon name="ion:information-circle-outline" size="24" /><p>
+            <Icon name="ion:information-circle-outline" /><p>
               <strong>Info:</strong> This is a notification of type info.
             </p>
           </Notification>
           <Notification role="status" type="success">
-            <Icon name="ion:checkbox-outline" size="24" /><p>
+            <Icon name="ion:checkbox-outline" /><p>
               <strong>Success:</strong> This is a notification of type success.
             </p>
           </Notification>
           <Notification role="status" type="warning">
-            <Icon name="ion:warning-outline" size="24" /><p>
+            <Icon name="ion:warning-outline" /><p>
               <strong>Warning:</strong> This is a notification of type warning and goes on multiple lines to see how that
               looks.
             </p>
           </Notification>
           <Notification role="alert" type="error">
-            <Icon name="ion:alert-circle-outline" size="24" /><p>
+            <Icon name="ion:alert-circle-outline" /><p>
               <strong>Error:</strong> This is a notification of type error.
             </p>
           </Notification>

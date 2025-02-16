@@ -54,6 +54,6 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
-    "accessible-astro-components": "^4.0.1"
+    "accessible-astro-components": "^4.0.2"
   }
 }
