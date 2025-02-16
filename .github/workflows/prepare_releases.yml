@@ -11,6 +11,7 @@ jobs:
   pre-release:
     name: "Prepare Release"
     runs-on: "ubuntu-latest"
+    permissions: write-all
 
     steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
