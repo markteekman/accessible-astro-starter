@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - "main"
-
+  workflow_dispatch:
+    
 jobs:
   pre-release:
     name: "Prepare Release"
